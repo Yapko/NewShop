@@ -88,6 +88,18 @@
   <ItemGroup>
     <None Include="Images\GnomeResoreIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\BlackCloseIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\MinusIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\GreyCloseIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\GreyMinusIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

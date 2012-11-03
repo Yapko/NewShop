@@ -40,10 +40,21 @@ namespace Shop
         /// </summary>
         private void LoadCloseIcon()
         {
+            //create picturebox for icon
             PictureBox ClosePictureBox = new PictureBox();
+            //set location in right upper corner
             ClosePictureBox.Location = new Point(this.Width - 25, 10);
-            ClosePictureBox.Image = Properties.Resources.CloseButton;
+            //set icon
+            ClosePictureBox.Image = Properties.Resources.GreyCloseIcon;
+            //set event 
             ClosePictureBox.Click += closePricure_Click;
+
+            //creating tooltip for close icon
+            ToolTip ClosePictureBoxToolTip = new ToolTip();
+            ClosePictureBoxToolTip.ShowAlways = true;           
+            ClosePictureBoxToolTip.SetToolTip(ClosePictureBox, "close");  
+          
+            //add complete picture box to mainform controls
             this.Controls.Add(ClosePictureBox);
         }
     }

@@ -60,6 +60,13 @@ namespace Shop.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap BlackCloseIcon {
+            get {
+                object obj = ResourceManager.GetObject("BlackCloseIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap CloseButton {
             get {
                 object obj = ResourceManager.GetObject("CloseButton", resourceCulture);
@@ -77,6 +84,27 @@ namespace Shop.Properties {
         internal static System.Drawing.Bitmap GnomeResoreIcon {
             get {
                 object obj = ResourceManager.GetObject("GnomeResoreIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap GreyCloseIcon {
+            get {
+                object obj = ResourceManager.GetObject("GreyCloseIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap GreyMinusIcon {
+            get {
+                object obj = ResourceManager.GetObject("GreyMinusIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap MinusIcon {
+            get {
+                object obj = ResourceManager.GetObject("MinusIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
