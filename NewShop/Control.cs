@@ -25,7 +25,7 @@ namespace Shop
 
         public void showMessage()
         {
-            view.showMessage("Hello world)))!");
+            view.showMessage("Hello Yarko)!");
         }
     }
 }
