@@ -43,7 +43,7 @@ namespace Shop
             //create picturebox for icon
             PictureBox ClosePictureBox = new PictureBox();
             //set location in right upper corner
-            ClosePictureBox.Location = new Point(this.Width - 25, 10);
+            ClosePictureBox.Location = new Point(this.Width - 30, 10);
             //set icon
             ClosePictureBox.Image = Properties.Resources.GreyCloseIcon;
             //set event 
