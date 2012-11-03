@@ -24,5 +24,27 @@ namespace Shop
             MessageBox.Show(message);
         }
 
+        private void closePricure_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //to create close icon
+            LoadCloseIcon();
+        }
+
+        /// <summary>
+        /// create close icon in main form
+        /// </summary>
+        private void LoadCloseIcon()
+        {
+            PictureBox ClosePictureBox = new PictureBox();
+            ClosePictureBox.Location = new Point(this.Width - 25, 10);
+            ClosePictureBox.Image = Properties.Resources.CloseButton;
+            ClosePictureBox.Click += closePricure_Click;
+            this.Controls.Add(ClosePictureBox);
+        }
     }
 }

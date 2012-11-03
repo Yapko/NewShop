@@ -59,5 +59,26 @@ namespace Shop.Properties {
                 resourceCulture = value;
             }
         }
+        
+        internal static System.Drawing.Bitmap CloseButton {
+            get {
+                object obj = ResourceManager.GetObject("CloseButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap GnomeCloseIcon {
+            get {
+                object obj = ResourceManager.GetObject("GnomeCloseIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap GnomeResoreIcon {
+            get {
+                object obj = ResourceManager.GetObject("GnomeResoreIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
