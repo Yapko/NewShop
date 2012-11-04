@@ -76,7 +76,7 @@ namespace Shop
             // creating tooltip for close icon
             ToolTip closePictureBoxToolTip = new ToolTip();
             closePictureBoxToolTip.ShowAlways = true;           
-            closePictureBoxToolTip.SetToolTip(closePictureBox, "close");  
+            closePictureBoxToolTip.SetToolTip(closePictureBox, "Close");  
           
             // add complete picture box to mainform controls
             this.Controls.Add(closePictureBox);
