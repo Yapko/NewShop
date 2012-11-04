@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Shop.Controllers;
 
 namespace Shop
 {
@@ -16,7 +17,7 @@ namespace Shop
         [STAThread]
         private static void Main()
         {
-            Control c = new Control();
+            MainController c = new MainController();
             c.Run();
         }
     }
