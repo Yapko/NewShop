@@ -5,27 +5,46 @@ using System.Windows.Forms;
 
 namespace Shop
 {
-    class Control
+    /// <summary>
+    /// Controller class of our program
+    /// </summary>
+    public class Control
     {
+        /// <summary>
+        /// mvc view for this controller
+        /// </summary>
         private Form1 view;
+
+        /// <summary>
+        /// mvc model for this controller
+        /// </summary>
         private Model model;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Control"/> class.
+        /// </summary>
         public Control()
         {
             view = new Form1(this);
             model = null;
         }
        
-        public void run()
+        /// <summary>
+        /// Run controller
+        /// </summary>
+        public void Run()
         {
             Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
+            // Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(view);
         }
 
-        public void showMessage()
+        /// <summary>
+        /// Show message to user
+        /// </summary>
+        public void ShowMessage()
         {
-            view.showMessage("Hello Yapko)!");
+            view.ShowMessage("Hello Yapko)!");
         }
     }
 }

@@ -5,16 +5,19 @@ using System.Windows.Forms;
 
 namespace Shop
 {
-    static class Program
+    /// <summary>
+    /// Main program class which start our app
+    /// </summary>
+    public static class Program
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Control c = new Control();
-            c.run();
+            c.Run();
         }
     }
 }

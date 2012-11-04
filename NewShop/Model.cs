@@ -5,7 +5,10 @@ using System.Text;
 
 namespace Shop
 {
-    class Model
+    /// <summary>
+    /// mvc model class
+    /// </summary>
+    public class Model
     {
     }
 }
