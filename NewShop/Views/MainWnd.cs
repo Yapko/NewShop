@@ -58,6 +58,7 @@ namespace Shop.Views
         {
             // to create close icon
             LoadCloseIcon();
+            LoadCaptcha();
         }
 
         /// <summary>
@@ -81,6 +82,21 @@ namespace Shop.Views
           
             // add complete picture box to mainform controls
             this.Controls.Add(closePictureBox);
+        }
+
+        /// <summary>
+        /// Create captcha in main form
+        /// </summary>
+        private void LoadCaptcha()
+        {
+            // create captcha
+            CaptchaControl captcha = new CaptchaControl();
+            captcha.CreateControl();
+            // set location in center of form
+            captcha.Location = new Point(this.Width/2, this.Height/2);
+
+            // add complete picture box to mainform controls
+            this.Controls.Add(captcha);
         }
     }
 }

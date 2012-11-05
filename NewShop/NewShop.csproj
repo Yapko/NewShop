@@ -93,7 +93,14 @@
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Models\Captcha.cs" />
     <Compile Include="Models\Repository.cs" />
+    <Compile Include="Views\CaptchaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\CaptchaControl.Designer.cs">
+      <DependentUpon>CaptchaControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWnd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +109,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\CaptchaControl.resx">
+      <DependentUpon>CaptchaControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\MainWnd.resx">
       <DependentUpon>MainWnd.cs</DependentUpon>
     </EmbeddedResource>
