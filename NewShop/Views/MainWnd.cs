@@ -21,6 +21,11 @@ namespace Shop.Views
         private MainController control;
 
         /// <summary>
+        /// Dictionary with positions of controls in this.Controls 
+        /// </summary>
+        private Dictionary<string, int> controlsPos;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="MainWnd"/> class.
         /// </summary>
         /// <param name="newControl">class witch controls this form</param>
@@ -28,6 +33,7 @@ namespace Shop.Views
         {
             InitializeComponent();
             control = newControl;
+            controlsPos = new Dictionary<string, int>();
         }
 
         /// <summary>
@@ -58,7 +64,7 @@ namespace Shop.Views
         {
             // to create close icon
             LoadCloseIcon();
-            LoadCaptcha();
+            LoadCaptcha(new Point(this.Width / 2, this.Height / 2));
         }
 
         /// <summary>
@@ -87,16 +93,36 @@ namespace Shop.Views
         /// <summary>
         /// Create captcha in main form
         /// </summary>
-        private void LoadCaptcha()
+        /// <param name="position">position of upper left ungle </param>
+        public void LoadCaptcha(Point position)
         {
-            // create captcha
+            //create captcha
             CaptchaControl captcha = new CaptchaControl();
-            captcha.CreateControl();
             // set location in center of form
-            captcha.Location = new Point(this.Width/2, this.Height/2);
+            captcha.Location = position;
 
             // add complete picture box to mainform controls
             this.Controls.Add(captcha);
+            controlsPos.Add("Captcha", this.Controls.Count - 1);
+        }
+
+        /// <summary>
+        /// Gets current status of Captcha
+        /// </summary>
+        /// <returns>if text equivalent to captcha</returns>
+        public bool CaptchaStatus()
+        {
+            //return this.Controls[controlsPos["Captcha"]].Check;
+            return true;
+        }
+
+        /// <summary>
+        /// Destroys captcha
+        /// </summary>
+        public void CaptchaDestroy()
+        {
+            this.Controls[controlsPos["Captcha"]].Dispose();
+            this.Controls.RemoveAt(controlsPos["Captcha"]);
         }
     }
 }

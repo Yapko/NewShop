@@ -27,29 +27,24 @@ namespace Shop.Views
         {
             InitializeComponent();
             captcha = new Captcha(panel1);
-            button2.Enabled = false;
             captcha.MakeCaptcha();
             captcha.ShowCaptcha();
+            errorProvider1.SetError(textBox1, "Wrong");
+            // creating tooltip for close icon
+            ToolTip refresh = new ToolTip();
+            refresh.ShowAlways = true;
+            refresh.SetToolTip(panel1, "Click to refresh");  
         }
 
         /// <summary>
-        /// Method running when form redraws.
+        /// Gets a value indicating whether current status of captcha
         /// </summary>
-        /// <param name="sender"> Sender of a message.</param>
-        /// <param name="e"> Arguments.</param>
-        private void SingleCapthca_Paint(object sender, PaintEventArgs e)
+        public bool Check
         {
-            captcha.ShowCaptcha();
-        }
-
-        /// <summary>
-        /// Method running when checked button refresh.
-        /// </summary>
-        /// <param name="sender"> sender of a message.</param>
-        /// <param name="e"> Arguments.</param>
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            captcha.Refresh();
+            get
+            {
+                return captcha.Validate(textBox1.Text);
+            }
         }
 
         /// <summary>
@@ -62,22 +57,45 @@ namespace Shop.Views
             if (captcha.Validate(textBox1.Text))
             {
                 errorProvider1.SetError(textBox1, string.Empty);
+                errorProvider2.SetError(textBox1, "Ok");
+                captcha.ShowCaptcha();
             }
             else
             {
                 errorProvider1.SetError(textBox1, "Wrong");
+                errorProvider2.SetError(textBox1, string.Empty);
             }
         }
 
         /// <summary>
-        /// Gets a value indicating whether current status of captcha
+        /// Method running when form redraws.
         /// </summary>
-        public bool Check
+        /// <param name="sender"> Sender of a message.</param>
+        /// <param name="e"> Arguments.</param>
+        private void CaptchaControl_Paint(object sender, PaintEventArgs e)
         {
-            get 
-            {
-                return captcha.Validate(textBox1.Text);
-            }
+            captcha.ShowCaptcha();
+        }
+
+        /// <summary>
+        /// Method running when panel redraws
+        /// </summary>
+        /// <param name="sender">Sender of a message.</param>
+        /// <param name="e">Arguments.</param>
+        private void Panel1_Paint(object sender, PaintEventArgs e)
+        {
+            captcha.ShowCaptcha();
+        }
+
+        /// <summary>
+        /// Method running when user clack to panel
+        /// </summary>
+        /// <param name="sender">Sender of a message.</param>
+        /// <param name="e">Arguments.</param>
+        private void Panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            textBox1.ResetText();
+            captcha.Refresh();
         }
     }
 }
