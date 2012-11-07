@@ -112,8 +112,7 @@ namespace Shop.Views
         /// <returns>if text equivalent to captcha</returns>
         public bool CaptchaStatus()
         {
-            //return this.Controls[controlsPos["Captcha"]].Check;
-            return true;
+            return ((CaptchaControl)Controls[Controls.Count - 1]).Check;;
         }
 
         /// <summary>
@@ -122,7 +121,7 @@ namespace Shop.Views
         public void CaptchaDestroy()
         {
             this.Controls[controlsPos["Captcha"]].Dispose();
-            this.Controls.RemoveAt(controlsPos["Captcha"]);
+            //this.Controls.RemoveAt(controlsPos["Captcha"]);
         }
     }
 }
