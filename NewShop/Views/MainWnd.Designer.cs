@@ -34,11 +34,7 @@
             // 
             // LoginBtn
             // 
-
-            this.LoginBtn.Location = new System.Drawing.Point(331, 32);
-
-            this.LoginBtn.Location = new System.Drawing.Point(12, 12);
-
+            this.LoginBtn.Location = new System.Drawing.Point(379, 52);
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(75, 23);
             this.LoginBtn.TabIndex = 1;
@@ -48,11 +44,7 @@
             // 
             // AccountBtn
             // 
-
-            this.AccountBtn.Location = new System.Drawing.Point(331, 71);
-
-            this.AccountBtn.Location = new System.Drawing.Point(110, 12);
-
+            this.AccountBtn.Location = new System.Drawing.Point(379, 12);
             this.AccountBtn.Name = "AccountBtn";
             this.AccountBtn.Size = new System.Drawing.Size(75, 23);
             this.AccountBtn.TabIndex = 2;
