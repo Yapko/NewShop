@@ -34,11 +34,11 @@
             // 
             // LoginBtn
             // 
-<<<<<<< HEAD
+
             this.LoginBtn.Location = new System.Drawing.Point(331, 32);
-=======
+
             this.LoginBtn.Location = new System.Drawing.Point(12, 12);
->>>>>>> fe1cdce80445f3829dc4f77b2cb8326646f68db4
+
             this.LoginBtn.Name = "LoginBtn";
             this.LoginBtn.Size = new System.Drawing.Size(75, 23);
             this.LoginBtn.TabIndex = 1;
@@ -48,11 +48,11 @@
             // 
             // AccountBtn
             // 
-<<<<<<< HEAD
+
             this.AccountBtn.Location = new System.Drawing.Point(331, 71);
-=======
+
             this.AccountBtn.Location = new System.Drawing.Point(110, 12);
->>>>>>> fe1cdce80445f3829dc4f77b2cb8326646f68db4
+
             this.AccountBtn.Name = "AccountBtn";
             this.AccountBtn.Size = new System.Drawing.Size(75, 23);
             this.AccountBtn.TabIndex = 2;
@@ -80,15 +80,14 @@
 
         #endregion
 
-<<<<<<< HEAD
+
 
         private System.Windows.Forms.Button LoginBtn;
         private System.Windows.Forms.Button AccountBtn;
 
-=======
-        private System.Windows.Forms.Button LoginBtn;
-        private System.Windows.Forms.Button AccountBtn;
->>>>>>> fe1cdce80445f3829dc4f77b2cb8326646f68db4
+
+        
+
 
 
     }
