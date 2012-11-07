@@ -53,7 +53,10 @@
 
             this.SignBtn.UseVisualStyleBackColor = true;
             this.SignBtn.Click += new System.EventHandler(this.SignBtn_Click);
+<<<<<<< HEAD
 
+=======
+>>>>>>> fe1cdce80445f3829dc4f77b2cb8326646f68db4
             // 
             // RegistrBtn
             // 
