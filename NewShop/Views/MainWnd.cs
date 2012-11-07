@@ -61,11 +61,15 @@ namespace Shop.Views
         /// <param name="sender">app sender</param>
         /// <param name="e">app param</param>
         private void Form1_Load(object sender, EventArgs e)
-        {
+        {            
             // to create close icon
             LoadCloseIcon();
             //only for testing
             //LoadCaptcha(new Point(this.Width / 2, this.Height / 2));
+
+            //only for testing
+            //create a login form
+            LoadLoginForm(new Point(this.Width / 2, this.Height / 2));
         }
 
         /// <summary>
@@ -108,6 +112,19 @@ namespace Shop.Views
         }
 
         /// <summary>
+        /// Create a login form in main form
+        /// </summary>
+        /// /// <param name="position">position of upper left ungle </param>
+        private void LoadLoginForm(Point position)
+        {
+            LoginControl lc = new LoginControl(control);
+            position.X -= lc.Width / 2;
+            position.Y -= lc.Height / 2;
+            lc.Location = position;
+            this.Controls.Add(lc);
+        }
+
+        /// <summary>
         /// Gets current status of Captcha
         /// </summary>
         /// <returns>if text equivalent to captcha</returns>
@@ -123,6 +140,67 @@ namespace Shop.Views
         {
             this.Controls[controlsPos["Captcha"]].Dispose();
             //this.Controls.RemoveAt(controlsPos["Captcha"]);
+        }
+        /// <summary>
+        /// Create login in main form
+        /// </summary>
+        /// <param name="position">position of upper left ungle </param>
+      
+        public void LoadLogin(Point position)
+        {
+            //create login
+            LoginControl login = new LoginControl(control);
+            // set location in center of form
+            login.Location = position;
+
+            // add login to mainform controls
+            this.Controls.Add(login);
+            controlsPos.Add("Login", this.Controls.Count - 1);
+        }
+
+        /// <summary>
+        /// make button visible or unvisible
+        /// </summary>
+        /// <param name="b"> </param>
+        public void SetLoginStatus(bool b)
+        {
+            LoginBtn.Enabled = b;
+        }
+        /// <summary>
+        /// Load login form
+        /// </summary>
+        /// <param name="sender"> </param>
+        /// <param name="e"> </param>
+        private void Login_Click(object sender, EventArgs e)
+        {
+            LoadLogin(new Point(2, 30));
+        }
+
+        /// <summary>
+        /// Create account in main form
+        /// </summary>
+        /// <param name="position">position of upper left ungle </param>
+
+        public void LoadAccount(Point position)
+        {
+            //create login
+            PersonalAccountControl account = new PersonalAccountControl();
+            // set location in center of form
+            account.Location = position;
+
+            // add login to mainform controls
+            this.Controls.Add(account);
+            controlsPos.Add("Personal account", this.Controls.Count - 1);
+        }
+
+        /// <summary>
+        /// Load Personal account
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AccountBtn_Click(object sender, EventArgs e)
+        {
+            LoadAccount(new Point(2, 30));
         }
     }
 }

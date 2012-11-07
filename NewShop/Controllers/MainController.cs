@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using Shop.Views;
 using Shop.AppData;
+using Shop.Models;
 
 namespace Shop.Controllers
 {
@@ -13,6 +14,8 @@ namespace Shop.Controllers
     /// </summary>
     public class MainController
     {
+        Repository repos = Repository.Instance;
+
         /// <summary>
         /// mvc view for this controller
         /// </summary>
@@ -24,11 +27,23 @@ namespace Shop.Controllers
         // private Model model;
 
         /// <summary>
+        /// this user
+        /// </summary>
+        private User user;
+
+        /// <summary>
+        /// login window class
+        /// </summary>
+        private LoginControl login;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="MainController"/> class.
         /// </summary>
         public MainController()
         {
             view = new MainWnd(this);
+            user = new User();
+            login = new LoginControl(this);
         //    model = null;
         }
        
@@ -45,11 +60,10 @@ namespace Shop.Controllers
         /// <summary>
         /// Show message to user
         /// </summary>
-        public void ShowMessage()
+        public void ShowMessage(string message)
         {
-            view.ShowMessage("Hello lol");
+            view.ShowMessage(message);
         }
-
         #region Captcha
         /// <summary>
         /// Shows captcha at current location
@@ -76,6 +90,15 @@ namespace Shop.Controllers
         {
             return view.CaptchaStatus();
         }
+        #endregion
+        
+        #region Login
+        public void SetStatusLogin(bool k)
+        {
+            view.SetLoginStatus(k);
+            user = login.MyUser();
+        }
+
         #endregion
     }
 }

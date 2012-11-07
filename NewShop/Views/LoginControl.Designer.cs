@@ -41,23 +41,33 @@
             // 
             this.SignBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.SignBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SignBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.SignBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SignBtn.Location = new System.Drawing.Point(46, 124);
             this.SignBtn.Name = "SignBtn";
             this.SignBtn.Size = new System.Drawing.Size(75, 23);
             this.SignBtn.TabIndex = 0;
             this.SignBtn.Text = "Sign in";
+            this.SignBtn.UseVisualStyleBackColor = false;
+
             this.SignBtn.UseVisualStyleBackColor = true;
+            this.SignBtn.Click += new System.EventHandler(this.SignBtn_Click);
+
             // 
             // RegistrBtn
             // 
             this.RegistrBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.RegistrBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.RegistrBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.RegistrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RegistrBtn.Location = new System.Drawing.Point(173, 124);
             this.RegistrBtn.Name = "RegistrBtn";
             this.RegistrBtn.Size = new System.Drawing.Size(75, 23);
             this.RegistrBtn.TabIndex = 1;
             this.RegistrBtn.Text = "Registration";
-            this.RegistrBtn.UseVisualStyleBackColor = true;
+            this.RegistrBtn.UseVisualStyleBackColor = false;
             // 
             // lab1
             // 
@@ -88,8 +98,10 @@
             // 
             this.PasswordTxt.Location = new System.Drawing.Point(104, 84);
             this.PasswordTxt.Name = "PasswordTxt";
+            this.PasswordTxt.PasswordChar = '*';
             this.PasswordTxt.Size = new System.Drawing.Size(159, 20);
             this.PasswordTxt.TabIndex = 5;
+            this.PasswordTxt.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -104,6 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.PasswordTxt);
             this.Controls.Add(this.EmailTxt);
