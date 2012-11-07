@@ -164,7 +164,7 @@ namespace Shop.Views
         /// <param name="b"> </param>
         public void SetLoginStatus(bool b)
         {
-            LoginBtn.Enabled = b;
+            //LoginBtn.Enabled = b;
         }
         /// <summary>
         /// Load login form

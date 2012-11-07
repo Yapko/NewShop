@@ -49,11 +49,8 @@
             this.SignBtn.Size = new System.Drawing.Size(75, 23);
             this.SignBtn.TabIndex = 0;
             this.SignBtn.Text = "Sign in";
-            this.SignBtn.UseVisualStyleBackColor = false;
-
             this.SignBtn.UseVisualStyleBackColor = true;
             this.SignBtn.Click += new System.EventHandler(this.SignBtn_Click);
-
             // 
             // RegistrBtn
             // 
@@ -126,6 +123,7 @@
             this.Controls.Add(this.SignBtn);
             this.Name = "LoginControl";
             this.Size = new System.Drawing.Size(294, 171);
+            this.Load += new System.EventHandler(this.LoginControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

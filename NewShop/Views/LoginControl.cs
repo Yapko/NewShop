@@ -82,12 +82,23 @@ namespace Shop.Views
             }
             else
             {
-                main.ShowMessage("Format of password or login is incorrect");
+                // No messages,using tooltip or errorflags instead
+                //main.ShowMessage("Format of password or login is incorrect");
             }
         }
         private void SignBtn_Click(object sender, EventArgs e)
         {
             validationLogin();
+        }
+
+        private void LoginControl_Load(object sender, EventArgs e)
+        {
+            // creating tooltip for close icon
+            ToolTip signInToolTip = new ToolTip();
+            signInToolTip.ShowAlways = true;
+            signInToolTip.SetToolTip(SignBtn, "Sign in to your account");
+
+            
         }
     }
 }
