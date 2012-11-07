@@ -64,7 +64,8 @@ namespace Shop.Views
         {
             // to create close icon
             LoadCloseIcon();
-            LoadCaptcha(new Point(this.Width / 2, this.Height / 2));
+            //only for testing
+            //LoadCaptcha(new Point(this.Width / 2, this.Height / 2));
         }
 
         /// <summary>
@@ -112,7 +113,7 @@ namespace Shop.Views
         /// <returns>if text equivalent to captcha</returns>
         public bool CaptchaStatus()
         {
-            return ((CaptchaControl)Controls[Controls.Count - 1]).Check;;
+            return ((CaptchaControl)Controls[Controls.Count - 1]).Check;
         }
 
         /// <summary>
