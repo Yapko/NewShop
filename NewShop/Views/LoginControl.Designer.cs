@@ -47,6 +47,7 @@
             this.SignBtn.TabIndex = 0;
             this.SignBtn.Text = "Sign in";
             this.SignBtn.UseVisualStyleBackColor = true;
+            this.SignBtn.Click += new System.EventHandler(this.SignBtn_Click);
             // 
             // RegistrBtn
             // 
@@ -90,6 +91,7 @@
             this.PasswordTxt.Name = "PasswordTxt";
             this.PasswordTxt.Size = new System.Drawing.Size(159, 20);
             this.PasswordTxt.TabIndex = 5;
+            this.PasswordTxt.UseSystemPasswordChar = true;
             // 
             // label2
             // 
