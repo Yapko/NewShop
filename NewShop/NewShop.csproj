@@ -94,12 +94,19 @@
     </Compile>
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Models\Captcha.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Repository.cs" />
     <Compile Include="Views\CaptchaControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\CaptchaControl.Designer.cs">
       <DependentUpon>CaptchaControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\LoginControl.Designer.cs">
+      <DependentUpon>LoginControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWnd.cs">
       <SubType>Form</SubType>
@@ -111,6 +118,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Views\CaptchaControl.resx">
       <DependentUpon>CaptchaControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginControl.resx">
+      <DependentUpon>LoginControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainWnd.resx">
       <DependentUpon>MainWnd.cs</DependentUpon>

@@ -46,7 +46,7 @@ namespace Shop.Controllers
         /// </summary>
         public void ShowMessage()
         {
-            view.ShowMessage("Hello Yapko)!");
+            view.ShowMessage("Hello lol)!");
         }
     }
 }
