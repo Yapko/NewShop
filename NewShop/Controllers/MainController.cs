@@ -62,6 +62,7 @@ namespace Shop.Controllers
         /// </summary>
         public void ShowMessage(string message)
         {
+            //
             view.ShowMessage(message);
         }
         #region Captcha

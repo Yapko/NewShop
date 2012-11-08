@@ -77,7 +77,7 @@ namespace Shop.Views
 
             if (EquilUser(users))
             {
-                main.SetStatusLogin(true);
+                main.SetStatusLogin(false);
                 Dispose();
             }
             else
@@ -86,6 +86,11 @@ namespace Shop.Views
                 //main.ShowMessage("Format of password or login is incorrect");
             }
         }
+        /// <summary>
+        /// validation login
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SignBtn_Click(object sender, EventArgs e)
         {
             validationLogin();
