@@ -25,5 +25,6 @@ namespace Shop.AppData
         public string ZipCode { get; set; }
         public string Gender { get; set; }
         public string Status { get; set; }
+        public int ID { get; set; }
     }
 }

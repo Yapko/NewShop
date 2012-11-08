@@ -20,8 +20,8 @@
           <Property Name="Status" Type="nvarchar" MaxLength="100" />
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="ProductID" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
@@ -37,6 +37,7 @@
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="UserName" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
@@ -49,6 +50,7 @@
           <Property Name="ZipCode" Type="nvarchar" MaxLength="100" />
           <Property Name="Gender" Type="nvarchar" MaxLength="100" />
           <Property Name="Status" Type="nvarchar" MaxLength="100" />
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
         </EntityType>
       </Schema>
     </edmx:StorageModels>
@@ -70,8 +72,8 @@
           <Property Name="Status" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
-          <Property Name="UserID" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -87,6 +89,7 @@
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="UserName" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="FirstName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
@@ -99,6 +102,7 @@
           <Property Name="ZipCode" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Gender" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Status" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -146,6 +150,7 @@
                 <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
