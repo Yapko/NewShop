@@ -19,44 +19,8 @@ namespace Shop.AppData
         public string CVN { get; set; }
         public string Status { get; set; }
         public System.DateTime Date { get; set; }
-        public string User { get; set; }
         public int ID { get; set; }
-
-        public Order()
-        {
-            CardNumber = string.Empty;
-            ExpDate = string.Empty;
-            CVN = string.Empty;
-            Status = string.Empty;
-            Date = new DateTime();
-            Date = DateTime.Now;
-            User = string.Empty;
-            ID = 0;
-        }
-
-        public Order(string cardNumber, string expDate,string cvn,string status, string userName, int Id)
-        {
-            CardNumber = cardNumber;
-            ExpDate = expDate;
-            CVN = cvn;
-            Status = status;
-            Date = new DateTime();
-            Date = DateTime.Now;
-            User = userName;
-            ID = Id;
-        }
-
-        public Order Clone()
-        {
-            Order res = new Order();
-            res.CardNumber = (string)CardNumber.Clone();
-            res.ExpDate = (string)ExpDate.Clone();
-            res.CVN = (string)CVN.Clone();
-            res.Status = (string)Status.Clone();
-            res.Date = Date;
-            res.User = (string)User.Clone();
-            res.ID = ID;
-            return res;
-        }
+        public string ProductID { get; set; }
+        public string UserID { get; set; }
     }
 }

@@ -32,15 +32,15 @@
             this.RegistrBtn = new System.Windows.Forms.Button();
             this.lab1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.EmailTxt = new System.Windows.Forms.TextBox();
+            this.UsernameTxt = new System.Windows.Forms.TextBox();
             this.PasswordTxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SignBtn
             // 
-            this.SignBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.SignBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SignBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.SignBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.SignBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -54,8 +54,8 @@
             // 
             // RegistrBtn
             // 
-            this.RegistrBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.RegistrBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RegistrBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.RegistrBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.RegistrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -71,9 +71,9 @@
             this.lab1.AutoSize = true;
             this.lab1.Location = new System.Drawing.Point(20, 46);
             this.lab1.Name = "lab1";
-            this.lab1.Size = new System.Drawing.Size(78, 13);
+            this.lab1.Size = new System.Drawing.Size(58, 13);
             this.lab1.TabIndex = 2;
-            this.lab1.Text = "E-mail address:";
+            this.lab1.Text = "Username:";
             // 
             // label1
             // 
@@ -84,12 +84,12 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Password:";
             // 
-            // EmailTxt
+            // UsernameTxt
             // 
-            this.EmailTxt.Location = new System.Drawing.Point(104, 43);
-            this.EmailTxt.Name = "EmailTxt";
-            this.EmailTxt.Size = new System.Drawing.Size(159, 20);
-            this.EmailTxt.TabIndex = 4;
+            this.UsernameTxt.Location = new System.Drawing.Point(104, 43);
+            this.UsernameTxt.Name = "EmailTxt";
+            this.UsernameTxt.Size = new System.Drawing.Size(159, 20);
+            this.UsernameTxt.TabIndex = 4;
             // 
             // PasswordTxt
             // 
@@ -116,7 +116,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.Controls.Add(this.label2);
             this.Controls.Add(this.PasswordTxt);
-            this.Controls.Add(this.EmailTxt);
+            this.Controls.Add(this.UsernameTxt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lab1);
             this.Controls.Add(this.RegistrBtn);
@@ -135,7 +135,7 @@
         private System.Windows.Forms.Button RegistrBtn;
         private System.Windows.Forms.Label lab1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox EmailTxt;
+        private System.Windows.Forms.TextBox UsernameTxt;
         private System.Windows.Forms.TextBox PasswordTxt;
         private System.Windows.Forms.Label label2;
     }

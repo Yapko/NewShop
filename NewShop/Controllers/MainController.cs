@@ -14,7 +14,10 @@ namespace Shop.Controllers
     /// </summary>
     public class MainController
     {
-        Repository repos = Repository.Instance;
+        /// <summary>
+        /// Instance of our repository
+        /// </summary>
+        private Repository repos = Repository.Instance;
 
         /// <summary>
         /// mvc view for this controller
@@ -22,19 +25,9 @@ namespace Shop.Controllers
         private MainWnd view;
 
         /// <summary>
-        /// mvc model for this controller
-        /// </summary>
-        // private Model model;
-
-        /// <summary>
         /// this user
         /// </summary>
         private User user;
-
-        /// <summary>
-        /// login window class
-        /// </summary>
-        private LoginControl login;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainController"/> class.
@@ -43,8 +36,7 @@ namespace Shop.Controllers
         {
             view = new MainWnd(this);
             user = new User();
-            login = new LoginControl(this);
-        //    model = null;
+            LoadLogin();
         }
        
         /// <summary>
@@ -58,13 +50,14 @@ namespace Shop.Controllers
         }
 
         /// <summary>
-        /// Show message to user
+        /// Shows message
         /// </summary>
+        /// <param name="message">message to show</param>
         public void ShowMessage(string message)
         {
-            //
             view.ShowMessage(message);
         }
+
         #region Captcha
         /// <summary>
         /// Shows captcha at current location
@@ -94,10 +87,45 @@ namespace Shop.Controllers
         #endregion
         
         #region Login
-        public void SetStatusLogin(bool k)
+
+        /// <summary>
+        /// Function fot login to system
+        /// </summary>
+        /// <param name="username">username</param>
+        /// <param name="pass">password</param>
+        public void LogIn(string username, string pass)
         {
-            view.SetLoginStatus(k);
-            user = login.MyUser();
+            bool login = false;
+            if (repos.HaveUser(username) == true)
+            {
+                if (repos.GetUser(username).Password == pass)
+                {
+                    user = repos.GetUser(username);
+                    DestroyLogin();
+                    MessageBox.Show("You are logged successfuly", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    login = true;
+                }
+            }
+            if (!login)
+            {
+                MessageBox.Show("Loginning fail", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Destroyes login window
+        /// </summary>
+        public void DestroyLogin()
+        {
+            view.LoginDestroy();
+        }
+
+        /// <summary>
+        /// Loads login form
+        /// </summary>
+        public void LoadLogin()
+        {
+            view.LoadLogin(new Point(view.Width / 2 - 30, view.Height / 2 - 30));
         }
 
         #endregion

@@ -69,7 +69,7 @@ namespace Shop.Views
 
             //only for testing
             //create a login form
-            LoadLoginForm(new Point(this.Width / 2, this.Height / 2));
+            //LoadLoginForm(new Point(this.Width / 2, this.Height / 2));
         }
 
         /// <summary>
@@ -122,6 +122,7 @@ namespace Shop.Views
             position.Y -= lc.Height / 2;
             lc.Location = position;
             this.Controls.Add(lc);
+            controlsPos.Add("Login", this.Controls.Count - 1);
         }
 
         /// <summary>
@@ -141,11 +142,11 @@ namespace Shop.Views
             this.Controls[controlsPos["Captcha"]].Dispose();
             //this.Controls.RemoveAt(controlsPos["Captcha"]);
         }
+
         /// <summary>
         /// Create login in main form
         /// </summary>
         /// <param name="position">position of upper left ungle </param>
-      
         public void LoadLogin(Point position)
         {
             //create login
@@ -159,18 +160,18 @@ namespace Shop.Views
         }
 
         /// <summary>
-        /// make button visible or unvisible
+        /// Destroys Login control
         /// </summary>
-        /// <param name="b"> </param>
-        public void SetLoginStatus(bool b)
+        public void LoginDestroy()
         {
-            //LoginBtn.Enabled = b;
+            this.Controls[controlsPos["Login"]].Dispose();
         }
+        
         /// <summary>
         /// Load login form
         /// </summary>
-        /// <param name="sender"> </param>
-        /// <param name="e"> </param>
+        /// <param name="sender"> message sender </param>
+        /// <param name="e"> event </param>
         private void Login_Click(object sender, EventArgs e)
         {
             LoadLogin(new Point(2, 30));
@@ -180,7 +181,6 @@ namespace Shop.Views
         /// Create account in main form
         /// </summary>
         /// <param name="position">position of upper left ungle </param>
-
         public void LoadAccount(Point position)
         {
             //create login
@@ -196,8 +196,8 @@ namespace Shop.Views
         /// <summary>
         /// Load Personal account
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender"> message sender </param>
+        /// <param name="e"> event </param>
         private void AccountBtn_Click(object sender, EventArgs e)
         {
             LoadAccount(new Point(2, 30));
