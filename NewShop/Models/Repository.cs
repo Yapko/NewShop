@@ -305,5 +305,44 @@ namespace Shop.Models
         }
 
         #endregion
+
+        #region additional functioanlity
+
+        /// <summary>
+        /// Gets orders of current users
+        /// </summary>
+        /// <param name="username">usernme of current user</param>
+        /// <returns> his orders </returns>
+        public List<Order> GetOrdersOfUser(string username)
+        {
+            List<Order> res = new List<Order>();
+            if (!HaveUser(username))
+            {
+                return null;
+            }
+
+            User user = GetUser(username);
+            res = database.Orders.Local.Where(o => o.UserID == user.ID).ToList();
+            return res;
+        }
+
+        /// <summary>
+        /// Gets orders of current users
+        /// </summary>
+        /// <param name="user">current user</param>
+        /// <returns> his orders </returns>
+        public List<Order> GetOrdersOfUser(User user)
+        {
+            List<Order> res = new List<Order>();
+            if (!HaveUser(user.UserName))
+            {
+                return null;
+            }
+
+            res = database.Orders.Local.Where(o => o.UserID == user.ID).ToList();
+            return res;
+        }
+
+        #endregion
     }
 }
