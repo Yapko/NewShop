@@ -34,6 +34,8 @@ namespace Shop.Views
             InitializeComponent();
             control = newControl;
             controlsPos = new Dictionary<string, int>();
+            this.Height =  Screen.PrimaryScreen.WorkingArea.Height;
+            this.Width = Screen.PrimaryScreen.WorkingArea.Width;
         }
 
         /// <summary>

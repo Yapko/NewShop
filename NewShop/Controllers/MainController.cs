@@ -36,6 +36,7 @@ namespace Shop.Controllers
         {
             view = new MainWnd(this);
             user = new User();
+            user.Status = "Unlogged";
             LoadLogin();
         }
        
@@ -126,9 +127,8 @@ namespace Shop.Controllers
         /// </summary>
         public void LoadLogin()
         {
-            view.LoadLogin(new Point(view.Width / 2 - 30, view.Height / 2 - 30));
+            view.LoadLogin(new Point(view.Width - 350, 60));
         }
-
         #endregion
     }
 }
