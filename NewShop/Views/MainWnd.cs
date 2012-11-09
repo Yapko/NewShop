@@ -34,7 +34,7 @@ namespace Shop.Views
             InitializeComponent();
             control = newControl;
             controlsPos = new Dictionary<string, int>();
-            this.Height =  Screen.PrimaryScreen.WorkingArea.Height;
+            this.Height = Screen.PrimaryScreen.WorkingArea.Height;
             this.Width = Screen.PrimaryScreen.WorkingArea.Width;
         }
 
@@ -110,21 +110,14 @@ namespace Shop.Views
 
             // add complete picture box to mainform controls
             this.Controls.Add(captcha);
-            controlsPos.Add("Captcha", this.Controls.Count - 1);
-        }
-
-        /// <summary>
-        /// Create a login form in main form
-        /// </summary>
-        /// /// <param name="position">position of upper left ungle </param>
-        private void LoadLoginForm(Point position)
-        {
-            LoginControl lc = new LoginControl(control);
-            position.X -= lc.Width / 2;
-            position.Y -= lc.Height / 2;
-            lc.Location = position;
-            this.Controls.Add(lc);
-            controlsPos.Add("Login", this.Controls.Count - 1);
+            if (controlsPos.Keys.Contains("Captcha") == true)
+            {
+                controlsPos["Captcha"] = this.Controls.Count - 1;
+            }
+            else
+            {
+                controlsPos.Add("Captcha", this.Controls.Count - 1);
+            }
         }
 
         /// <summary>
@@ -142,7 +135,6 @@ namespace Shop.Views
         public void CaptchaDestroy()
         {
             this.Controls[controlsPos["Captcha"]].Dispose();
-            //this.Controls.RemoveAt(controlsPos["Captcha"]);
         }
 
         /// <summary>
@@ -158,7 +150,14 @@ namespace Shop.Views
 
             // add login to mainform controls
             this.Controls.Add(login);
-            controlsPos.Add("Login", this.Controls.Count - 1);
+            if (controlsPos.Keys.Contains("Login") == true)
+            {
+                controlsPos["Login"] = this.Controls.Count - 1;
+            }
+            else
+            {
+                controlsPos.Add("Login", this.Controls.Count - 1);
+            }
         }
 
         /// <summary>
@@ -167,6 +166,39 @@ namespace Shop.Views
         public void LoginDestroy()
         {
             this.Controls[controlsPos["Login"]].Dispose();
+        }
+
+        /// <summary>
+        /// Load user view
+        /// </summary>
+        /// <param name="position"> screen position </param>
+        /// <param name="username"> user username </param>
+        /// <param name="role"> user status </param>
+        public void LoadUserView(Point position, string username, string role)
+        {
+            //create login
+            UserControlView uc = new UserControlView(control, username, role);
+            // set location in center of form
+            uc.Location = position;
+
+            // add login to mainform controls
+            this.Controls.Add(uc);
+            if (controlsPos.Keys.Contains("UserView") == true)
+            {
+                controlsPos["UserView"] = this.Controls.Count - 1;
+            }
+            else
+            {
+                controlsPos.Add("UserView", this.Controls.Count - 1);
+            }
+        }
+
+        /// <summary>
+        /// Destroyes User view
+        /// </summary>
+        public void DestroyUserView()
+        {
+            this.Controls[controlsPos["UserView"]].Dispose();
         }
         
         /// <summary>
@@ -192,7 +224,14 @@ namespace Shop.Views
 
             // add login to mainform controls
             this.Controls.Add(account);
-            controlsPos.Add("Personal account", this.Controls.Count - 1);
+            if (controlsPos.Keys.Contains("Personal account") == true)
+            {
+                controlsPos["Personal account"] = this.Controls.Count - 1;
+            }
+            else
+            {
+                controlsPos.Add("Personal account", this.Controls.Count - 1);
+            }
         }
 
         /// <summary>

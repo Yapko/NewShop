@@ -38,6 +38,7 @@ namespace Shop.Controllers
             user = new User();
             user.Status = "Unlogged";
             LoadLogin();
+            ChangeUser();
         }
        
         /// <summary>
@@ -103,7 +104,7 @@ namespace Shop.Controllers
                 {
                     user = repos.GetUser(username);
                     DestroyLogin();
-                    MessageBox.Show("You are logged successfuly", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadUserView();
                     login = true;
                 }
             }
@@ -112,6 +113,19 @@ namespace Shop.Controllers
             {
                 MessageBox.Show("Loginning fail", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            ChangeUser();
+        }
+
+        /// <summary>
+        /// function to loggin out
+        /// </summary>
+        public void LogOut()
+        {
+            user = new User();
+            user.Status = "Unlogged";
+            DestroyUserView();
+            LoadLogin();
+            ChangeUser();
         }
 
         /// <summary>
@@ -123,12 +137,54 @@ namespace Shop.Controllers
         }
 
         /// <summary>
+        /// Forms changes on changing user
+        /// </summary>
+        public void ChangeUser()
+        {
+            //TODO: Check and change controls needed to current user.
+        }
+
+        /// <summary>
         /// Loads login form
         /// </summary>
         public void LoadLogin()
         {
             view.LoadLogin(new Point(view.Width - 350, 60));
         }
+
+        /// <summary>
+        /// Function to load user view
+        /// </summary>
+        public void LoadUserView()
+        {
+            view.LoadUserView(new Point(view.Width - 350, 60), user.UserName, user.Status);
+        }
+
+        /// <summary>
+        /// Function to Destroy user view
+        /// </summary>
+        public void DestroyUserView()
+        {
+            view.DestroyUserView();
+        }
         #endregion
+
+        /// <summary>
+        /// Register form
+        /// </summary>
+        public void Register()
+        {
+            //TODO: Make registration!
+            MessageBox.Show("TODO: Make registration!", "Issue", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        /// <summary>
+        /// Function to show user personal cabinet
+        /// </summary>
+        public void ShowPersonalCabinet()
+        {
+            //TODO: Make personal cabinet!
+            MessageBox.Show("TODO: Make personal cabinet!", "Issue", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
     }
 }

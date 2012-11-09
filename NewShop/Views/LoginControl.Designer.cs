@@ -65,6 +65,7 @@
             this.RegistrBtn.TabIndex = 1;
             this.RegistrBtn.Text = "Registration";
             this.RegistrBtn.UseVisualStyleBackColor = false;
+            this.RegistrBtn.Click += new System.EventHandler(this.RegistrBtn_Click);
             // 
             // lab1
             // 
@@ -87,7 +88,7 @@
             // UsernameTxt
             // 
             this.UsernameTxt.Location = new System.Drawing.Point(104, 43);
-            this.UsernameTxt.Name = "EmailTxt";
+            this.UsernameTxt.Name = "UsernameTxt";
             this.UsernameTxt.Size = new System.Drawing.Size(159, 20);
             this.UsernameTxt.TabIndex = 4;
             // 

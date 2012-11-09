@@ -121,6 +121,12 @@
     <Compile Include="Views\PersonalAccountControl.Designer.cs">
       <DependentUpon>PersonalAccountControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserControlView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserControlView.Designer.cs">
+      <DependentUpon>UserControlView.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\CaptchaControl.resx">
       <DependentUpon>CaptchaControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +148,9 @@
     </Compile>
     <EmbeddedResource Include="Views\PersonalAccountControl.resx">
       <DependentUpon>PersonalAccountControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserControlView.resx">
+      <DependentUpon>UserControlView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
     <EntityDeploy Include="AppData\DatabaseModel.edmx">

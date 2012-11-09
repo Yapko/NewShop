@@ -73,5 +73,15 @@ namespace Shop.Views
             signInToolTip.ShowAlways = true;
             signInToolTip.SetToolTip(SignBtn, "Sign in to your account");
         }
+
+        /// <summary>
+        /// Click register button
+        /// </summary>
+        /// <param name="sender"> message sender </param>
+        /// <param name="e"> event </param>
+        private void RegistrBtn_Click(object sender, EventArgs e)
+        {
+            main.Register();
+        }
     }
 }
