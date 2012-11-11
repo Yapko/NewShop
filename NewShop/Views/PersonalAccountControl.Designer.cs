@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cancel = new System.Windows.Forms.Button();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.newPass2Txt = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -59,18 +59,18 @@
             this.firstNameTxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // cancel
+            // CancelButton
             // 
-            this.cancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancel.CausesValidation = false;
-            this.cancel.Location = new System.Drawing.Point(275, 576);
-            this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(112, 23);
-            this.cancel.TabIndex = 75;
-            this.cancel.Text = "Cancel";
-            this.cancel.UseVisualStyleBackColor = true;
-            this.cancel.Click += new System.EventHandler(this.cancel_Click);
+            this.CancelButton.CausesValidation = false;
+            this.CancelButton.Location = new System.Drawing.Point(275, 576);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(112, 23);
+            this.CancelButton.TabIndex = 75;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // newPass2Txt
             // 
@@ -433,7 +433,7 @@
             this.Controls.Add(this.lastNameTxt);
             this.Controls.Add(this.firstNameTxt);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cancel);
+            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.newPass2Txt);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
@@ -465,7 +465,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button cancel;
+        private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.TextBox newPass2Txt;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;

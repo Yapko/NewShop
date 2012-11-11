@@ -215,11 +215,12 @@ namespace Shop.Views
         /// <summary>
         /// Create account in main form
         /// </summary>
-        /// <param name="position">position of upper left ungle </param>
+        /// <param name="position">position of upper left ungle</param>
+        /// <param name="curr">this user</param>
         public void LoadAccount(Point position, User curr)
         {
             //create login
-            PersonalAccountControl account = new PersonalAccountControl(control , curr);
+            PersonalAccountControl account = new PersonalAccountControl(control, curr);
             // set location in center of form
             account.Location = position;
 
@@ -235,6 +236,9 @@ namespace Shop.Views
             }
         }
 
+        /// <summary>
+        /// destroy personal account
+        /// </summary>
         public void DestroyAccount()
         {
             this.Controls[controlsPos["Personal account"]].Dispose();
