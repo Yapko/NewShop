@@ -51,6 +51,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.emailTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.addressTxt = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lastNameTxt = new System.Windows.Forms.TextBox();
+            this.firstNameTxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // cancel
@@ -58,9 +64,9 @@
             this.cancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.cancel.CausesValidation = false;
-            this.cancel.Location = new System.Drawing.Point(224, 411);
+            this.cancel.Location = new System.Drawing.Point(275, 576);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(75, 23);
+            this.cancel.Size = new System.Drawing.Size(112, 23);
             this.cancel.TabIndex = 75;
             this.cancel.Text = "Cancel";
             this.cancel.UseVisualStyleBackColor = true;
@@ -70,9 +76,9 @@
             this.newPass2Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.newPass2Txt.Location = new System.Drawing.Point(172, 371);
+            this.newPass2Txt.Location = new System.Drawing.Point(211, 534);
             this.newPass2Txt.Name = "newPass2Txt";
-            this.newPass2Txt.Size = new System.Drawing.Size(167, 20);
+            this.newPass2Txt.Size = new System.Drawing.Size(202, 20);
             this.newPass2Txt.TabIndex = 74;
             this.newPass2Txt.UseSystemPasswordChar = true;
             // 
@@ -84,7 +90,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(28, 337);
+            this.label15.Location = new System.Drawing.Point(46, 491);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(103, 17);
             this.label15.TabIndex = 73;
@@ -98,7 +104,7 @@
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.Location = new System.Drawing.Point(27, 274);
+            this.label14.Location = new System.Drawing.Point(44, 422);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(137, 17);
             this.label14.TabIndex = 72;
@@ -114,9 +120,9 @@
             "Female",
             "Male",
             "Prefer not to say"});
-            this.genderTxt.Location = new System.Drawing.Point(172, 138);
+            this.genderTxt.Location = new System.Drawing.Point(210, 259);
             this.genderTxt.Name = "genderTxt";
-            this.genderTxt.Size = new System.Drawing.Size(167, 21);
+            this.genderTxt.Size = new System.Drawing.Size(202, 21);
             this.genderTxt.TabIndex = 71;
             // 
             // countryTxt
@@ -138,18 +144,18 @@
             "Great Britain",
             "Greece",
             "Ukraine"});
-            this.countryTxt.Location = new System.Drawing.Point(172, 62);
+            this.countryTxt.Location = new System.Drawing.Point(210, 172);
             this.countryTxt.Name = "countryTxt";
-            this.countryTxt.Size = new System.Drawing.Size(167, 21);
+            this.countryTxt.Size = new System.Drawing.Size(202, 21);
             this.countryTxt.TabIndex = 70;
             // 
             // Save
             // 
             this.Save.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.Save.Location = new System.Drawing.Point(71, 411);
+            this.Save.Location = new System.Drawing.Point(71, 576);
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(75, 23);
+            this.Save.Size = new System.Drawing.Size(115, 23);
             this.Save.TabIndex = 69;
             this.Save.Text = "Save";
             this.Save.UseVisualStyleBackColor = true;
@@ -163,7 +169,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(28, 66);
+            this.label12.Location = new System.Drawing.Point(44, 176);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(61, 17);
             this.label12.TabIndex = 68;
@@ -174,9 +180,9 @@
             this.postCodeTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.postCodeTxt.Location = new System.Drawing.Point(172, 100);
+            this.postCodeTxt.Location = new System.Drawing.Point(210, 215);
             this.postCodeTxt.Name = "postCodeTxt";
-            this.postCodeTxt.Size = new System.Drawing.Size(167, 20);
+            this.postCodeTxt.Size = new System.Drawing.Size(202, 20);
             this.postCodeTxt.TabIndex = 67;
             // 
             // label13
@@ -187,7 +193,7 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(28, 142);
+            this.label13.Location = new System.Drawing.Point(44, 263);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(60, 17);
             this.label13.TabIndex = 65;
@@ -201,7 +207,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label11.Location = new System.Drawing.Point(28, 103);
+            this.label11.Location = new System.Drawing.Point(44, 218);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(113, 17);
             this.label11.TabIndex = 66;
@@ -216,7 +222,7 @@
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(117, 212);
+            this.label10.Location = new System.Drawing.Point(172, 347);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(32, 17);
             this.label10.TabIndex = 64;
@@ -227,10 +233,10 @@
             this.telTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.telTxt.Location = new System.Drawing.Point(172, 212);
+            this.telTxt.Location = new System.Drawing.Point(210, 346);
             this.telTxt.MaxLength = 7;
             this.telTxt.Name = "telTxt";
-            this.telTxt.Size = new System.Drawing.Size(167, 20);
+            this.telTxt.Size = new System.Drawing.Size(202, 20);
             this.telTxt.TabIndex = 63;
             // 
             // label9
@@ -241,7 +247,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(28, 212);
+            this.label9.Location = new System.Drawing.Point(46, 347);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 17);
             this.label9.TabIndex = 62;
@@ -252,9 +258,9 @@
             this.usernameTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.usernameTxt.Location = new System.Drawing.Point(172, 245);
+            this.usernameTxt.Location = new System.Drawing.Point(210, 388);
             this.usernameTxt.Name = "usernameTxt";
-            this.usernameTxt.Size = new System.Drawing.Size(167, 20);
+            this.usernameTxt.Size = new System.Drawing.Size(202, 20);
             this.usernameTxt.TabIndex = 61;
             // 
             // label6
@@ -265,7 +271,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(28, 245);
+            this.label6.Location = new System.Drawing.Point(46, 388);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 17);
             this.label6.TabIndex = 60;
@@ -276,9 +282,9 @@
             this.oldPassTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.oldPassTxt.Location = new System.Drawing.Point(172, 300);
+            this.oldPassTxt.Location = new System.Drawing.Point(211, 448);
             this.oldPassTxt.Name = "oldPassTxt";
-            this.oldPassTxt.Size = new System.Drawing.Size(167, 20);
+            this.oldPassTxt.Size = new System.Drawing.Size(202, 20);
             this.oldPassTxt.TabIndex = 59;
             this.oldPassTxt.UseSystemPasswordChar = true;
             // 
@@ -287,9 +293,9 @@
             this.newPassTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.newPassTxt.Location = new System.Drawing.Point(172, 336);
+            this.newPassTxt.Location = new System.Drawing.Point(211, 491);
             this.newPassTxt.Name = "newPassTxt";
-            this.newPassTxt.Size = new System.Drawing.Size(167, 20);
+            this.newPassTxt.Size = new System.Drawing.Size(202, 20);
             this.newPassTxt.TabIndex = 58;
             this.newPassTxt.UseSystemPasswordChar = true;
             // 
@@ -301,7 +307,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(28, 357);
+            this.label5.Location = new System.Drawing.Point(46, 520);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 34);
             this.label5.TabIndex = 57;
@@ -315,7 +321,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(28, 301);
+            this.label4.Location = new System.Drawing.Point(45, 449);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 17);
             this.label4.TabIndex = 56;
@@ -329,7 +335,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(28, 177);
+            this.label3.Location = new System.Drawing.Point(44, 305);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 17);
             this.label3.TabIndex = 55;
@@ -340,9 +346,9 @@
             this.emailTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.emailTxt.Location = new System.Drawing.Point(172, 176);
+            this.emailTxt.Location = new System.Drawing.Point(210, 305);
             this.emailTxt.Name = "emailTxt";
-            this.emailTxt.Size = new System.Drawing.Size(167, 20);
+            this.emailTxt.Size = new System.Drawing.Size(202, 20);
             this.emailTxt.TabIndex = 54;
             // 
             // label1
@@ -351,18 +357,78 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(112, 18);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(134, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 17);
+            this.label1.Size = new System.Drawing.Size(193, 20);
             this.label1.TabIndex = 76;
             this.label1.Text = "PERSONAL ACCOUNT";
+            // 
+            // addressTxt
+            // 
+            this.addressTxt.Location = new System.Drawing.Point(209, 132);
+            this.addressTxt.Name = "addressTxt";
+            this.addressTxt.Size = new System.Drawing.Size(202, 20);
+            this.addressTxt.TabIndex = 82;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(44, 131);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(106, 17);
+            this.label7.TabIndex = 81;
+            this.label7.Text = "Street Address:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(44, 90);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 17);
+            this.label2.TabIndex = 80;
+            this.label2.Text = "Last name:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(44, 50);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 17);
+            this.label8.TabIndex = 79;
+            this.label8.Text = "First name:";
+            // 
+            // lastNameTxt
+            // 
+            this.lastNameTxt.Location = new System.Drawing.Point(209, 91);
+            this.lastNameTxt.Name = "lastNameTxt";
+            this.lastNameTxt.Size = new System.Drawing.Size(202, 20);
+            this.lastNameTxt.TabIndex = 78;
+            // 
+            // firstNameTxt
+            // 
+            this.firstNameTxt.Location = new System.Drawing.Point(209, 50);
+            this.firstNameTxt.Name = "firstNameTxt";
+            this.firstNameTxt.Size = new System.Drawing.Size(202, 20);
+            this.firstNameTxt.TabIndex = 77;
             // 
             // PersonalAccountControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Controls.Add(this.addressTxt);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lastNameTxt);
+            this.Controls.Add(this.firstNameTxt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.newPass2Txt);
@@ -387,7 +453,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.emailTxt);
             this.Name = "PersonalAccountControl";
-            this.Size = new System.Drawing.Size(376, 455);
+            this.Size = new System.Drawing.Size(454, 620);
+            this.Load += new System.EventHandler(this.PersonalAccountControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,5 +485,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox emailTxt;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox addressTxt;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox lastNameTxt;
+        private System.Windows.Forms.TextBox firstNameTxt;
     }
 }

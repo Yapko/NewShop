@@ -218,7 +218,7 @@ namespace Shop.Views
         public void LoadAccount(Point position)
         {
             //create login
-            PersonalAccountControl account = new PersonalAccountControl();
+            PersonalAccountControl account = new PersonalAccountControl(control);
             // set location in center of form
             account.Location = position;
 

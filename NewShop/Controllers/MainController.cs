@@ -184,8 +184,124 @@ namespace Shop.Controllers
         public void ShowPersonalCabinet()
         {
             view.LoadAccount(new Point(60, 60));
-            //TODO: Make personal cabinet!
-           // MessageBox.Show("TODO: Make personal cabinet!", "Issue", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        /// <summary>
+        /// функція, яка перевіряє чи співпадає пароль
+        /// </summary>
+        /// <param name="oldPass">old password</param>
+        /// <param name="newPass">new password text</param>
+        /// <param name="newPass2">new password text verifying</param>
+        /// <returns></returns>
+        public bool VerifyPassword(string oldPass, string newPass,string newPass2)
+        {
+            bool truth = true;
+            if ((oldPass != string.Empty) && (oldPass == user.Password))
+            {
+                if ((newPass == newPass2) && (newPass != string.Empty) && (oldPass != string.Empty))
+                {
+                    user.Password = newPass;
+                }
+                else
+                {
+                    truth = false;
+                }
+            }
+            return truth;
+        }
+        
+        /// <summary>
+        /// email address validation
+        /// </summary>
+        /// <param name="emailField">e-mail texbox</param>
+        /// <param name="err"> ErrorProvider</param>
+        /// <returns>e-mail is valid</returns>
+        public bool EmailAddressValidation(TextBox emailField, ErrorProvider err)
+        {
+            string email = emailField.Text;
+            bool val = email.Contains('@') && email.Contains('.')
+                && (email.Length - email.LastIndexOf('.') == 3
+                || email.Length - email.LastIndexOf('.') == 4);
+            if (val == false)
+            {
+                emailField.ForeColor = Color.Red;
+                err.SetError(emailField, "your email is not correct!");
+            }
+            return val;
+        }
+        
+        /// <summary>
+        /// save change user
+        /// </summary>
+        /// <param name="country">country</param>
+        /// <param name="postCode">postCode</param>
+        /// <param name="_gender">gender</param>
+        /// <param name="_email">e-mail</param>
+        /// <param name="_tel">phone</param>
+        /// <param name="_username">username</param>
+        /// <param name="_oldPass">old password</param>
+        /// <param name="_newPass">new password</param>
+        /// <param name="_newPass2">new password verifying</param>
+        public void SaveChangeAccount(string addres, string firstName, string lastName, string country, string postCode, string gender, string email, string tel, string username, string oldPass, string newPass, string newPass2)
+        {
+            List<User> users = repos.GetAllUsers();
+            bool isOk = true;
+            isOk = VerifyPassword(oldPass, newPass, newPass2) /*&& EmailAddressValidation(_email, _getErrProvider1())*/;
+            User temp = new User();
+            temp.Country = country;
+            temp.ZipCode = postCode;
+            temp.Gender = gender;
+            temp.Email = email;
+            temp.Phone = tel;
+            temp.UserName = username;
+            temp.Password = user.Password;
+            temp.Status = user.Status;
+            temp.FirstName = firstName;
+            temp.LastName = lastName;
+            temp.Adress = addres;
+            user = temp;
+            for (int i = 0; i < users.Count(); i++)
+            {
+                if (users[i].Email == user.Email)
+                {
+                    users[i] = user;
+                }
+            }
+
+            repos.AddUsers(users);
+            if (isOk)
+            {
+                //view.this.accountForm.Close();
+            }
+            else
+            {
+                view.ShowMessage("Some data is wrong!");
+            }
+        }
+
+        /// <summary>
+        /// load information of user
+        /// </summary>
+        /// <param name="country">country</param>
+        /// <param name="postCode">postCode</param>
+        /// <param name="_gender">gender</param>
+        /// <param name="_email">e-mail</param>
+        /// <param name="_tel">phone</param>
+        /// <param name="_username">username</param>
+        /// <param name="_oldPass">old password</param>
+        /// <param name="_newPass">new password</param>
+        /// <param name="_newPass2">new password verifying</param>
+        public void LoadAccount(string addres, string firstName, string lastName, string country, string postCode, string gender, string email, string tel, string username, string oldPass, string newPass, string newPass2)
+        {
+            addres = user.Adress;
+            firstName = user.FirstName;
+            lastName = user.LastName;
+            country = user.Country;
+            postCode = user.ZipCode;
+            gender = user.Gender;
+            email = user.Email;
+            tel = user.Phone;
+            username = user.UserName;
         }
     }
 }
