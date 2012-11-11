@@ -113,6 +113,7 @@ namespace Shop.Controllers
             {
                 MessageBox.Show("Loginning fail", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             ChangeUser();
         }
 
@@ -186,6 +187,9 @@ namespace Shop.Controllers
             view.LoadAccount(new Point(60, 60), user);
         }
 
+        /// <summary>
+        /// Destroy personal account
+        /// </summary>
         public void DestroyPersonalCabinet()
         {
             view.DestroyAccount();
@@ -197,14 +201,15 @@ namespace Shop.Controllers
         /// <param name="oldPass">old password</param>
         /// <param name="newPass">new password text</param>
         /// <param name="newPass2">new password text verifying</param>
-        /// <returns></returns>
-        public bool VerifyPassword(string oldPass, string newPass,string newPass2)
+        /// <returns>or password validated</returns>
+        public bool VerifyPassword(string oldPass, string newPass, string newPass2)
         {
             bool truth = false;
             if ((oldPass != string.Empty) && (oldPass == user.Password) && (newPass == newPass2) && (newPass != string.Empty))
             {
                 truth = true;
             }
+
             return truth;
         }
         
@@ -225,24 +230,28 @@ namespace Shop.Controllers
                 emailField.ForeColor = Color.Red;
                 err.SetError(emailField, "your email is not correct!");
             }
+
             return val;
         }
-        
+
         /// <summary>
-        /// save change user
+        /// Save change user
         /// </summary>
+        /// <param name="addres">address</param>
+        /// <param name="firstName">first name</param>
+        /// <param name="lastName">last name</param>
         /// <param name="country">country</param>
         /// <param name="postCode">postCode</param>
-        /// <param name="_gender">gender</param>
-        /// <param name="_email">e-mail</param>
-        /// <param name="_tel">phone</param>
-        /// <param name="_username">username</param>
-        /// <param name="_oldPass">old password</param>
-        /// <param name="_newPass">new password</param>
-        /// <param name="_newPass2">new password verifying</param>
+        /// <param name="gender">gender</param>
+        /// <param name="email">e-mail</param>
+        /// <param name="tel">phone</param>
+        /// <param name="username">username</param>
+        /// <param name="oldPass">old password</param>
+        /// <param name="newPass">new password</param>
+        /// <param name="newPass2">new password verifying</param>
+        /// <returns>or changed account</returns>
         public bool SaveChangeAccount(string addres, string firstName, string lastName, string country, string postCode, string gender, string email, string tel, string username, string oldPass, string newPass, string newPass2)
         {
-            //List<User> users = repos.GetAllUsers();
             bool isOk = true;
             isOk = VerifyPassword(oldPass, newPass, newPass2) /*&& EmailAddressValidation(_email, _getErrProvider1())*/;
             if (oldPass == string.Empty)
@@ -254,6 +263,7 @@ namespace Shop.Controllers
                 view.ShowMessage("Some data is wrong!");
                 return false;
             }
+
             User temp = new User();
             temp.Country = country;
             temp.ZipCode = postCode;
@@ -275,6 +285,7 @@ namespace Shop.Controllers
             {
                 repos.AddUser(temp);
             }
+
             user = repos.GetUser(temp.UserName);
             ChangeUser();
             return true;

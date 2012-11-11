@@ -16,7 +16,6 @@ namespace Shop.Views
     /// </summary>
     public partial class PersonalAccountControl : UserControl
     {
-
         /// <summary>
         /// Main controller
         /// </summary>
@@ -25,6 +24,8 @@ namespace Shop.Views
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonalAccountControl"/> class.
         /// </summary>
+        /// <param name="a">main controler</param>
+        /// <param name="curr">this user</param>
         public PersonalAccountControl(MainController a, User curr)
         {
             InitializeComponent();
@@ -54,7 +55,7 @@ namespace Shop.Views
         }
 
         /// <summary>
-        /// set address
+        /// Sets address
         /// </summary>
         public string SetAddreess
         {
@@ -70,7 +71,12 @@ namespace Shop.Views
         {
         }
 
-        private void cancel_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Cancel action personal cabinet
+        /// </summary>
+        /// <param name="sender">message sender</param>
+        /// <param name="e">event</param>
+        private void Cancel_Click(object sender, EventArgs e)
         {
             main.DestroyPersonalCabinet();
         }
