@@ -183,7 +183,12 @@ namespace Shop.Controllers
         /// </summary>
         public void ShowPersonalCabinet()
         {
-            view.LoadAccount(new Point(60, 60));
+            view.LoadAccount(new Point(60, 60), user);
+        }
+
+        public void DestroyPersonalCabinet()
+        {
+            view.DestroyAccount();
         }
 
         /// <summary>
@@ -277,31 +282,6 @@ namespace Shop.Controllers
             {
                 view.ShowMessage("Some data is wrong!");
             }
-        }
-
-        /// <summary>
-        /// load information of user
-        /// </summary>
-        /// <param name="country">country</param>
-        /// <param name="postCode">postCode</param>
-        /// <param name="_gender">gender</param>
-        /// <param name="_email">e-mail</param>
-        /// <param name="_tel">phone</param>
-        /// <param name="_username">username</param>
-        /// <param name="_oldPass">old password</param>
-        /// <param name="_newPass">new password</param>
-        /// <param name="_newPass2">new password verifying</param>
-        public void LoadAccount(string addres, string firstName, string lastName, string country, string postCode, string gender, string email, string tel, string username, string oldPass, string newPass, string newPass2)
-        {
-            addres = user.Adress;
-            firstName = user.FirstName;
-            lastName = user.LastName;
-            country = user.Country;
-            postCode = user.ZipCode;
-            gender = user.Gender;
-            email = user.Email;
-            tel = user.Phone;
-            username = user.UserName;
         }
     }
 }

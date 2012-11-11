@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Shop.Controllers;
+using Shop.AppData;
 
 namespace Shop.Views
 {
@@ -215,10 +216,10 @@ namespace Shop.Views
         /// Create account in main form
         /// </summary>
         /// <param name="position">position of upper left ungle </param>
-        public void LoadAccount(Point position)
+        public void LoadAccount(Point position, User curr)
         {
             //create login
-            PersonalAccountControl account = new PersonalAccountControl(control);
+            PersonalAccountControl account = new PersonalAccountControl(control , curr);
             // set location in center of form
             account.Location = position;
 
@@ -234,14 +235,9 @@ namespace Shop.Views
             }
         }
 
-        /// <summary>
-        /// Load Personal account
-        /// </summary>
-        /// <param name="sender"> message sender </param>
-        /// <param name="e"> event </param>
-        private void AccountBtn_Click(object sender, EventArgs e)
+        public void DestroyAccount()
         {
-            LoadAccount(new Point(2, 30));
+            this.Controls[controlsPos["Personal account"]].Dispose();
         }
     }
 }

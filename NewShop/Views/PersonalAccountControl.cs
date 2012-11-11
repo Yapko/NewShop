@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Shop.Controllers;
+using Shop.AppData;
 
 namespace Shop.Views
 {
@@ -24,9 +25,18 @@ namespace Shop.Views
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonalAccountControl"/> class.
         /// </summary>
-        public PersonalAccountControl(MainController a)
+        public PersonalAccountControl(MainController a, User curr)
         {
             InitializeComponent();
+            firstNameTxt.Text = curr.FirstName;
+            lastNameTxt.Text = curr.LastName;
+            addressTxt.Text = curr.Adress;
+            countryTxt.Text = curr.Country;
+            postCodeTxt.Text = curr.ZipCode;
+            genderTxt.Text = curr.Gender;
+            emailTxt.Text = curr.Email;
+            telTxt.Text = curr.Phone;
+            usernameTxt.Text = curr.UserName;
             main = a;
         }
 
@@ -55,8 +65,11 @@ namespace Shop.Views
         /// <param name="e">event</param>
         private void PersonalAccountControl_Load(object sender, EventArgs e)
         {
-            
-            main.LoadAccount(addressTxt.Text, firstNameTxt.Text, lastNameTxt.Text, countryTxt.Text, postCodeTxt.Text, genderTxt.Text, emailTxt.Text, telTxt.Text, usernameTxt.Text, oldPassTxt.Text, newPassTxt.Text, newPass2Txt.Text);
+        }
+
+        private void cancel_Click(object sender, EventArgs e)
+        {
+            main.DestroyPersonalCabinet();
         }
     }
 }
