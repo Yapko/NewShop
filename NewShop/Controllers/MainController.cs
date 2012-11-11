@@ -200,17 +200,10 @@ namespace Shop.Controllers
         /// <returns></returns>
         public bool VerifyPassword(string oldPass, string newPass,string newPass2)
         {
-            bool truth = true;
-            if ((oldPass != string.Empty) && (oldPass == user.Password))
+            bool truth = false;
+            if ((oldPass != string.Empty) && (oldPass == user.Password) && (newPass == newPass2) && (newPass != string.Empty))
             {
-                if ((newPass == newPass2) && (newPass != string.Empty) && (oldPass != string.Empty))
-                {
-                    user.Password = newPass;
-                }
-                else
-                {
-                    truth = false;
-                }
+                truth = true;
             }
             return truth;
         }
@@ -247,11 +240,20 @@ namespace Shop.Controllers
         /// <param name="_oldPass">old password</param>
         /// <param name="_newPass">new password</param>
         /// <param name="_newPass2">new password verifying</param>
-        public void SaveChangeAccount(string addres, string firstName, string lastName, string country, string postCode, string gender, string email, string tel, string username, string oldPass, string newPass, string newPass2)
+        public bool SaveChangeAccount(string addres, string firstName, string lastName, string country, string postCode, string gender, string email, string tel, string username, string oldPass, string newPass, string newPass2)
         {
-            List<User> users = repos.GetAllUsers();
+            //List<User> users = repos.GetAllUsers();
             bool isOk = true;
             isOk = VerifyPassword(oldPass, newPass, newPass2) /*&& EmailAddressValidation(_email, _getErrProvider1())*/;
+            if (oldPass == string.Empty)
+            {
+                newPass = user.Password;
+            }
+            else if (!isOk)
+            {
+                view.ShowMessage("Some data is wrong!");
+                return false;
+            }
             User temp = new User();
             temp.Country = country;
             temp.ZipCode = postCode;
@@ -259,29 +261,23 @@ namespace Shop.Controllers
             temp.Email = email;
             temp.Phone = tel;
             temp.UserName = username;
-            temp.Password = user.Password;
+            temp.Password = newPass;
             temp.Status = user.Status;
             temp.FirstName = firstName;
             temp.LastName = lastName;
             temp.Adress = addres;
-            user = temp;
-            for (int i = 0; i < users.Count(); i++)
+            repos.DeleteUser(user);
+            if (repos.HaveUser(user.UserName))
             {
-                if (users[i].Email == user.Email)
-                {
-                    users[i] = user;
-                }
-            }
-
-            repos.AddUsers(users);
-            if (isOk)
-            {
-                //view.this.accountForm.Close();
+                view.ShowMessage("Something goes wrong!");
             }
             else
             {
-                view.ShowMessage("Some data is wrong!");
+                repos.AddUser(temp);
             }
+            user = repos.GetUser(temp.UserName);
+            ChangeUser();
+            return true;
         }
     }
 }

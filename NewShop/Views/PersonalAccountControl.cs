@@ -47,7 +47,10 @@ namespace Shop.Views
         /// <param name="e"> event </param>
         private void Save_Click(object sender, EventArgs e)
         {
-            main.SaveChangeAccount(addressTxt.Text, firstNameTxt.Text, lastNameTxt.Text, countryTxt.Text, postCodeTxt.Text, genderTxt.Text, emailTxt.Text, telTxt.Text, usernameTxt.Text, oldPassTxt.Text, newPassTxt.Text, newPass2Txt.Text);
+            if (main.SaveChangeAccount(addressTxt.Text, firstNameTxt.Text, lastNameTxt.Text, countryTxt.Text, postCodeTxt.Text, genderTxt.Text, emailTxt.Text, telTxt.Text, usernameTxt.Text, oldPassTxt.Text, newPassTxt.Text, newPass2Txt.Text))
+            {
+                main.DestroyPersonalCabinet();
+            }
         }
 
         /// <summary>

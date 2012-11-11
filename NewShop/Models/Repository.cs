@@ -27,6 +27,7 @@ namespace Shop.Models
         private Repository()
         {
             database = new DatabaseEntities();
+            database.Configuration.AutoDetectChangesEnabled = true;
         }
 
         /// <summary>
