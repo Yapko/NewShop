@@ -183,8 +183,9 @@ namespace Shop.Controllers
         /// </summary>
         public void ShowPersonalCabinet()
         {
+            view.LoadAccount(new Point(60, 60));
             //TODO: Make personal cabinet!
-            MessageBox.Show("TODO: Make personal cabinet!", "Issue", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+           // MessageBox.Show("TODO: Make personal cabinet!", "Issue", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
     }
 }
