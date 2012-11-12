@@ -241,7 +241,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.telTxt.Location = new System.Drawing.Point(210, 346);
-            this.telTxt.MaxLength = 7;
+            this.telTxt.MaxLength = 10;
             this.telTxt.Name = "telTxt";
             this.telTxt.Size = new System.Drawing.Size(202, 20);
             this.telTxt.TabIndex = 63;

@@ -213,27 +213,6 @@ namespace Shop.Controllers
 
             return truth;
         }
-        
-        /// <summary>
-        /// email address validation
-        /// </summary>
-        /// <param name="emailField">e-mail texbox</param>
-        /// <param name="err"> ErrorProvider</param>
-        /// <returns>e-mail is valid</returns>
-        public bool EmailAddressValidation(TextBox emailField, ErrorProvider err)
-        {
-            string email = emailField.Text;
-            bool val = email.Contains('@') && email.Contains('.')
-                && (email.Length - email.LastIndexOf('.') == 3
-                || email.Length - email.LastIndexOf('.') == 4);
-            if (val == false)
-            {
-                emailField.ForeColor = Color.Red;
-                err.SetError(emailField, "your email is not correct!");
-            }
-
-            return val;
-        }
 
         /// <summary>
         /// Save change user
@@ -254,7 +233,7 @@ namespace Shop.Controllers
         public bool SaveChangeAccount(string addres, string firstName, string lastName, string country, string postCode, string gender, string email, string tel, string username, string oldPass, string newPass, string newPass2)
         {
             bool isOk = true;
-            isOk = VerifyPassword(oldPass, newPass, newPass2) /*&& EmailAddressValidation(_email, _getErrProvider1())*/;
+            isOk = VerifyPassword(oldPass, newPass, newPass2);
             if (oldPass == string.Empty)
             {
                 newPass = user.Password;
