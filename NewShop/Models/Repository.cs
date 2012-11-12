@@ -107,7 +107,7 @@ namespace Shop.Models
         public void DeleteAllOrders()
         {
             List<Order> lst = new List<Order>();
-            lst = database.Orders.Local.ToList();
+            lst = database.Orders.ToList();
             for (int i = 0; i < lst.Count; ++i)
             {
                 database.Orders.Remove(lst[i]);
@@ -122,7 +122,7 @@ namespace Shop.Models
         /// <returns>List of all deposits.</returns>
         public List<Order> GetAllOrders()
         {
-            return database.Orders.Local.ToList();
+            return database.Orders.ToList();
         }
         #endregion
 
@@ -159,7 +159,7 @@ namespace Shop.Models
         public void DeleteAllUsers()
         {
             List<User> lst = new List<User>();
-            lst = this.database.Users.Local.ToList();
+            lst = this.database.Users.ToList();
             for (int i = 0; i < lst.Count; ++i)
             {
                 database.Users.Remove(lst[i]);
@@ -204,7 +204,7 @@ namespace Shop.Models
         /// <returns>list of users</returns>
         public List<User> GetAllUsers()
         {
-            return database.Users.Local.ToList();
+            return database.Users.ToList();
         }
 
         /// <summary>
@@ -279,7 +279,7 @@ namespace Shop.Models
         /// <returns>list of all products</returns>
         public List<Product> GetAllProducts()
         {
-            return database.Products.Local.ToList();
+            return database.Products.ToList();
         }
 
         /// <summary>
@@ -288,7 +288,7 @@ namespace Shop.Models
         public void DeleteAllProducts()
         {
             List<Product> lst = new List<Product>();
-            lst = database.Products.Local.ToList();
+            lst = database.Products.ToList();
             for (int i = 0; i < lst.Count; ++i)
             {
                 this.database.Products.Remove(lst[i]);
@@ -323,7 +323,7 @@ namespace Shop.Models
             }
 
             User user = GetUser(username);
-            res = database.Orders.Local.Where(o => o.UserID == user.ID).ToList();
+            res = database.Orders.Where(o => o.UserID == user.ID).ToList();
             return res;
         }
 
@@ -340,7 +340,7 @@ namespace Shop.Models
                 return null;
             }
 
-            res = database.Orders.Local.Where(o => o.UserID == user.ID).ToList();
+            res = database.Orders.Where(o => o.UserID == user.ID).ToList();
             return res;
         }
 

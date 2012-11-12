@@ -39,6 +39,7 @@ namespace Shop.Controllers
             user.Status = "Unlogged";
             LoadLogin();
             ChangeUser();
+            LoadProductsList();
         }
        
         /// <summary>
@@ -269,5 +270,15 @@ namespace Shop.Controllers
             ChangeUser();
             return true;
         }
+
+        /// <summary>
+        /// load product list to main form
+        /// </summary>
+        public void LoadProductsList()
+        {
+            view.LoadProductsList(repos.GetAllProducts());
+        }
+
+       
     }
 }
