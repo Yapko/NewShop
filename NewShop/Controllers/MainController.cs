@@ -39,7 +39,7 @@ namespace Shop.Controllers
             user.Status = "Unlogged";
             LoadLogin();
             ChangeUser();
-            LoadProductsList();
+            //LoadProductsList();
         }
        
         /// <summary>
