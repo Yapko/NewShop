@@ -223,7 +223,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="AppData\Database.sdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
