@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.RegularExpressions;
+using Shop.AppData;
+using Shop.Controllers;
+using Shop.Models;
 
 namespace Shop.Views
 {
@@ -17,5 +18,19 @@ namespace Shop.Views
     /// </summary>
     public partial class RegistrationView : UserControl
     {
+        /// <summary>
+        /// Main controller
+        /// </summary>
+        private MainController control;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RegistrationView"/> class.
+        /// </summary>
+        /// <param name="m">control</param>
+        public RegistrationView(MainController m)
+        {
+            InitializeComponent();
+            control = m;
+        }
     }
 }
