@@ -263,7 +263,12 @@ namespace Shop.Views
             regView.Location = position;
             this.Controls.Add(regView);
             controlsPos.Add("RegistrView", this.Controls.Count - 1);
+            LoadCaptcha(new Point(165, 321));
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public void RegistrDestroy()
         {
         }
