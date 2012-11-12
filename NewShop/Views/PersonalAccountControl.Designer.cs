@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CancelButton = new System.Windows.Forms.Button();
+            this.CancelBtn = new System.Windows.Forms.Button();
             this.newPass2Txt = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.genderTxt = new System.Windows.Forms.ComboBox();
             this.countryTxt = new System.Windows.Forms.ComboBox();
-            this.Save = new System.Windows.Forms.Button();
+            this.SaveBtn = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.postCodeTxt = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -59,18 +59,21 @@
             this.firstNameTxt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // CancelButton
+            // CancelBtn
             // 
-            this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.CancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelButton.CausesValidation = false;
-            this.CancelButton.Location = new System.Drawing.Point(275, 576);
-            this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(112, 23);
-            this.CancelButton.TabIndex = 75;
-            this.CancelButton.Text = "Cancel";
-            this.CancelButton.UseVisualStyleBackColor = true;
-            this.CancelButton.Click += new System.EventHandler(this.Cancel_Click);
+            this.CancelBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.CancelBtn.CausesValidation = false;
+            this.CancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelBtn.Location = new System.Drawing.Point(275, 576);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(112, 23);
+            this.CancelBtn.TabIndex = 75;
+            this.CancelBtn.Text = "Cancel";
+            this.CancelBtn.UseVisualStyleBackColor = false;
+            this.CancelBtn.Click += new System.EventHandler(this.Cancel_Click);
             // 
             // newPass2Txt
             // 
@@ -91,7 +94,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(46, 491);
+            this.label15.Location = new System.Drawing.Point(44, 491);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(103, 17);
             this.label15.TabIndex = 73;
@@ -150,17 +153,20 @@
             this.countryTxt.Size = new System.Drawing.Size(202, 21);
             this.countryTxt.TabIndex = 70;
             // 
-            // Save
+            // SaveBtn
             // 
-            this.Save.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.SaveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.Save.Location = new System.Drawing.Point(71, 576);
-            this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(115, 23);
-            this.Save.TabIndex = 69;
-            this.Save.Text = "Save";
-            this.Save.UseVisualStyleBackColor = true;
-            this.Save.Click += new System.EventHandler(this.Save_Click);
+            this.SaveBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.SaveBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveBtn.Location = new System.Drawing.Point(71, 576);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(115, 23);
+            this.SaveBtn.TabIndex = 69;
+            this.SaveBtn.Text = "Save";
+            this.SaveBtn.UseVisualStyleBackColor = false;
+            this.SaveBtn.Click += new System.EventHandler(this.Save_Click);
             // 
             // label12
             // 
@@ -248,7 +254,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(46, 347);
+            this.label9.Location = new System.Drawing.Point(44, 347);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 17);
             this.label9.TabIndex = 62;
@@ -273,7 +279,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(46, 388);
+            this.label6.Location = new System.Drawing.Point(44, 388);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 17);
             this.label6.TabIndex = 60;
@@ -309,7 +315,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(46, 520);
+            this.label5.Location = new System.Drawing.Point(44, 520);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 34);
             this.label5.TabIndex = 57;
@@ -323,7 +329,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(45, 449);
+            this.label4.Location = new System.Drawing.Point(44, 449);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 17);
             this.label4.TabIndex = 56;
@@ -433,13 +439,13 @@
             this.Controls.Add(this.lastNameTxt);
             this.Controls.Add(this.firstNameTxt);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.CancelButton);
+            this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.newPass2Txt);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.genderTxt);
             this.Controls.Add(this.countryTxt);
-            this.Controls.Add(this.Save);
+            this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.postCodeTxt);
             this.Controls.Add(this.label13);
@@ -465,13 +471,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.TextBox newPass2Txt;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox genderTxt;
         private System.Windows.Forms.ComboBox countryTxt;
-        private System.Windows.Forms.Button Save;
+        private System.Windows.Forms.Button SaveBtn;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox postCodeTxt;
         private System.Windows.Forms.Label label13;
