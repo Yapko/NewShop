@@ -253,5 +253,19 @@ namespace Shop.Views
             ProductsListControl plc = new ProductsListControl(control,prods);
             this.Controls.Add(plc);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void LoadRegistr(Point position)
+        {
+            RegistrationView regView = new RegistrationView(control);
+            regView.Location = position;
+            this.Controls.Add(regView);
+            controlsPos.Add("RegistrView", this.Controls.Count - 1);
+        }
+        public void RegistrDestroy()
+        {
+        }
     }
 }

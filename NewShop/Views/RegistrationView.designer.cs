@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationView));
             this.name1Field = new System.Windows.Forms.TextBox();
             this.name2Field = new System.Windows.Forms.TextBox();
             this.emailField = new System.Windows.Forms.TextBox();
@@ -296,13 +295,12 @@
             // 
             this.errorProvider3.ContainerControl = this;
             // 
-            // RegistrForm
+            // RegistrationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(434, 500);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
@@ -329,8 +327,8 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MaximumSize = new System.Drawing.Size(442, 527);
             this.MinimumSize = new System.Drawing.Size(442, 527);
-            this.Name = "RegistrForm";
-            this.Text = "Registration";
+            this.Name = "RegistrationView";
+            this.Size = new System.Drawing.Size(442, 527);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();

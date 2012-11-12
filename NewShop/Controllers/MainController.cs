@@ -176,8 +176,8 @@ namespace Shop.Controllers
         /// </summary>
         public void Register()
         {
-            //TODO: Make registration!
-            MessageBox.Show("TODO: Make registration!", "Issue", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            view.LoadRegistr(new Point(100, 100));
+            view.LoginDestroy();
         }
 
         /// <summary>
