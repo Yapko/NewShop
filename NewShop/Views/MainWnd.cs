@@ -66,7 +66,7 @@ namespace Shop.Views
         private void Form1_Load(object sender, EventArgs e)
         {            
             // to create close icon
-            LoadCloseIcon();
+            LoadCloseIcon();            
             //only for testing
             //LoadCaptcha(new Point(this.Width / 2, this.Height / 2));
 
@@ -242,6 +242,16 @@ namespace Shop.Views
         public void DestroyAccount()
         {
             this.Controls[controlsPos["Personal account"]].Dispose();
+        }
+
+        /// <summary>
+        /// adds producst list to controls
+        /// </summary>
+        /// <param name="prods">products to be added to view</param>
+        public void LoadProductsList(List<Product> prods)
+        {
+            ProductsListControl plc = new ProductsListControl(control,prods);
+            this.Controls.Add(plc);
         }
     }
 }
