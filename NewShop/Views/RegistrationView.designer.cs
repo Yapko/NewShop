@@ -81,8 +81,6 @@
             this.emailField.Name = "emailField";
             this.emailField.Size = new System.Drawing.Size(167, 20);
             this.emailField.TabIndex = 2;
-            this.emailField.TextChanged += new System.EventHandler(this.emailField_TextChanged);
-            this.emailField.LostFocus += new System.EventHandler(this.emailField_LostFocus);
             // 
             // label1
             // 
@@ -150,7 +148,6 @@
             this.pass2Field.Size = new System.Drawing.Size(167, 20);
             this.pass2Field.TabIndex = 8;
             this.pass2Field.UseSystemPasswordChar = true;
-            this.pass2Field.TextChanged += new System.EventHandler(this.pass2Field_TextChanged);
             // 
             // pass1Field
             // 
@@ -159,8 +156,6 @@
             this.pass1Field.Size = new System.Drawing.Size(167, 20);
             this.pass1Field.TabIndex = 9;
             this.pass1Field.UseSystemPasswordChar = true;
-            this.pass1Field.TextChanged += new System.EventHandler(this.pass1Field_TextChanged);
-            this.pass1Field.LostFocus += new System.EventHandler(this.pass1Field_LostFocus);
             // 
             // label6
             // 
@@ -190,8 +185,6 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Register";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.EnabledChanged += new System.EventHandler(this.button1_EnabledChanged);
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label7
             // 
@@ -232,8 +225,6 @@
             this.tel1Field.Name = "tel1Field";
             this.tel1Field.Size = new System.Drawing.Size(38, 20);
             this.tel1Field.TabIndex = 16;
-            this.tel1Field.TextChanged += new System.EventHandler(this.tel1Field_TextChanged);
-            this.tel1Field.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tel1Field_KeyPress);
             // 
             // tel2Field
             // 
@@ -242,7 +233,6 @@
             this.tel2Field.Name = "tel2Field";
             this.tel2Field.Size = new System.Drawing.Size(97, 20);
             this.tel2Field.TabIndex = 17;
-            this.tel2Field.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tel2Field_KeyPress);
             // 
             // label10
             // 
@@ -262,7 +252,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(167, 20);
             this.textBox1.TabIndex = 25;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // button2
             // 
@@ -272,7 +261,6 @@
             this.button2.TabIndex = 24;
             this.button2.Text = "Refresh";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 
@@ -339,15 +327,10 @@
             this.Controls.Add(this.name2Field);
             this.Controls.Add(this.name1Field);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(442, 527);
             this.MinimumSize = new System.Drawing.Size(442, 527);
             this.Name = "RegistrForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registration";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form2_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
