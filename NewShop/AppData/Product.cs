@@ -11,6 +11,7 @@ namespace Shop.AppData
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     
     public partial class Product
     {
@@ -20,5 +21,56 @@ namespace Shop.AppData
         public string Maufacture { get; set; }
         public Nullable<float> Price { get; set; }
         public int ID { get; set; }
+
+        public System.Drawing.Image GetImage()
+        {
+            MemoryStream ms = new MemoryStream(Image);
+            System.Drawing.Image returnImage = System.Drawing.Image.FromStream(ms);
+            return returnImage;
+        }
+        public void SetImage(System.Drawing.Image img)
+        {
+            MemoryStream ms = new MemoryStream();
+            img.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
+            Image = ms.ToArray();
+        }
+        public Product()
+        {
+            Image = null;
+            Name = string.Empty;
+            Describe = string.Empty;
+            Maufacture = string.Empty;
+            Price = 0;
+            ID = 0;
+        }
+        public Product(byte[] img, string name, string desc, string manf, double price, int id)
+        {
+            Image = img;
+            Name = name;
+            Describe = desc;
+            Maufacture = manf;
+            Price = (Nullable<float>)price;
+            ID = id;
+        }
+        public Product(System.Drawing.Image img, string name, string desc, string manf, double price, int id)
+        {
+            SetImage(img);
+            Name = name;
+            Describe = desc;
+            Maufacture = manf;
+            Price = (Nullable<float>)price;
+            ID = id;
+        }
+        public Product Clone()
+        {
+            Product res = new Product();
+            res.Image = (byte[])Image.Clone();
+            res.Name = (string)Name.Clone();
+            res.Describe = (string)Describe.Clone();
+            res.Maufacture = (string)Maufacture.Clone();
+            res.Price = Price;
+            res.ID = ID;
+            return res;
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace Shop.AppData
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Order
     {
         public string CardNumber { get; set; }
@@ -22,5 +22,43 @@ namespace Shop.AppData
         public int ID { get; set; }
         public int ProductID { get; set; }
         public int UserID { get; set; }
+
+
+        public Order()
+        {
+            CardNumber = string.Empty;
+            ExpDate = string.Empty;
+            CVN = string.Empty;
+            Status = string.Empty;
+            Date = new DateTime();
+            Date = DateTime.Now;
+        }
+
+        public Order(string cardNumber, string expDate, string cvn, string status, int userId, int Id, int productId)
+        {
+            CardNumber = cardNumber;
+            ExpDate = expDate;
+            CVN = cvn;
+            Status = status;
+            Date = new DateTime();
+            Date = DateTime.Now;
+            UserID = userId;
+            ID = Id;
+            ProductID = productId;
+        }
+
+        public Order Clone()
+        {
+            Order res = new Order();
+            res.CardNumber = (string)CardNumber.Clone();
+            res.ExpDate = (string)ExpDate.Clone();
+            res.CVN = (string)CVN.Clone();
+            res.Status = (string)Status.Clone();
+            res.Date = Date;
+            res.UserID = UserID;
+            res.ID = ID;
+            res.ProductID = ProductID;
+            return res;
+        }
     }
 }
