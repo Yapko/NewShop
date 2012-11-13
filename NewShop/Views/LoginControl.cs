@@ -80,8 +80,9 @@ namespace Shop.Views
         /// <param name="sender"> message sender </param>
         /// <param name="e"> event </param>
         private void RegistrBtn_Click(object sender, EventArgs e)
-        {
-            main.Register();
+        {            
+            main.ShowRegisterView();
+            main.DestroyProductsList();           
         }
     }
 }

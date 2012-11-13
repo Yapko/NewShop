@@ -170,7 +170,7 @@
     <EmbeddedResource Include="Views\UserControlView.resx">
       <DependentUpon>UserControlView.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.Config" />
+    <None Include="Views\App.Config" />
     <EntityDeploy Include="AppData\DatabaseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DatabaseModel.Designer.cs</LastGenOutput>
@@ -225,6 +225,7 @@
     <Content Include="AppData\Database.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Race_CS_Gloss_Black.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

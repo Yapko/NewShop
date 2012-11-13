@@ -111,14 +111,7 @@ namespace Shop.Views
 
             // add complete picture box to mainform controls
             this.Controls.Add(captcha);
-            if (controlsPos.Keys.Contains("Captcha") == true)
-            {
-                controlsPos["Captcha"] = this.Controls.Count - 1;
-            }
-            else
-            {
-                controlsPos.Add("Captcha", this.Controls.Count - 1);
-            }
+            AddToControls("Captcha");
         }
 
         /// <summary>
@@ -135,7 +128,8 @@ namespace Shop.Views
         /// </summary>
         public void CaptchaDestroy()
         {
-            this.Controls[controlsPos["Captcha"]].Dispose();
+            //this.Controls[controlsPos["Captcha"]].Dispose();
+            RemoveFromControls("Captcha");
         }
 
         /// <summary>
@@ -151,14 +145,7 @@ namespace Shop.Views
 
             // add login to mainform controls
             this.Controls.Add(login);
-            if (controlsPos.Keys.Contains("Login") == true)
-            {
-                controlsPos["Login"] = this.Controls.Count - 1;
-            }
-            else
-            {
-                controlsPos.Add("Login", this.Controls.Count - 1);
-            }
+            AddToControls("Login");
         }
 
         /// <summary>
@@ -166,7 +153,8 @@ namespace Shop.Views
         /// </summary>
         public void LoginDestroy()
         {
-            this.Controls[controlsPos["Login"]].Dispose();
+            //this.Controls[controlsPos["Login"]].Dispose();
+            RemoveFromControls("Login");
         }
 
         /// <summary>
@@ -184,14 +172,7 @@ namespace Shop.Views
 
             // add login to mainform controls
             this.Controls.Add(uc);
-            if (controlsPos.Keys.Contains("UserView") == true)
-            {
-                controlsPos["UserView"] = this.Controls.Count - 1;
-            }
-            else
-            {
-                controlsPos.Add("UserView", this.Controls.Count - 1);
-            }
+            AddToControls("UserView");
         }
 
         /// <summary>
@@ -199,7 +180,8 @@ namespace Shop.Views
         /// </summary>
         public void DestroyUserView()
         {
-            this.Controls[controlsPos["UserView"]].Dispose();
+            //this.Controls[controlsPos["UserView"]].Dispose();
+            RemoveFromControls("UserView");
         }
         
         /// <summary>
@@ -226,14 +208,7 @@ namespace Shop.Views
 
             // add login to mainform controls
             this.Controls.Add(account);
-            if (controlsPos.Keys.Contains("Personal account") == true)
-            {
-                controlsPos["Personal account"] = this.Controls.Count - 1;
-            }
-            else
-            {
-                controlsPos.Add("Personal account", this.Controls.Count - 1);
-            }
+            AddToControls("Personal account");            
         }
 
         /// <summary>
@@ -241,7 +216,8 @@ namespace Shop.Views
         /// </summary>
         public void DestroyAccount()
         {
-            this.Controls[controlsPos["Personal account"]].Dispose();
+            //this.Controls[controlsPos["Personal account"]].Dispose();
+            RemoveFromControls("Personal account");
         }
 
         /// <summary>
@@ -250,27 +226,83 @@ namespace Shop.Views
         /// <param name="prods">products to be added to view</param>
         public void LoadProductsList(List<Product> prods)
         {
-            ProductsListControl plc = new ProductsListControl(control,prods);
+            ProductsListControl plc = new ProductsListControl(control, prods);
             this.Controls.Add(plc);
+            AddToControls("ProductsList");
         }
 
         /// <summary>
-        /// 
+        /// destroys ProductsList from screen
         /// </summary>
-        public void LoadRegistr(Point position)
+        public void DestroyProductsList()
+        {
+            //this.Controls[controlsPos["ProductsList"]].Dispose();
+            RemoveFromControls("ProductsList");
+        }
+
+        /// <summary>
+        /// loads registration view at position
+        /// </summary>
+        /// <param name="position">position in parent window were registration window will be shown</param>
+        public void LoadRegister(Point position)
         {
             RegistrationView regView = new RegistrationView(control);
             regView.Location = position;
             this.Controls.Add(regView);
-            controlsPos.Add("RegistrView", this.Controls.Count - 1);
+            AddToControls("RegistrView");
             LoadCaptcha(new Point(165, 321));
         }
 
         /// <summary>
-        /// 
+        /// method to destroy register window from parent window
         /// </summary>
-        public void RegistrDestroy()
+        public void DestroyRegisterView()
+        {            
+            //this.Controls[controlsPos["RegistrView"]].Dispose();
+            RemoveFromControls("RegistrView");
+        }
+
+        /// <summary>
+        /// method add control with name <value>toAdd</value>
+        /// </summary>
+        /// <param name="toAdd">the name of added control</param>
+        private void AddToControls(string toAdd)
         {
+            if (controlsPos.Keys.Contains(toAdd) == true)
+            {
+                controlsPos[toAdd] = this.Controls.Count - 1;
+            }
+            else
+            {
+                controlsPos.Add(toAdd, this.Controls.Count - 1);
+            }
+        }
+
+        /// <summary>
+        /// removes control by its name
+        /// </summary>
+        /// <param name="toRemove">control to be removed</param>
+        private void RemoveFromControls(string toRemove)
+        {
+            //keys to be removed
+            List<string> keysToRemove = new List<string>();
+
+            this.Controls[controlsPos[toRemove]].Dispose();          
+
+            for (int i = 0; i < controlsPos.Keys.Count; i++)
+            {
+                int c = --controlsPos[controlsPos.Keys.ElementAt<string>(i)];
+
+                if (c < 0)
+                {
+                    keysToRemove.Add(controlsPos.Keys.ElementAt<string>(i));
+                }
+            }           
+
+            foreach (string strToRemove in keysToRemove)
+            {
+                controlsPos.Remove(strToRemove);
+            }
         }
     }
 }

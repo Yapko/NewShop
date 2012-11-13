@@ -23,26 +23,41 @@ namespace Shop.Views
         /// </summary>
         private MainController main;
 
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoginControl"/> class.
+        /// Initializes a new instance of the <see cref="ProductsListControl"/> class.
         /// </summary>
         /// <param name="a">instance of comtroller</param>
         /// <param name="prods">list of products to be added to view</param>
-        public ProductsListControl(MainController a,List<Product> prods)
+        public ProductsListControl(MainController a, List<Product> prods)
         {
             InitializeComponent();
-            main = a;
+            main = a;           
+            //creation of image lists
+            ImageList imageListSmall = new ImageList();
+            ImageList imageListLarge = new ImageList();
+            int imageIndex = 0;
 
+            SetColumnsWidth();
             foreach (Product p in prods)
             {
                 ListViewItem lvi = new ListViewItem(p.Name);
+                
                 lvi.SubItems.Add(p.Describe);
                 lvi.SubItems.Add(p.Maufacture);
                 lvi.SubItems.Add(p.Price.ToString() + "$");
+                lvi.ImageIndex = imageIndex;
+                imageIndex++;
                 AddNewProduct(lvi);
+
+                imageListSmall.Images.Add(p.GetImage());
+                imageListLarge.Images.Add(p.GetImage());                
             }
-            
+
+            imageListLarge.ImageSize = new Size(200, 200);
+            imageListSmall.ImageSize = new Size(150, 150);
+
+            ProductsList.LargeImageList = imageListLarge;
+            ProductsList.SmallImageList = imageListSmall;
         }
 
         /// <summary>
@@ -54,5 +69,16 @@ namespace Shop.Views
             ProductsList.Items.Add(lvi);
         }
 
+        /// <summary>
+        /// set columns width
+        /// width of every column is 30
+        /// </summary>
+        private void SetColumnsWidth()
+        {
+            ProductsList.Columns[0].Width = 400;
+            ProductsList.Columns[1].Width = 200;
+            ProductsList.Columns[2].Width = 100;
+            ProductsList.Columns[3].Width = 100;
+        }
     }
 }

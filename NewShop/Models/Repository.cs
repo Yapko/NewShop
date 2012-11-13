@@ -239,6 +239,7 @@ namespace Shop.Models
             {
                 database.Products.Add(elements[i]);
             }
+
             database.SaveChanges();
         }
 
@@ -292,6 +293,7 @@ namespace Shop.Models
             {
                 this.database.Products.Remove(lst[i]);
             }
+
             database.SaveChanges();
         }
 

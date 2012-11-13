@@ -39,7 +39,7 @@ namespace Shop.Controllers
             user.Status = "Unlogged";
             LoadLogin();
             ChangeUser();
-            //LoadProductsList();
+            LoadProductsList();
             //initialization
             //List<Product> pr = new List<Product>();
             //pr = repos.GetAllProducts();
@@ -183,12 +183,20 @@ namespace Shop.Controllers
         #endregion
 
         /// <summary>
-        /// Register form
+        /// ShowRegisterView form
         /// </summary>
-        public void Register()
+        public void ShowRegisterView()
         {
-            view.LoadRegistr(new Point(100, 100));
+            view.LoadRegister(new Point(100, 100));
             view.LoginDestroy();
+        }
+
+        /// <summary>
+        /// destroys register view
+        /// </summary>
+        public void DestroyRegisterView()
+        {
+            view.DestroyRegisterView();
         }
 
         /// <summary>
@@ -205,6 +213,14 @@ namespace Shop.Controllers
         public void DestroyPersonalCabinet()
         {
             view.DestroyAccount();
+        }
+
+        /// <summary>
+        /// destroy products list
+        /// </summary>
+        public void DestroyProductsList()
+        {
+            view.DestroyProductsList();
         }
 
         /// <summary>
@@ -288,8 +304,6 @@ namespace Shop.Controllers
         public void LoadProductsList()
         {
             view.LoadProductsList(repos.GetAllProducts());
-        }
-
-       
+        }       
     }
 }

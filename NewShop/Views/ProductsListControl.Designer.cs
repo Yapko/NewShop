@@ -37,15 +37,22 @@
             // 
             // ProductsList
             // 
-            this.ProductsList.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ProductsList.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.ProductsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ProductsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.NameCol,
             this.DescribeCol,
             this.ManufacturerCol,
             this.PriceCol});
-            this.ProductsList.Location = new System.Drawing.Point(3, 3);
+            this.ProductsList.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ProductsList.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductsList.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.ProductsList.FullRowSelect = true;
+            this.ProductsList.GridLines = true;
+            this.ProductsList.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ProductsList.Location = new System.Drawing.Point(0, 3);
             this.ProductsList.Name = "ProductsList";
-            this.ProductsList.Size = new System.Drawing.Size(571, 423);
+            this.ProductsList.Size = new System.Drawing.Size(807, 695);
             this.ProductsList.TabIndex = 0;
             this.ProductsList.UseCompatibleStateImageBehavior = false;
             this.ProductsList.View = System.Windows.Forms.View.Details;
@@ -74,7 +81,7 @@
             this.Controls.Add(this.ProductsList);
             this.Location = new System.Drawing.Point(10, 10);
             this.Name = "ProductsListControl";
-            this.Size = new System.Drawing.Size(577, 429);
+            this.Size = new System.Drawing.Size(810, 700);
             this.ResumeLayout(false);
 
         }

@@ -32,5 +32,17 @@ namespace Shop.Views
             InitializeComponent();
             control = m;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void RegCloseBtn_Click(object sender, EventArgs e)
+        {
+            control.DestroyRegisterView();
+            control.LoadProductsList();
+            control.LoadLogin();
+        }
     }
 }

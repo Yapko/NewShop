@@ -55,6 +55,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.RegCloseBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
@@ -178,22 +179,23 @@
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.button1.Location = new System.Drawing.Point(188, 422);
+            this.button1.Location = new System.Drawing.Point(165, 424);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 12;
-            this.button1.Text = "Register";
+            this.button1.Text = "ShowRegisterView";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(12, 465);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(409, 13);
+            this.label7.Size = new System.Drawing.Size(459, 13);
             this.label7.TabIndex = 13;
-            this.label7.Text = "By clicking Register you confirm that you accept our Terms of Use and Private Pol" +
-                "icy.";
+            this.label7.Text = "By clicking ShowRegisterView you confirm that you accept our Terms of Use and Pri" +
+                "vate Policy.";
             // 
             // label8
             // 
@@ -295,12 +297,23 @@
             // 
             this.errorProvider3.ContainerControl = this;
             // 
+            // RegCloseBtn
+            // 
+            this.RegCloseBtn.Location = new System.Drawing.Point(165, 492);
+            this.RegCloseBtn.Name = "RegCloseBtn";
+            this.RegCloseBtn.Size = new System.Drawing.Size(75, 23);
+            this.RegCloseBtn.TabIndex = 28;
+            this.RegCloseBtn.Text = "close";
+            this.RegCloseBtn.UseVisualStyleBackColor = true;
+            this.RegCloseBtn.Click += new System.EventHandler(this.RegCloseBtn_Click);
+            // 
             // RegistrationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Controls.Add(this.RegCloseBtn);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
@@ -365,6 +378,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.Button RegCloseBtn;
     }
 }
 
