@@ -170,7 +170,6 @@
     <EmbeddedResource Include="Views\UserControlView.resx">
       <DependentUpon>UserControlView.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Views\App.Config" />
     <EntityDeploy Include="AppData\DatabaseModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DatabaseModel.Designer.cs</LastGenOutput>
@@ -198,6 +197,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Views\App.Config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\CloseButton.gif" />

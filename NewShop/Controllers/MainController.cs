@@ -204,6 +204,7 @@ namespace Shop.Controllers
         /// </summary>
         public void ShowPersonalCabinet()
         {
+            DestroyProductsList();
             view.LoadAccount(new Point(60, 60), user);
         }
 
@@ -213,6 +214,7 @@ namespace Shop.Controllers
         public void DestroyPersonalCabinet()
         {
             view.DestroyAccount();
+            LoadProductsList();
         }
 
         /// <summary>

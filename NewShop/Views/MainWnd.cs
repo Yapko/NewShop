@@ -22,11 +22,6 @@ namespace Shop.Views
         private MainController control;
 
         /// <summary>
-        /// Dictionary with positions of controls in this.Controls 
-        /// </summary>
-        private Dictionary<string, int> controlsPos;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="MainWnd"/> class.
         /// </summary>
         /// <param name="newControl">class witch controls this form</param>
@@ -34,7 +29,6 @@ namespace Shop.Views
         {
             InitializeComponent();
             control = newControl;
-            controlsPos = new Dictionary<string, int>();
             this.Height = Screen.PrimaryScreen.WorkingArea.Height;
             this.Width = Screen.PrimaryScreen.WorkingArea.Width;
         }
@@ -69,10 +63,6 @@ namespace Shop.Views
             LoadCloseIcon();            
             //only for testing
             //LoadCaptcha(new Point(this.Width / 2, this.Height / 2));
-
-            //only for testing
-            //create a login form
-            //LoadLoginForm(new Point(this.Width / 2, this.Height / 2));
         }
 
         /// <summary>
@@ -111,7 +101,6 @@ namespace Shop.Views
 
             // add complete picture box to mainform controls
             this.Controls.Add(captcha);
-            AddToControls("Captcha");
         }
 
         /// <summary>
@@ -128,8 +117,7 @@ namespace Shop.Views
         /// </summary>
         public void CaptchaDestroy()
         {
-            //this.Controls[controlsPos["Captcha"]].Dispose();
-            RemoveFromControls("Captcha");
+            RemoveFromControls("CaptchaControl");
         }
 
         /// <summary>
@@ -145,7 +133,6 @@ namespace Shop.Views
 
             // add login to mainform controls
             this.Controls.Add(login);
-            AddToControls("Login");
         }
 
         /// <summary>
@@ -153,8 +140,7 @@ namespace Shop.Views
         /// </summary>
         public void LoginDestroy()
         {
-            //this.Controls[controlsPos["Login"]].Dispose();
-            RemoveFromControls("Login");
+            RemoveFromControls("LoginControl");
         }
 
         /// <summary>
@@ -172,7 +158,6 @@ namespace Shop.Views
 
             // add login to mainform controls
             this.Controls.Add(uc);
-            AddToControls("UserView");
         }
 
         /// <summary>
@@ -180,8 +165,7 @@ namespace Shop.Views
         /// </summary>
         public void DestroyUserView()
         {
-            //this.Controls[controlsPos["UserView"]].Dispose();
-            RemoveFromControls("UserView");
+            RemoveFromControls("UserControlView");
         }
         
         /// <summary>
@@ -208,7 +192,6 @@ namespace Shop.Views
 
             // add login to mainform controls
             this.Controls.Add(account);
-            AddToControls("Personal account");            
         }
 
         /// <summary>
@@ -217,7 +200,7 @@ namespace Shop.Views
         public void DestroyAccount()
         {
             //this.Controls[controlsPos["Personal account"]].Dispose();
-            RemoveFromControls("Personal account");
+            RemoveFromControls( "PersonalAccountControl" );
         }
 
         /// <summary>
@@ -228,7 +211,6 @@ namespace Shop.Views
         {
             ProductsListControl plc = new ProductsListControl(control, prods);
             this.Controls.Add(plc);
-            AddToControls("ProductsList");
         }
 
         /// <summary>
@@ -237,7 +219,7 @@ namespace Shop.Views
         public void DestroyProductsList()
         {
             //this.Controls[controlsPos["ProductsList"]].Dispose();
-            RemoveFromControls("ProductsList");
+            RemoveFromControls("ProductsListControl");
         }
 
         /// <summary>
@@ -249,7 +231,6 @@ namespace Shop.Views
             RegistrationView regView = new RegistrationView(control);
             regView.Location = position;
             this.Controls.Add(regView);
-            AddToControls("RegistrView");
             LoadCaptcha(new Point(165, 321));
         }
 
@@ -259,23 +240,7 @@ namespace Shop.Views
         public void DestroyRegisterView()
         {            
             //this.Controls[controlsPos["RegistrView"]].Dispose();
-            RemoveFromControls("RegistrView");
-        }
-
-        /// <summary>
-        /// method add control with name <value>toAdd</value>
-        /// </summary>
-        /// <param name="toAdd">the name of added control</param>
-        private void AddToControls(string toAdd)
-        {
-            if (controlsPos.Keys.Contains(toAdd) == true)
-            {
-                controlsPos[toAdd] = this.Controls.Count - 1;
-            }
-            else
-            {
-                controlsPos.Add(toAdd, this.Controls.Count - 1);
-            }
+            RemoveFromControls("RegistrationView");
         }
 
         /// <summary>
@@ -284,24 +249,13 @@ namespace Shop.Views
         /// <param name="toRemove">control to be removed</param>
         private void RemoveFromControls(string toRemove)
         {
-            //keys to be removed
-            List<string> keysToRemove = new List<string>();
-
-            this.Controls[controlsPos[toRemove]].Dispose();          
-
-            for (int i = 0; i < controlsPos.Keys.Count; i++)
+            if(Controls.ContainsKey(toRemove) == true)
             {
-                int c = --controlsPos[controlsPos.Keys.ElementAt<string>(i)];
-
-                if (c < 0)
-                {
-                    keysToRemove.Add(controlsPos.Keys.ElementAt<string>(i));
-                }
-            }           
-
-            foreach (string strToRemove in keysToRemove)
+                Controls[Controls.IndexOfKey(toRemove)].Dispose();
+            }
+            else
             {
-                controlsPos.Remove(strToRemove);
+                MessageBox.Show("Element missing!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
