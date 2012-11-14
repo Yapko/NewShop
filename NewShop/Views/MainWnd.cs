@@ -88,37 +88,6 @@ namespace Shop.Views
             this.Controls.Add(closePictureBox);
         }
 
-        /// <summary>
-        /// Create captcha in main form
-        /// </summary>
-        /// <param name="position">position of upper left ungle </param>
-        public void LoadCaptcha(Point position)
-        {
-            //create captcha
-            CaptchaControl captcha = new CaptchaControl();
-            // set location in center of form
-            captcha.Location = position;
-
-            // add complete picture box to mainform controls
-            this.Controls.Add(captcha);
-        }
-
-        /// <summary>
-        /// Gets current status of Captcha
-        /// </summary>
-        /// <returns>if text equivalent to captcha</returns>
-        public bool CaptchaStatus()
-        {
-            return ((CaptchaControl)Controls[Controls.Count - 1]).Check;
-        }
-
-        /// <summary>
-        /// Destroys captcha
-        /// </summary>
-        public void CaptchaDestroy()
-        {
-            RemoveFromControls("CaptchaControl");
-        }
 
         /// <summary>
         /// Create login in main form
@@ -231,7 +200,7 @@ namespace Shop.Views
             RegistrationView regView = new RegistrationView(control);
             regView.Location = position;
             this.Controls.Add(regView);
-            LoadCaptcha(new Point(165, 321));
+            //LoadCaptcha(new Point(165, 321));
         }
 
         /// <summary>

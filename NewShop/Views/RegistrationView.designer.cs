@@ -48,9 +48,6 @@
             this.tel1Field = new System.Windows.Forms.TextBox();
             this.tel2Field = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -195,7 +192,7 @@
             this.label7.Size = new System.Drawing.Size(459, 13);
             this.label7.TabIndex = 13;
             this.label7.Text = "By clicking ShowRegisterView you confirm that you accept our Terms of Use and Pri" +
-                "vate Policy.";
+    "vate Policy.";
             // 
             // label8
             // 
@@ -247,31 +244,6 @@
             this.label10.TabIndex = 18;
             this.label10.Text = "+38";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(165, 379);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(167, 20);
-            this.textBox1.TabIndex = 25;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(341, 341);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "Refresh";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(165, 321);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(167, 52);
-            this.panel1.TabIndex = 23;
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -315,9 +287,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Controls.Add(this.RegCloseBtn);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tel2Field);
             this.Controls.Add(this.tel1Field);
@@ -371,9 +340,6 @@
         private System.Windows.Forms.TextBox tel1Field;
         private System.Windows.Forms.TextBox tel2Field;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;

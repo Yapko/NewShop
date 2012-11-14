@@ -71,34 +71,6 @@ namespace Shop.Controllers
         {
             view.ShowMessage(message);
         }
-
-        #region Captcha
-        /// <summary>
-        /// Shows captcha at current location
-        /// </summary>
-        /// <param name="where">point where to show it</param>
-        public void ShowCaptcha(Point where)
-        {
-            view.LoadCaptcha(where);
-        }
-
-        /// <summary>
-        /// Destroys captcha control
-        /// </summary>
-        public void DestroyCaptcha()
-        {
-            view.CaptchaDestroy();
-        }
-
-        /// <summary>
-        /// Gets current status of captcha
-        /// </summary>
-        /// <returns>if captcha is correct</returns>
-        public bool StatusCaptcha()
-        {
-            return view.CaptchaStatus();
-        }
-        #endregion
         
         #region Login
 
@@ -107,12 +79,12 @@ namespace Shop.Controllers
         /// </summary>
         /// <param name="username">username</param>
         /// <param name="pass">password</param>
-        public void LogIn(string username, string pass)
+        public void LogIn(string username, string pass, bool captchaStat)
         {
             bool login = false;
             if (repos.HaveUser(username) == true)
             {
-                if (repos.GetUser(username).Password == pass)
+                if (repos.GetUser(username).Password == pass && captchaStat == true)
                 {
                     user = repos.GetUser(username);
                     DestroyLogin();
@@ -188,7 +160,6 @@ namespace Shop.Controllers
         public void ShowRegisterView()
         {
             view.LoadRegister(new Point(100, 100));
-            view.LoginDestroy();
         }
 
         /// <summary>

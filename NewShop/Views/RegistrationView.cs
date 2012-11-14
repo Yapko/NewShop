@@ -31,6 +31,42 @@ namespace Shop.Views
         {
             InitializeComponent();
             control = m;
+            LoadCaptcha(new Point(163,325));
+        }
+
+        /// <summary>
+        /// Create captcha in main form
+        /// </summary>
+        /// <param name="position">position of upper left ungle </param>
+        public void LoadCaptcha(Point position)
+        {
+            //create captcha
+            CaptchaControl captcha = new CaptchaControl();
+            // set location in center of form
+            captcha.Location = position;
+
+            // add complete picture box to mainform controls
+            this.Controls.Add(captcha);
+        }
+
+        /// <summary>
+        /// Gets current status of Captcha
+        /// </summary>
+        /// <returns>if text equivalent to captcha</returns>
+        public bool CaptchaStatus()
+        {
+            return ((CaptchaControl)Controls[Controls.IndexOfKey("CaptchaControl")]).Check;
+        }
+
+        /// <summary>
+        /// Destroys captcha
+        /// </summary>
+        public void CaptchaDestroy()
+        {
+            if (Controls.ContainsKey("CaptchaControl") == true)
+            {
+                Controls[Controls.IndexOfKey("CaptchaControl")].Dispose();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -43,6 +79,7 @@ namespace Shop.Views
             control.DestroyRegisterView();
             control.LoadProductsList();
             control.LoadLogin();
+            CaptchaDestroy();
         }
     }
 }

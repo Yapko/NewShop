@@ -23,6 +23,8 @@ namespace Shop.Views
         /// </summary>
         private MainController main;
 
+        private int attempts;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="LoginControl"/> class.
         /// </summary>
@@ -31,6 +33,7 @@ namespace Shop.Views
         {
             InitializeComponent();
             main = a;
+            attempts = 0;
         }
 
         /// <summary>
@@ -58,7 +61,29 @@ namespace Shop.Views
         /// <param name="e">event</param>
         private void SignBtn_Click(object sender, EventArgs e)
         {
-            main.LogIn(UsernameTxt.Text, PasswordTxt.Text);
+            ++attempts;
+            bool captcha = true;
+            if (Controls.ContainsKey("CaptchaControl") == true)
+            {
+                captcha = CaptchaStatus();
+                if (captcha == true)
+                {
+                    attempts = 0;
+                }
+            }
+            main.LogIn(UsernameTxt.Text, PasswordTxt.Text, captcha);
+            UsernameTxt.ResetText();
+            PasswordTxt.ResetText();
+            if(attempts >= 5)
+            {
+                LoadCaptcha(new Point(60,120));
+                this.Height = 271;
+            }
+            else
+            {
+                CaptchaDestroy();
+                this.Height = 171;
+            }
         }
 
         /// <summary>
@@ -83,6 +108,41 @@ namespace Shop.Views
         {            
             main.ShowRegisterView();
             main.DestroyProductsList();           
+        }
+
+        /// <summary>
+        /// Create captcha in main form
+        /// </summary>
+        /// <param name="position">position of upper left ungle </param>
+        public void LoadCaptcha(Point position)
+        {
+            //create captcha
+            CaptchaControl captcha = new CaptchaControl();
+            // set location in center of form
+            captcha.Location = position;
+
+            // add complete picture box to mainform controls
+            this.Controls.Add(captcha);
+        }
+
+        /// <summary>
+        /// Gets current status of Captcha
+        /// </summary>
+        /// <returns>if text equivalent to captcha</returns>
+        public bool CaptchaStatus()
+        {
+            return ((CaptchaControl) Controls[Controls.IndexOfKey("CaptchaControl")]).Check;
+        }
+
+        /// <summary>
+        /// Destroys captcha
+        /// </summary>
+        public void CaptchaDestroy()
+        {
+            if (Controls.ContainsKey("CaptchaControl") == true)
+            {
+                Controls[Controls.IndexOfKey("CaptchaControl")].Dispose();
+            }
         }
     }
 }
