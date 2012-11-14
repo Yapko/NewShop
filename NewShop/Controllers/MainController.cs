@@ -252,6 +252,36 @@ namespace Shop.Controllers
         }
 
         /// <summary>
+        /// validating confirmed password
+        /// </summary>
+        /// <param name="pass1">password</param>
+        /// <param name="pass2">confirmed password</param>
+        /// <returns>bool</returns>
+        public bool ValidateConfirmedPassword(string pass1, string pass2)
+        {
+            bool valid = true;
+            if (pass1.Length < pass2.Length)
+            {
+                valid = false;
+            }
+            else
+            {
+                for (int i = 0; i < pass2.Length; i++)
+                {
+                    if (pass1[i] != pass2[i])
+                    {
+                        valid = false;
+                    }
+                }
+            }
+            if (pass1.Length > pass2.Length || pass2.Length == 0)
+            {
+                valid = false;
+            }
+            return valid;
+        }
+
+        /// <summary>
         /// Save change user
         /// </summary>
         /// <param name="addres">address</param>

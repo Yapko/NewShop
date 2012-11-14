@@ -105,19 +105,60 @@ namespace Shop.Views
             errorProvider1.SetError(emailField, string.Empty);
         }
 
+        /// <summary>
+        /// password validation
+        /// </summary>
+        /// <param name="sender">object sender</param>
+        /// <param name="e">event</param>
         private void pass1Field_Validating(object sender, CancelEventArgs e)
         {
             if (!control.ValidatePassword(pass1Field.Text))
             {
+                e.Cancel = true;
                 errorProvider1.SetError(pass1Field, "your password must have more than 8 symbols and contain some numbers!");
                 pass1Field.ForeColor = Color.Red;
             }
         }
 
+        /// <summary>
+        /// pass is validated
+        /// </summary>
+        /// <param name="sender">object sender</param>
+        /// <param name="e">event</param>
         private void pass1Field_Validated(object sender, EventArgs e)
         {
             errorProvider1.SetError(pass1Field, string.Empty);
             pass1Field.ForeColor = Color.Black;
+        }
+
+        private void pass2Field_Validating(object sender, CancelEventArgs e)
+        {
+            if (!control.ValidateConfirmedPassword(pass1Field.Text, pass2Field.Text))
+            {
+                errorProvider2.SetError(pass2Field, "your password is not correct!");
+                e.Cancel = true;
+                pass2Field.ForeColor = Color.Red;
+            }
+        }
+
+        private void pass2Field_Validated(object sender, EventArgs e)
+        {
+            errorProvider2.SetError(pass1Field, string.Empty);
+            pass2Field.ForeColor = Color.Black;
+        }
+
+        private void pass2Field_TextChanged(object sender, EventArgs e)
+        {
+            if (!control.ValidateConfirmedPassword(pass1Field.Text, pass2Field.Text))
+            {
+                errorProvider2.SetError(pass2Field, "your password is not correct!");
+                pass2Field.ForeColor = Color.Red;
+            }
+            else
+            {
+                errorProvider2.SetError(pass1Field, string.Empty);
+                pass2Field.ForeColor = Color.Black;
+            }
         }
     }
 }

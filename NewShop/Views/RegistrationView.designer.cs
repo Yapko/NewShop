@@ -146,6 +146,9 @@
             this.pass2Field.Size = new System.Drawing.Size(167, 20);
             this.pass2Field.TabIndex = 8;
             this.pass2Field.UseSystemPasswordChar = true;
+            this.pass2Field.TextChanged += new System.EventHandler(this.pass2Field_TextChanged);
+            this.pass2Field.Validating += new System.ComponentModel.CancelEventHandler(this.pass2Field_Validating);
+            this.pass2Field.Validated += new System.EventHandler(this.pass2Field_Validated);
             // 
             // pass1Field
             // 
