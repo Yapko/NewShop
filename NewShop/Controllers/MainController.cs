@@ -274,10 +274,8 @@ namespace Shop.Controllers
                     }
                 }
             }
-            if (pass1.Length > pass2.Length || pass2.Length == 0)
-            {
-                valid = false;
-            }
+
+
             return valid;
         }
 

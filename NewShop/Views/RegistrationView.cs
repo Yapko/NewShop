@@ -133,7 +133,8 @@ namespace Shop.Views
 
         private void pass2Field_Validating(object sender, CancelEventArgs e)
         {
-            if (!control.ValidateConfirmedPassword(pass1Field.Text, pass2Field.Text))
+            if (!control.ValidateConfirmedPassword(pass1Field.Text, pass2Field.Text) || 
+                pass1Field.Text.Length > pass2Field.Text.Length || pass2Field.Text.Length == 0)
             {
                 errorProvider2.SetError(pass2Field, "your password is not correct!");
                 e.Cancel = true;
