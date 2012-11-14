@@ -154,6 +154,8 @@
             this.pass1Field.Size = new System.Drawing.Size(167, 20);
             this.pass1Field.TabIndex = 9;
             this.pass1Field.UseSystemPasswordChar = true;
+            this.pass1Field.Validating += new System.ComponentModel.CancelEventHandler(this.pass1Field_Validating);
+            this.pass1Field.Validated += new System.EventHandler(this.pass1Field_Validated);
             // 
             // label6
             // 

@@ -104,5 +104,20 @@ namespace Shop.Views
             emailField.ForeColor = Color.Black;
             errorProvider1.SetError(emailField, string.Empty);
         }
+
+        private void pass1Field_Validating(object sender, CancelEventArgs e)
+        {
+            if (!control.ValidatePassword(pass1Field.Text))
+            {
+                errorProvider1.SetError(pass1Field, "your password must have more than 8 symbols and contain some numbers!");
+                pass1Field.ForeColor = Color.Red;
+            }
+        }
+
+        private void pass1Field_Validated(object sender, EventArgs e)
+        {
+            errorProvider1.SetError(pass1Field, string.Empty);
+            pass1Field.ForeColor = Color.Black;
+        }
     }
 }

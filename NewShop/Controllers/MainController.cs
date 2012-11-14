@@ -217,6 +217,11 @@ namespace Shop.Controllers
             return truth;
         }
 
+        /// <summary>
+        /// emails validating
+        /// </summary>
+        /// <param name="email">email text</param>
+        /// <returns>bool</returns>
         public bool ValidateEmail(string email)
         {
             bool val = email.Contains('@') && email.Contains('.')
@@ -224,6 +229,28 @@ namespace Shop.Controllers
                 || email.Length - email.LastIndexOf('.') == 4);
             return val;
         }
+
+        /// <summary>
+        /// password validation
+        /// </summary>
+        /// <returns>bool</returns>
+        public bool ValidatePassword(string pass)
+        {
+            bool valid = true;
+            if (pass.Length < 8)
+            {
+                valid = false;
+            }
+            else
+            {
+                if (!System.Text.RegularExpressions.Regex.IsMatch(pass, @"\d"))
+                {
+                    valid = false;
+                }
+            }
+            return valid;
+        }
+
         /// <summary>
         /// Save change user
         /// </summary>
