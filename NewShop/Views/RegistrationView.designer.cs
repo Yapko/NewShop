@@ -77,6 +77,8 @@
             this.emailField.Name = "emailField";
             this.emailField.Size = new System.Drawing.Size(167, 20);
             this.emailField.TabIndex = 2;
+            this.emailField.Validating += new System.ComponentModel.CancelEventHandler(this.emailField_Validating);
+            this.emailField.Validated += new System.EventHandler(this.emailField_Validated);
             // 
             // label1
             // 

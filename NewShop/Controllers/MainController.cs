@@ -134,7 +134,7 @@ namespace Shop.Controllers
         /// </summary>
         public void LoadLogin()
         {
-            view.LoadLogin(new Point(view.Width - 350, 60));
+            view.LoadLogin(new Point(view.Width - 370, 60));
         }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace Shop.Controllers
         /// </summary>
         public void LoadUserView()
         {
-            view.LoadUserView(new Point(view.Width - 350, 60), user.UserName, user.Status);
+            view.LoadUserView(new Point(view.Width - 370, 60), user.UserName, user.Status);
         }
 
         /// <summary>
@@ -172,6 +172,7 @@ namespace Shop.Controllers
         }
 
         #endregion
+
         /// <summary>
         /// Function to show user personal cabinet
         /// </summary>
@@ -216,6 +217,13 @@ namespace Shop.Controllers
             return truth;
         }
 
+        public bool ValidateEmail(string email)
+        {
+            bool val = email.Contains('@') && email.Contains('.')
+                && (email.Length - email.LastIndexOf('.') == 3
+                || email.Length - email.LastIndexOf('.') == 4);
+            return val;
+        }
         /// <summary>
         /// Save change user
         /// </summary>

@@ -31,7 +31,7 @@ namespace Shop.Views
         {
             InitializeComponent();
             control = m;
-            LoadCaptcha(new Point(163,325));
+            LoadCaptcha(new Point(163, 325));
         }
 
         /// <summary>
@@ -69,17 +69,40 @@ namespace Shop.Views
             }
         }
 
+        /// <summary>
+        /// registration happens
+        /// </summary>
+        /// <param name="sender">object sender</param>
+        /// <param name="e">event</param>
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            control.DestroyRegisterView();
         }
 
-        private void RegCloseBtn_Click(object sender, EventArgs e)
+        /// <summary>
+        /// email validating
+        /// </summary>
+        /// <param name="sender">object sender</param>
+        /// <param name="e">event</param>
+        private void emailField_Validating(object sender, CancelEventArgs e)
         {
-            control.DestroyRegisterView();
-            //control.LoadProductsList();
-            control.LoadLogin();
-            CaptchaDestroy();
+            if (!control.ValidateEmail(emailField.Text))
+            {
+                e.Cancel = true;
+                emailField.ForeColor = Color.Red;
+                errorProvider1.SetError(emailField, "your email is not correct!");
+            }
+        }
+
+        /// <summary>
+        /// email is validated
+        /// </summary>
+        /// <param name="sender">object sender</param>
+        /// <param name="e">event</param>
+        private void emailField_Validated(object sender, EventArgs e)
+        {
+            emailField.ForeColor = Color.Black;
+            errorProvider1.SetError(emailField, string.Empty);
         }
     }
 }
