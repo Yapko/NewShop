@@ -154,12 +154,13 @@ namespace Shop.Controllers
         }
         #endregion
 
+        #region Registration
         /// <summary>
         /// ShowRegisterView form
         /// </summary>
         public void ShowRegisterView()
         {
-            view.LoadRegister(new Point(100, 100));
+            view.LoadRegister(new Point(view.Width - 550, 60));
         }
 
         /// <summary>
@@ -170,6 +171,7 @@ namespace Shop.Controllers
             view.DestroyRegisterView();
         }
 
+        #endregion
         /// <summary>
         /// Function to show user personal cabinet
         /// </summary>

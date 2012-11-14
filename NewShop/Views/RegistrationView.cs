@@ -77,7 +77,7 @@ namespace Shop.Views
         private void RegCloseBtn_Click(object sender, EventArgs e)
         {
             control.DestroyRegisterView();
-            control.LoadProductsList();
+            //control.LoadProductsList();
             control.LoadLogin();
             CaptchaDestroy();
         }

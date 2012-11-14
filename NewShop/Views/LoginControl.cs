@@ -107,7 +107,7 @@ namespace Shop.Views
         private void RegistrBtn_Click(object sender, EventArgs e)
         {            
             main.ShowRegisterView();
-            main.DestroyProductsList();           
+            main.DestroyLogin();           
         }
 
         /// <summary>
