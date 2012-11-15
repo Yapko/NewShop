@@ -30,10 +30,17 @@ namespace Shop.Controllers
         private User user;
 
         /// <summary>
+        /// list of products that current user adds
+        /// to his busked
+        /// </summary>
+        private List<Product> userProducts;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="MainController"/> class.
         /// </summary>
         public MainController()
         {
+            userProducts = new List<Product>();
             view = new MainWnd(this);
             user = new User();
             user.Status = "Unlogged";
@@ -79,6 +86,7 @@ namespace Shop.Controllers
         /// </summary>
         /// <param name="username">username</param>
         /// <param name="pass">password</param>
+        /// <param name="captchaStat">captcha status</param>
         public void LogIn(string username, string pass, bool captchaStat)
         {
             bool login = false;
@@ -233,7 +241,8 @@ namespace Shop.Controllers
         /// <summary>
         /// password validation
         /// </summary>
-        /// <returns>bool</returns>
+        /// <param name="pass">password</param>
+        /// <returns>bool</returns>      
         public bool ValidatePassword(string pass)
         {
             bool valid = true;
@@ -248,6 +257,7 @@ namespace Shop.Controllers
                     valid = false;
                 }
             }
+
             return valid;
         }
 
@@ -274,7 +284,6 @@ namespace Shop.Controllers
                     }
                 }
             }
-
 
             return valid;
         }
@@ -342,6 +351,39 @@ namespace Shop.Controllers
         public void LoadProductsList()
         {
             view.LoadProductsList(repos.GetAllProducts());
-        }       
+        }
+
+        /// <summary>
+        /// add a product to user basked
+        /// </summary>
+        /// <param name="toAdd">product to add</param>
+        public void AddToUserBasked(Product toAdd)
+        {
+            userProducts.Add(toAdd);
+        }
+
+        /// <summary>
+        /// loads user basked to main form
+        /// </summary>
+        public void LoadUserProductsList()
+        {
+            view.LoadUserProductsList(userProducts);
+        }
+
+        /// <summary>
+        /// removes user basked from main form
+        /// </summary>
+        public void DestroyUserProductsList()
+        {
+            view.DestroyUserProductsList();
+        }
+
+        /// <summary>
+        /// removes all products from user basked
+        /// </summary>
+        public void ClearUserBasked()
+        {
+            userProducts.Clear();
+        }
     }
 }

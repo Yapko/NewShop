@@ -80,5 +80,29 @@ namespace Shop.Views
             ProductsList.Columns[2].Width = 100;
             ProductsList.Columns[3].Width = 100;
         }
+
+        /// <summary>
+        /// add checked product to user basked
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event</param>
+        private void ProductsList_DoubleClick(object sender, EventArgs e)
+        {
+            foreach (ListViewItem lvi in ProductsList.Items)
+            {
+                if (lvi.Focused == true)
+                {
+                    string name = lvi.SubItems[0].Text;
+                    string describe = lvi.SubItems[1].Text;
+                    string manufacturer = lvi.SubItems[2].Text;
+                    string price = lvi.SubItems[3].Text;
+                    price = price.Remove(price.Length - 1);
+                    double pr = double.Parse(price);
+
+                    Image img = lvi.ImageList.Images[lvi.ImageIndex];
+                    main.AddToUserBasked(new Product(img, name, describe, manufacturer, pr, 0));
+                }
+            }
+        }
     }
 }

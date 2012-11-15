@@ -1,6 +1,6 @@
 ﻿namespace Shop.Views
 {
-    partial class ProductsListControl
+    partial class UserBasked
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,35 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ProductsList = new System.Windows.Forms.ListView();
+            this.UserProductsList = new System.Windows.Forms.ListView();
             this.NameCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DescribeCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ManufacturerCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PriceCol = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
-            // ProductsList
+            // UserProductsList
             // 
-            this.ProductsList.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ProductsList.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ProductsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.UserProductsList.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.UserProductsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.NameCol,
             this.DescribeCol,
             this.ManufacturerCol,
             this.PriceCol});
-            this.ProductsList.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ProductsList.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductsList.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.ProductsList.FullRowSelect = true;
-            this.ProductsList.GridLines = true;
-            this.ProductsList.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ProductsList.Location = new System.Drawing.Point(0, 3);
-            this.ProductsList.Name = "ProductsList";
-            this.ProductsList.Size = new System.Drawing.Size(807, 695);
-            this.ProductsList.TabIndex = 0;
-            this.ProductsList.UseCompatibleStateImageBehavior = false;
-            this.ProductsList.View = System.Windows.Forms.View.Details;
-            this.ProductsList.DoubleClick += new System.EventHandler(this.ProductsList_DoubleClick);
+            this.UserProductsList.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserProductsList.FullRowSelect = true;
+            this.UserProductsList.GridLines = true;
+            this.UserProductsList.Location = new System.Drawing.Point(0, 2);
+            this.UserProductsList.Name = "UserProductsList";
+            this.UserProductsList.Size = new System.Drawing.Size(807, 695);
+            this.UserProductsList.TabIndex = 0;
+            this.UserProductsList.UseCompatibleStateImageBehavior = false;
+            this.UserProductsList.View = System.Windows.Forms.View.Details;
             // 
             // NameCol
             // 
@@ -74,14 +69,14 @@
             // 
             this.PriceCol.Text = "Price";
             // 
-            // ProductsListControl
+            // UserBasked
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.Controls.Add(this.ProductsList);
+            this.Controls.Add(this.UserProductsList);
             this.Location = new System.Drawing.Point(10, 10);
-            this.Name = "ProductsListControl";
+            this.Name = "UserBasked";
             this.Size = new System.Drawing.Size(810, 700);
             this.ResumeLayout(false);
 
@@ -89,7 +84,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView ProductsList;
+        private System.Windows.Forms.ListView UserProductsList;
         private System.Windows.Forms.ColumnHeader NameCol;
         private System.Windows.Forms.ColumnHeader DescribeCol;
         private System.Windows.Forms.ColumnHeader ManufacturerCol;

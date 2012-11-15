@@ -23,6 +23,9 @@ namespace Shop.Views
         /// </summary>
         private MainController main;
 
+        /// <summary>
+        /// attemts
+        /// </summary>
         private int attempts;
 
         /// <summary>
@@ -71,6 +74,7 @@ namespace Shop.Views
                     attempts = 0;
                 }
             }
+
             main.LogIn(UsernameTxt.Text, PasswordTxt.Text, captcha);
             UsernameTxt.ResetText();
             PasswordTxt.ResetText();

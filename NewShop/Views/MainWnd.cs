@@ -30,7 +30,7 @@ namespace Shop.Views
             InitializeComponent();
             control = newControl;
             this.Height = Screen.PrimaryScreen.WorkingArea.Height;
-            this.Width = Screen.PrimaryScreen.WorkingArea.Width;
+            this.Width = Screen.PrimaryScreen.WorkingArea.Width;            
         }
 
         /// <summary>
@@ -87,7 +87,6 @@ namespace Shop.Views
             // add complete picture box to mainform controls
             this.Controls.Add(closePictureBox);
         }
-
 
         /// <summary>
         /// Create login in main form
@@ -169,7 +168,7 @@ namespace Shop.Views
         public void DestroyAccount()
         {
             //this.Controls[controlsPos["Personal account"]].Dispose();
-            RemoveFromControls( "PersonalAccountControl" );
+            RemoveFromControls("PersonalAccountControl");
         }
 
         /// <summary>
@@ -183,12 +182,32 @@ namespace Shop.Views
         }
 
         /// <summary>
+        /// adds user producst list to controls
+        /// </summary>
+        /// <param name="prods">products to be added to view</param>
+        public void LoadUserProductsList(List<Product> prods)
+        {
+            //ProductsListControl plc = new ProductsListControl(control, prods);
+            UserBasked ub = new UserBasked(control, prods);
+            this.Controls.Add(ub);
+        }
+
+        /// <summary>
         /// destroys ProductsList from screen
         /// </summary>
         public void DestroyProductsList()
         {
             //this.Controls[controlsPos["ProductsList"]].Dispose();
             RemoveFromControls("ProductsListControl");
+        }
+
+        /// <summary>
+        /// destroys UserProductsList from screen
+        /// </summary>
+        public void DestroyUserProductsList()
+        {
+            //this.Controls[controlsPos["ProductsList"]].Dispose();
+            RemoveFromControls("UserBasked");
         }
 
         /// <summary>
@@ -218,7 +237,7 @@ namespace Shop.Views
         /// <param name="toRemove">control to be removed</param>
         private void RemoveFromControls(string toRemove)
         {
-            if(Controls.ContainsKey(toRemove) == true)
+            if (Controls.ContainsKey(toRemove) == true)
             {
                 Controls[Controls.IndexOfKey(toRemove)].Dispose();
             }

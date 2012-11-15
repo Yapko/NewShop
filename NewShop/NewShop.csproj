@@ -133,6 +133,12 @@
     <Compile Include="Views\RegistrationView.designer.cs">
       <DependentUpon>RegistrationView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserBasked.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\UserBasked.Designer.cs">
+      <DependentUpon>UserBasked.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControlView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RegistrationView.resx">
       <DependentUpon>RegistrationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\UserBasked.resx">
+      <DependentUpon>UserBasked.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControlView.resx">
       <DependentUpon>UserControlView.cs</DependentUpon>

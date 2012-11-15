@@ -131,6 +131,11 @@ namespace Shop.Views
             pass1Field.ForeColor = Color.Black;
         }
 
+        /// <summary>
+        /// pass2 validation
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event</param>
         private void pass2Field_Validating(object sender, CancelEventArgs e)
         {
             if (!control.ValidateConfirmedPassword(pass1Field.Text, pass2Field.Text) || 
@@ -142,12 +147,22 @@ namespace Shop.Views
             }
         }
 
+        /// <summary>
+        /// validation
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event</param>
         private void pass2Field_Validated(object sender, EventArgs e)
         {
             errorProvider2.SetError(pass1Field, string.Empty);
             pass2Field.ForeColor = Color.Black;
         }
 
+        /// <summary>
+        /// text changed event
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event</param>
         private void pass2Field_TextChanged(object sender, EventArgs e)
         {
             if (!control.ValidateConfirmedPassword(pass1Field.Text, pass2Field.Text))
