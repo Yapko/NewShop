@@ -172,6 +172,30 @@ namespace Shop.Controllers
         }
 
         /// <summary>
+        /// registration of user
+        /// </summary>
+        /// <param name="username">username</param>
+        /// <param name="name1">first name</param>
+        /// <param name="name2">last name</param>
+        /// <param name="phone">phone number</param>
+        /// <param name="email">email address</param>
+        /// <param name="pass1">password</param>
+        /// <param name="pass2">confirmed password</param>
+        /// <param name="status">captcha status</param>
+        public void Registration(string username, string name1, string name2, string phone, string email, string pass1, string pass2, bool status)
+        {
+            if (username.Length == 0 || !this.ValidateEmail(email) || !this.ValidatePassword(pass1) || !this.ValidateConfirmedPassword(pass1, pass2) || !status)
+            {
+                MessageBox.Show("Some data is wrong!", "Registration", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
+
+            User newUser = new User(username, name1, name2, email, pass1, phone, "none", "none", "none", "none", "UnloggedUser");
+            repos.AddUser(newUser);
+            MessageBox.Show("Your request will be considered as soon as posible!", "Registration", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
+
+        /// <summary>
         /// destroys register view
         /// </summary>
         public void DestroyRegisterView()

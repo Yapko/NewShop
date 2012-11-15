@@ -35,6 +35,54 @@ namespace Shop.Views
         }
 
         /// <summary>
+        /// Gets password
+        /// </summary>
+        public string GetPassword
+        {
+            get { return pass1Field.Text; }
+        }
+
+        /// <summary>
+        /// Gets email
+        /// </summary>
+        public string GetEmail
+        {
+            get { return emailField.Text; }
+        }
+
+        /// <summary>
+        /// Get first name
+        /// </summary>
+        public string GetFirstName
+        {
+            get { return name1Field.Text; }
+        }
+
+        /// <summary>
+        /// Gets last name
+        /// </summary>
+        public string GetLastName
+        {
+            get { return name2Field.Text; }
+        }
+
+        /// <summary>
+        /// Gets phone number
+        /// </summary>
+        public string GetPhoneNumber
+        {
+            get { return tel1Field.Text + tel2Field.Text; }
+        }
+
+        /// <summary>
+        /// Gets username
+        /// </summary>
+        public string GetUsername
+        {
+            get { return usernameField.Text; }
+        }
+
+        /// <summary>
         /// Create captcha in main form
         /// </summary>
         /// <param name="position">position of upper left ungle </param>
@@ -76,7 +124,9 @@ namespace Shop.Views
         /// <param name="e">event</param>
         private void button1_Click(object sender, EventArgs e)
         {
+            control.Registration(GetUsername, GetFirstName, GetLastName, GetPhoneNumber, GetEmail, pass1Field.Text, pass2Field.Text, CaptchaStatus());
             control.DestroyRegisterView();
+            control.LoadLogin();
         }
 
         /// <summary>
