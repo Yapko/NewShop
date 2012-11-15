@@ -52,6 +52,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
@@ -77,8 +78,8 @@
             this.emailField.Name = "emailField";
             this.emailField.Size = new System.Drawing.Size(167, 20);
             this.emailField.TabIndex = 2;
-            this.emailField.Validating += new System.ComponentModel.CancelEventHandler(this.emailField_Validating);
-            this.emailField.Validated += new System.EventHandler(this.emailField_Validated);
+            this.emailField.Validating += new System.ComponentModel.CancelEventHandler(this.EmailField_Validating);
+            this.emailField.Validated += new System.EventHandler(this.EmailField_Validated);
             // 
             // label1
             // 
@@ -146,9 +147,9 @@
             this.pass2Field.Size = new System.Drawing.Size(167, 20);
             this.pass2Field.TabIndex = 8;
             this.pass2Field.UseSystemPasswordChar = true;
-            this.pass2Field.TextChanged += new System.EventHandler(this.pass2Field_TextChanged);
-            this.pass2Field.Validating += new System.ComponentModel.CancelEventHandler(this.pass2Field_Validating);
-            this.pass2Field.Validated += new System.EventHandler(this.pass2Field_Validated);
+            this.pass2Field.TextChanged += new System.EventHandler(this.Pass2Field_TextChanged);
+            this.pass2Field.Validating += new System.ComponentModel.CancelEventHandler(this.Pass2Field_Validating);
+            this.pass2Field.Validated += new System.EventHandler(this.Pass2Field_Validated);
             // 
             // pass1Field
             // 
@@ -157,8 +158,8 @@
             this.pass1Field.Size = new System.Drawing.Size(167, 20);
             this.pass1Field.TabIndex = 9;
             this.pass1Field.UseSystemPasswordChar = true;
-            this.pass1Field.Validating += new System.ComponentModel.CancelEventHandler(this.pass1Field_Validating);
-            this.pass1Field.Validated += new System.EventHandler(this.pass1Field_Validated);
+            this.pass1Field.Validating += new System.ComponentModel.CancelEventHandler(this.Pass1Field_Validating);
+            this.pass1Field.Validated += new System.EventHandler(this.Pass1Field_Validated);
             // 
             // label6
             // 
@@ -182,13 +183,13 @@
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.button1.Location = new System.Drawing.Point(165, 424);
+            this.button1.Location = new System.Drawing.Point(111, 424);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 12;
             this.button1.Text = "Register";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1Click);
             // 
             // label7
             // 
@@ -198,7 +199,7 @@
             this.label7.Size = new System.Drawing.Size(409, 13);
             this.label7.TabIndex = 13;
             this.label7.Text = "By clicking Register you confirm that you accept our Terms of Use and Private Pol" +
-                "icy.";
+    "icy.";
             // 
             // label8
             // 
@@ -275,12 +276,23 @@
             // 
             this.errorProvider3.ContainerControl = this;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(235, 424);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 29;
+            this.button2.Text = "Close";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // RegistrationView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.tel2Field);
@@ -339,6 +351,7 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.Button button2;
     }
 }
 

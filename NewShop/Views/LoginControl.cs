@@ -78,9 +78,9 @@ namespace Shop.Views
             main.LogIn(UsernameTxt.Text, PasswordTxt.Text, captcha);
             UsernameTxt.ResetText();
             PasswordTxt.ResetText();
-            if(attempts >= 5)
+            if (attempts >= 5)
             {
-                LoadCaptcha(new Point(60,120));
+                LoadCaptcha(new Point(60, 120));
                 this.Height = 271;
             }
             else
@@ -135,7 +135,8 @@ namespace Shop.Views
         /// <returns>if text equivalent to captcha</returns>
         public bool CaptchaStatus()
         {
-            return ((CaptchaControl) Controls[Controls.IndexOfKey("CaptchaControl")]).Check;
+            CaptchaControl ctrl = (CaptchaControl)Controls[Controls.IndexOfKey("CaptchaControl")];
+            return ctrl.Check;
         }
 
         /// <summary>

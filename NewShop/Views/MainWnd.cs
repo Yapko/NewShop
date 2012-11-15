@@ -30,7 +30,7 @@ namespace Shop.Views
             InitializeComponent();
             control = newControl;
             this.Height = Screen.PrimaryScreen.WorkingArea.Height;
-            this.Width = Screen.PrimaryScreen.WorkingArea.Width;            
+            this.Width = Screen.PrimaryScreen.WorkingArea.Width;
         }
 
         /// <summary>
@@ -227,7 +227,6 @@ namespace Shop.Views
         /// </summary>
         public void DestroyRegisterView()
         {            
-            //this.Controls[controlsPos["RegistrView"]].Dispose();
             RemoveFromControls("RegistrationView");
         }
 

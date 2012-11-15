@@ -51,7 +51,7 @@ namespace Shop.Views
         }
 
         /// <summary>
-        /// Get first name
+        /// Gets first name
         /// </summary>
         public string GetFirstName
         {
@@ -122,7 +122,7 @@ namespace Shop.Views
         /// </summary>
         /// <param name="sender">object sender</param>
         /// <param name="e">event</param>
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1Click(object sender, EventArgs e)
         {
             control.Registration(GetUsername, GetFirstName, GetLastName, GetPhoneNumber, GetEmail, pass1Field.Text, pass2Field.Text, CaptchaStatus());
             control.DestroyRegisterView();
@@ -134,7 +134,7 @@ namespace Shop.Views
         /// </summary>
         /// <param name="sender">object sender</param>
         /// <param name="e">event</param>
-        private void emailField_Validating(object sender, CancelEventArgs e)
+        private void EmailField_Validating(object sender, CancelEventArgs e)
         {
             if (!control.ValidateEmail(emailField.Text))
             {
@@ -149,7 +149,7 @@ namespace Shop.Views
         /// </summary>
         /// <param name="sender">object sender</param>
         /// <param name="e">event</param>
-        private void emailField_Validated(object sender, EventArgs e)
+        private void EmailField_Validated(object sender, EventArgs e)
         {
             emailField.ForeColor = Color.Black;
             errorProvider1.SetError(emailField, string.Empty);
@@ -160,7 +160,7 @@ namespace Shop.Views
         /// </summary>
         /// <param name="sender">object sender</param>
         /// <param name="e">event</param>
-        private void pass1Field_Validating(object sender, CancelEventArgs e)
+        private void Pass1Field_Validating(object sender, CancelEventArgs e)
         {
             if (!control.ValidatePassword(pass1Field.Text))
             {
@@ -175,7 +175,7 @@ namespace Shop.Views
         /// </summary>
         /// <param name="sender">object sender</param>
         /// <param name="e">event</param>
-        private void pass1Field_Validated(object sender, EventArgs e)
+        private void Pass1Field_Validated(object sender, EventArgs e)
         {
             errorProvider1.SetError(pass1Field, string.Empty);
             pass1Field.ForeColor = Color.Black;
@@ -186,7 +186,7 @@ namespace Shop.Views
         /// </summary>
         /// <param name="sender">sender</param>
         /// <param name="e">event</param>
-        private void pass2Field_Validating(object sender, CancelEventArgs e)
+        private void Pass2Field_Validating(object sender, CancelEventArgs e)
         {
             if (!control.ValidateConfirmedPassword(pass1Field.Text, pass2Field.Text) || 
                 pass1Field.Text.Length > pass2Field.Text.Length || pass2Field.Text.Length == 0)
@@ -202,7 +202,7 @@ namespace Shop.Views
         /// </summary>
         /// <param name="sender">sender</param>
         /// <param name="e">event</param>
-        private void pass2Field_Validated(object sender, EventArgs e)
+        private void Pass2Field_Validated(object sender, EventArgs e)
         {
             errorProvider2.SetError(pass1Field, string.Empty);
             pass2Field.ForeColor = Color.Black;
@@ -213,7 +213,7 @@ namespace Shop.Views
         /// </summary>
         /// <param name="sender">sender</param>
         /// <param name="e">event</param>
-        private void pass2Field_TextChanged(object sender, EventArgs e)
+        private void Pass2Field_TextChanged(object sender, EventArgs e)
         {
             if (!control.ValidateConfirmedPassword(pass1Field.Text, pass2Field.Text))
             {
@@ -225,6 +225,12 @@ namespace Shop.Views
                 errorProvider2.SetError(pass1Field, string.Empty);
                 pass2Field.ForeColor = Color.Black;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            control.DestroyRegisterView();
+            control.LoadLogin();
         }
     }
 }

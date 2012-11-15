@@ -32,6 +32,7 @@ namespace Shop.Views
             control = ctrl;
             this.UsernameLabel.Text = username + "!";
             this.RoleLabel.Text = role + ".";
+            ProductsListBtn.Enabled = false;
         }
 
         /// <summary>
@@ -53,5 +54,32 @@ namespace Shop.Views
         {
             control.ShowPersonalCabinet();
         }
+
+        /// <summary>
+        /// open used basket and close product list
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event</param>
+        private void OpenBasketBtn_Click(object sender, EventArgs e)
+        {
+            control.DestroyProductsList();
+            control.LoadUserProductsList();
+            ProductsListBtn.Enabled = true;
+            OpenBasketBtn.Enabled = false;
+        }
+
+        /// <summary>
+        /// open products list and close user basket
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event</param>
+        private void ProductsListBtn_Click(object sender, EventArgs e)
+        {
+            control.DestroyUserProductsList();
+            control.LoadProductsList();
+            ProductsListBtn.Enabled = false;
+            OpenBasketBtn.Enabled = true;
+        }
+
     }
 }

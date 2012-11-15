@@ -34,6 +34,8 @@
             this.RoleLabel = new System.Windows.Forms.Label();
             this.LogoutButton = new System.Windows.Forms.Button();
             this.AccountButton = new System.Windows.Forms.Button();
+            this.OpenBasketBtn = new System.Windows.Forms.Button();
+            this.ProductsListBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // WelcomeLabel
@@ -79,7 +81,7 @@
             this.LogoutButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LogoutButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogoutButton.Location = new System.Drawing.Point(33, 126);
+            this.LogoutButton.Location = new System.Drawing.Point(33, 181);
             this.LogoutButton.Name = "LogoutButton";
             this.LogoutButton.Size = new System.Drawing.Size(75, 23);
             this.LogoutButton.TabIndex = 5;
@@ -94,7 +96,7 @@
             this.AccountButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.AccountButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.AccountButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AccountButton.Location = new System.Drawing.Point(147, 126);
+            this.AccountButton.Location = new System.Drawing.Point(147, 181);
             this.AccountButton.Name = "AccountButton";
             this.AccountButton.Size = new System.Drawing.Size(123, 23);
             this.AccountButton.TabIndex = 6;
@@ -102,11 +104,37 @@
             this.AccountButton.UseVisualStyleBackColor = true;
             this.AccountButton.Click += new System.EventHandler(this.AccountButton_Click);
             // 
+            // OpenBasketBtn
+            // 
+            this.OpenBasketBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.OpenBasketBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OpenBasketBtn.Location = new System.Drawing.Point(33, 147);
+            this.OpenBasketBtn.Name = "OpenBasketBtn";
+            this.OpenBasketBtn.Size = new System.Drawing.Size(75, 23);
+            this.OpenBasketBtn.TabIndex = 7;
+            this.OpenBasketBtn.Text = "Basket";
+            this.OpenBasketBtn.UseVisualStyleBackColor = false;
+            this.OpenBasketBtn.Click += new System.EventHandler(this.OpenBasketBtn_Click);
+            // 
+            // ProductsListBtn
+            // 
+            this.ProductsListBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ProductsListBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ProductsListBtn.Location = new System.Drawing.Point(147, 147);
+            this.ProductsListBtn.Name = "ProductsListBtn";
+            this.ProductsListBtn.Size = new System.Drawing.Size(123, 23);
+            this.ProductsListBtn.TabIndex = 8;
+            this.ProductsListBtn.Text = "Products";
+            this.ProductsListBtn.UseVisualStyleBackColor = false;
+            this.ProductsListBtn.Click += new System.EventHandler(this.ProductsListBtn_Click);
+            // 
             // UserControlView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Controls.Add(this.ProductsListBtn);
+            this.Controls.Add(this.OpenBasketBtn);
             this.Controls.Add(this.AccountButton);
             this.Controls.Add(this.LogoutButton);
             this.Controls.Add(this.RoleLabel);
@@ -114,7 +142,7 @@
             this.Controls.Add(this.UsernameLabel);
             this.Controls.Add(this.WelcomeLabel);
             this.Name = "UserControlView";
-            this.Size = new System.Drawing.Size(294, 171);
+            this.Size = new System.Drawing.Size(294, 226);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,5 +156,7 @@
         private System.Windows.Forms.Label RoleLabel;
         private System.Windows.Forms.Button LogoutButton;
         private System.Windows.Forms.Button AccountButton;
+        private System.Windows.Forms.Button OpenBasketBtn;
+        private System.Windows.Forms.Button ProductsListBtn;
     }
 }

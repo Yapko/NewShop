@@ -43,10 +43,10 @@
             this.DescribeCol,
             this.ManufacturerCol,
             this.PriceCol});
-            this.UserProductsList.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserProductsList.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserProductsList.FullRowSelect = true;
             this.UserProductsList.GridLines = true;
-            this.UserProductsList.Location = new System.Drawing.Point(0, 2);
+            this.UserProductsList.Location = new System.Drawing.Point(0, 3);
             this.UserProductsList.Name = "UserProductsList";
             this.UserProductsList.Size = new System.Drawing.Size(807, 695);
             this.UserProductsList.TabIndex = 0;
