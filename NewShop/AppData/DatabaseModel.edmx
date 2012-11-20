@@ -27,19 +27,18 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Image" Type="image" Nullable="false" />
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="Describe" Type="nvarchar" MaxLength="100" />
           <Property Name="Maufacture" Type="nvarchar" MaxLength="100" />
           <Property Name="Price" Type="real" />
           <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="image" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="UserName" />
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="100" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="100" />
           <Property Name="LastName" Type="nvarchar" MaxLength="100" />
           <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="100" />
@@ -61,6 +60,14 @@
           <EntitySet Name="Orders" EntityType="DatabaseModel.Order" />
           <EntitySet Name="Products" EntityType="DatabaseModel.Product" />
           <EntitySet Name="Users" EntityType="DatabaseModel.User" />
+          <AssociationSet Name="UserOrder" Association="DatabaseModel.UserOrder">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="ProductOrder" Association="DatabaseModel.ProductOrder">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Order">
           <Key>
@@ -74,24 +81,26 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="DatabaseModel.UserOrder" FromRole="Order" ToRole="User" />
+          <NavigationProperty Name="Product" Relationship="DatabaseModel.ProductOrder" FromRole="Order" ToRole="Product" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="Image" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Describe" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Maufacture" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Price" Type="Single" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Orders" Relationship="DatabaseModel.ProductOrder" FromRole="Product" ToRole="Order" />
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="UserName" />
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="FirstName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="LastName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
@@ -103,7 +112,32 @@
           <Property Name="Gender" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Status" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Orders" Relationship="DatabaseModel.UserOrder" FromRole="User" ToRole="Order" />
         </EntityType>
+        <Association Name="UserOrder">
+          <End Type="DatabaseModel.User" Role="User" Multiplicity="1" />
+          <End Type="DatabaseModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductOrder">
+          <End Type="DatabaseModel.Product" Role="Product" Multiplicity="1" />
+          <End Type="DatabaseModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -127,12 +161,12 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="DatabaseModel.Product">
               <MappingFragment StoreEntitySet="Products">
-                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Describe" ColumnName="Describe" />
                 <ScalarProperty Name="Maufacture" ColumnName="Maufacture" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
