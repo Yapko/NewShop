@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.ChangeImageButton = new System.Windows.Forms.Button();
-            this.imgPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,6 +40,8 @@
             this.DescriptionTxt = new System.Windows.Forms.RichTextBox();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.CancelBtn = new System.Windows.Forms.Button();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // ChangeImageButton
@@ -51,15 +52,6 @@
             this.ChangeImageButton.TabIndex = 0;
             this.ChangeImageButton.Text = "Change image";
             this.ChangeImageButton.UseVisualStyleBackColor = true;
-            // 
-            // imgPanel
-            // 
-            this.imgPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.imgPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgPanel.Location = new System.Drawing.Point(17, 45);
-            this.imgPanel.Name = "imgPanel";
-            this.imgPanel.Size = new System.Drawing.Size(98, 95);
-            this.imgPanel.TabIndex = 1;
             // 
             // label1
             // 
@@ -112,6 +104,7 @@
             this.NameTxt.Name = "NameTxt";
             this.NameTxt.Size = new System.Drawing.Size(112, 20);
             this.NameTxt.TabIndex = 7;
+            this.NameTxt.TextChanged += new System.EventHandler(this.NameTxt_TextChanged);
             // 
             // ManufacturerTxt
             // 
@@ -143,6 +136,7 @@
             this.SaveBtn.TabIndex = 11;
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // CancelBtn
             // 
@@ -152,12 +146,24 @@
             this.CancelBtn.TabIndex = 12;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = true;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            // 
+            // pictureBox
+            // 
+            this.pictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox.Location = new System.Drawing.Point(15, 42);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(100, 91);
+            this.pictureBox.TabIndex = 13;
+            this.pictureBox.TabStop = false;
             // 
             // ProductChangeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.DescriptionTxt);
@@ -169,10 +175,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.imgPanel);
             this.Controls.Add(this.ChangeImageButton);
             this.Name = "ProductChangeControl";
             this.Size = new System.Drawing.Size(294, 291);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,7 +187,6 @@
         #endregion
 
         private System.Windows.Forms.Button ChangeImageButton;
-        private System.Windows.Forms.Panel imgPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -193,5 +198,6 @@
         private System.Windows.Forms.RichTextBox DescriptionTxt;
         private System.Windows.Forms.Button SaveBtn;
         private System.Windows.Forms.Button CancelBtn;
+        private System.Windows.Forms.PictureBox pictureBox;
     }
 }

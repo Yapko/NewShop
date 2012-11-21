@@ -38,7 +38,8 @@ namespace Shop.Views
         /// <param name="e"> event </param>
         private void AddButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this, "Add button was clicked", "Captain Obvious");
+            //MessageBox.Show(this, "Add button was clicked", "Captain Obvious");
+            control.LoadProductChange(false);
         }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace Shop.Views
         private void ChangeButton_Click(object sender, EventArgs e)
         {
             // MessageBox.Show(this, "Change button was clicked", "Captain Obvious");
-            control.LoadProductChange();
+            control.LoadProductChange(true);
         }
 
         /// <summary>

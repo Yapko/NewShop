@@ -499,13 +499,17 @@ namespace Shop.Controllers
         /// <summary>
         /// Loads change products form
         /// </summary>
-        public void LoadProductChange()
+        public void LoadProductChange(bool change)
         {
             Product prod = GetSelectedProduct();
-            if (prod != null)
+            if (prod != null && change)
             {
-                view.LoadChangeProduct(new Point(view.Width - 370, 400));
+                view.LoadChangeProduct(new Point(view.Width - 370, 420));
                 view.ChangedProduct = prod.Clone();
+            }
+            else if(!change)
+            {
+                view.LoadChangeProduct(new Point(view.Width - 370, 420));
             }
             //else
             //{
@@ -519,6 +523,16 @@ namespace Shop.Controllers
         public void DestroyProductChange()
         {
             view.DestroyChangeProduct();
+        }
+
+        public void AddNewProduct(Product prod)
+        {
+
+        }
+
+        public void ChangeProduct(Product from, Product to)
+        {
+
         }
     }
 }

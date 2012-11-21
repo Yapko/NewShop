@@ -32,6 +32,7 @@ namespace Shop.Views
         public Product OldProd
         {
             get { return oldProd; }
+            set { oldProd = value; }
         }
 
         /// <summary>
@@ -42,6 +43,14 @@ namespace Shop.Views
         {
             InitializeComponent();
             control = ctrl;
+            oldProd = null;
+            //add initialization
+            NameTxt.Text = "noname";
+            DescriptionTxt.Text = string.Empty;
+            ManufacturerTxt.Text = string.Empty;
+            PriceTxt.Text = 0.ToString();
+            pictureBox.Image = Properties.Resources.no_photo;
+            pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
         }
 
         /// <summary>
@@ -51,20 +60,48 @@ namespace Shop.Views
         {
             get
             {
-                return new Product();
+                return new Product(pictureBox.Image, NameTxt.Text, DescriptionTxt.Text, ManufacturerTxt.Text, double.Parse(PriceTxt.Text));
             }
             set
             {
                 oldProd = value;
-                //fields initialization
+                NameTxt.Text = value.Name;
+                DescriptionTxt.Text = value.Describe;
+                ManufacturerTxt.Text = value.Maufacture;
+                PriceTxt.Text = value.Price.ToString();
+                pictureBox.Image = value.GetImage();
+                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
         }
 
-        private void SetImageToPanel(Image img)
+        private void SaveBtn_Click(object sender, EventArgs e)
         {
-            Graphics grf = imgPanel.CreateGraphics();
-            PointF[] points = {new PointF(0,0),new PointF(0,imgPanel.Width), new PointF(imgPanel.Height,imgPanel.Width), new PointF(imgPanel.Height,0)};
-            grf.DrawImage(img, points);
+            if(oldProd != null)
+            {
+                control.ChangeProduct(oldProd, ChangedProduct);
+            }
+            else
+            {
+                control.AddNewProduct(ChangedProduct);
+            }
+            control.DestroyProductChange();
+        }
+
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            control.DestroyProductChange();
+        }
+
+        private void NameTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (NameTxt.Text.Length == 0)
+            {
+                SaveBtn.Enabled = false;
+            }
+            else
+            {
+                SaveBtn.Enabled = true;
+            }
         }
     }
 }

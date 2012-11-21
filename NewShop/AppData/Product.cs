@@ -52,6 +52,14 @@ namespace Shop.AppData
             Price = (Nullable<float>)price;
             ID = id;
         }
+        public Product(byte[] img, string name, string desc, string manf, double price)
+        {
+            Image = img;
+            Name = name;
+            Describe = desc;
+            Maufacture = manf;
+            Price = (Nullable<float>)price;
+        }
         public Product(System.Drawing.Image img, string name, string desc, string manf, double price, int id)
         {
             SetImage(img);
@@ -60,6 +68,14 @@ namespace Shop.AppData
             Maufacture = manf;
             Price = (Nullable<float>)price;
             ID = id;
+        }
+        public Product(System.Drawing.Image img, string name, string desc, string manf, double price)
+        {
+            SetImage(img);
+            Name = name;
+            Describe = desc;
+            Maufacture = manf;
+            Price = (Nullable<float>)price;
         }
         public Product Clone()
         {
