@@ -80,6 +80,5 @@ namespace Shop.Views
             ProductsListBtn.Enabled = false;
             OpenBasketBtn.Enabled = true;
         }
-
     }
 }

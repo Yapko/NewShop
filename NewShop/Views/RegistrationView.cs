@@ -227,7 +227,12 @@ namespace Shop.Views
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Clicked cancel
+        /// </summary>
+        /// <param name="sender"> message sender </param>
+        /// <param name="e"> event </param>
+        private void Button2Click(object sender, EventArgs e)
         {
             control.DestroyRegisterView();
             control.LoadLogin();

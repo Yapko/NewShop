@@ -112,6 +112,29 @@ namespace Shop.Views
         }
 
         /// <summary>
+        /// Create Manager form in main form
+        /// </summary>
+        /// <param name="position">position of upper left ungle </param>
+        public void LoadManager(Point position)
+        {
+            //create login
+            ManagerControl mng = new ManagerControl(control);
+            // set location in center of form
+            mng.Location = position;
+
+            // add login to mainform controls
+            this.Controls.Add(mng);
+        }
+
+        /// <summary>
+        /// Destroys Login control
+        /// </summary>
+        public void ManagerDestroy()
+        {
+            RemoveFromControls("ManagerControl");
+        }
+
+        /// <summary>
         /// Load user view
         /// </summary>
         /// <param name="position"> screen position </param>
@@ -231,6 +254,22 @@ namespace Shop.Views
         }
 
         /// <summary>
+        /// Gets selected product
+        /// </summary>
+        /// <returns> selected product</returns>
+        public Product GetSelectedProduct()
+        {
+            if (Controls.ContainsKey("ProductsListControl") == true)
+            {
+                return ((ProductsListControl)Controls[Controls.IndexOfKey("ProductsListControl")]).GetFocused();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
         /// removes control by its name
         /// </summary>
         /// <param name="toRemove">control to be removed</param>
@@ -240,10 +279,10 @@ namespace Shop.Views
             {
                 Controls[Controls.IndexOfKey(toRemove)].Dispose();
             }
-            else
-            {
-                MessageBox.Show("Element missing!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //else
+            //{
+            //    MessageBox.Show("Element missing!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
     }
 }

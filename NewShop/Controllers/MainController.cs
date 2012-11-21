@@ -134,7 +134,14 @@ namespace Shop.Controllers
         /// </summary>
         public void ChangeUser()
         {
-            //TODO: Check and change controls needed to current user.
+            if (user.Status == "Manager")
+            {
+                LoadManager();
+            }
+            else
+            {
+                DestroyManager();
+            }
         }
 
         /// <summary>
@@ -143,6 +150,22 @@ namespace Shop.Controllers
         public void LoadLogin()
         {
             view.LoadLogin(new Point(view.Width - 370, 60));
+        }
+
+        /// <summary>
+        /// Loads manager form
+        /// </summary>
+        public void LoadManager()
+        {
+            view.LoadManager(new Point(view.Width - 370, 360));
+        }
+
+        /// <summary>
+        /// Destroyes manager window
+        /// </summary>
+        public void DestroyManager()
+        {
+            view.ManagerDestroy();
         }
 
         /// <summary>
@@ -408,6 +431,28 @@ namespace Shop.Controllers
         public void ClearUserBasked()
         {
             userProducts.Clear();
+        }
+
+        /// <summary>
+        /// Gets focused product from list
+        /// </summary>
+        /// <returns> selected product </returns>
+        public Product GetSelectedProduct()
+        {
+            return view.GetSelectedProduct();
+        }
+
+        public  void DeleteSelectedProduct()
+        {
+            Product prod = GetSelectedProduct();
+            if (prod != null)
+            {
+                repos.DeleteProduct(prod);
+            }
+            //else
+            //{
+            //    MessageBox.Show("Nothing to delete", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
     }
 }

@@ -104,5 +104,27 @@ namespace Shop.Views
                 }
             }
         }
+
+        /// <summary>
+        /// Get focused element from product list
+        /// </summary>
+        /// <returns> product wich focused </returns>
+        public Product GetFocused()
+        {
+            Product toRet = null;
+            foreach (ListViewItem lvi in ProductsList.Items)
+            {
+                if (lvi.Focused == true)
+                {
+                    string price = lvi.SubItems[3].Text;
+                    price = price.Remove(price.Length - 1);
+                    double pr = double.Parse(price);
+                    toRet = new Product(lvi.ImageList.Images[lvi.ImageIndex], lvi.SubItems[0].Text, lvi.SubItems[1].Text, lvi.SubItems[2].Text, pr, ProductsList.Items.IndexOf(lvi) + 1);
+                    break;
+                }
+            }
+
+            return toRet;
+        }
     }
 }

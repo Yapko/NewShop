@@ -249,8 +249,15 @@ namespace Shop.Models
         /// <param name="element">element to delete</param>
         public void DeleteProduct(Product element)
         {
-            database.Products.Remove(element);
-            database.SaveChanges();
+            Product toDelete =
+                database.Products.Where(
+                    p =>
+                    p.Maufacture == element.Maufacture && p.Name == element.Name && p.Price == element.Price).FirstOrDefault();
+            if(toDelete != null)
+            {
+                database.Products.Remove(toDelete);
+                database.SaveChanges();
+            }
         }
 
         /// <summary>

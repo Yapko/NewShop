@@ -81,8 +81,6 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="DatabaseModel.UserOrder" FromRole="Order" ToRole="User" />
-          <NavigationProperty Name="Product" Relationship="DatabaseModel.ProductOrder" FromRole="Order" ToRole="Product" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -94,7 +92,6 @@
           <Property Name="Price" Type="Single" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Orders" Relationship="DatabaseModel.ProductOrder" FromRole="Product" ToRole="Order" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -112,7 +109,6 @@
           <Property Name="Gender" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="Status" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Orders" Relationship="DatabaseModel.UserOrder" FromRole="User" ToRole="Order" />
         </EntityType>
         <Association Name="UserOrder">
           <End Type="DatabaseModel.User" Role="User" Multiplicity="1" />
