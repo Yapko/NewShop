@@ -253,7 +253,7 @@ namespace Shop.Models
                 database.Products.Where(
                     p =>
                     p.Maufacture == element.Maufacture && p.Name == element.Name && p.Price == element.Price).FirstOrDefault();
-            if(toDelete != null)
+            if (toDelete != null)
             {
                 database.Products.Remove(toDelete);
                 database.SaveChanges();

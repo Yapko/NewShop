@@ -442,7 +442,10 @@ namespace Shop.Controllers
             return view.GetSelectedProduct();
         }
 
-        public  void DeleteSelectedProduct()
+        /// <summary>
+        /// Delete selected product from database
+        /// </summary>
+        public void DeleteSelectedProduct()
         {
             Product prod = GetSelectedProduct();
             if (prod != null)
