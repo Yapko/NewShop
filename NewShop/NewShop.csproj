@@ -127,6 +127,12 @@
     <Compile Include="Views\PersonalAccountControl.Designer.cs">
       <DependentUpon>PersonalAccountControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ProductChangeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ProductChangeControl.Designer.cs">
+      <DependentUpon>ProductChangeControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProductsListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PersonalAccountControl.resx">
       <DependentUpon>PersonalAccountControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProductChangeControl.resx">
+      <DependentUpon>ProductChangeControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ProductsListControl.resx">
       <DependentUpon>ProductsListControl.cs</DependentUpon>

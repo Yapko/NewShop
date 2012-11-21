@@ -169,14 +169,22 @@ namespace Shop.Views
             LoadLogin(new Point(2, 30));
         }
 
+        /// <summary>
+        /// Set value to enable basket button
+        /// </summary>
+        /// <param name="value"> eneble of disable </param>
         public void SetUserViewBasketButton(bool value)
         {
             if (Controls.ContainsKey("UserControlView") == true)
             {
-                ((UserControlView) Controls[Controls.IndexOfKey("UserControlView")]).BasketButton = value;
+                ((UserControlView)Controls[Controls.IndexOfKey("UserControlView")]).BasketButton = value;
             }
         }
 
+        /// <summary>
+        /// Set value to enable product button
+        /// </summary>
+        /// <param name="value"> eneble of disable </param>
         public void SetUserViewProductsButton(bool value)
         {
             if (Controls.ContainsKey("UserControlView") == true)
@@ -184,7 +192,6 @@ namespace Shop.Views
                 ((UserControlView)Controls[Controls.IndexOfKey("UserControlView")]).ProductsButton = value;
             }
         }
-
 
         /// <summary>
         /// Create account in main form
@@ -209,6 +216,51 @@ namespace Shop.Views
         {
             //this.Controls[controlsPos["Personal account"]].Dispose();
             RemoveFromControls("PersonalAccountControl");
+        }
+
+        /// <summary>
+        /// Create change product control in main form
+        /// </summary>
+        /// <param name="position">position of upper left ungle</param>
+        public void LoadChangeProduct(Point position)
+        {
+            ProductChangeControl prod = new ProductChangeControl(control);
+            prod.Location = position;
+            this.Controls.Add(prod);
+        }
+
+        /// <summary>
+        /// destroy product change control
+        /// </summary>
+        public void DestroyChangeProduct()
+        {
+            RemoveFromControls("ProductChangeControl");
+        }
+
+        /// <summary>
+        /// Gets or sets changed product
+        /// </summary>
+        public Product ChangedProduct
+        {
+            get
+            {
+                if (Controls.ContainsKey("ProductChangeControl") == true)
+                {
+                    return ((ProductChangeControl)Controls[Controls.IndexOfKey("ProductChangeControl")]).ChangedProduct;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+
+            set
+            {
+                if (Controls.ContainsKey("ProductChangeControl") == true)
+                {
+                    ((ProductChangeControl)Controls[Controls.IndexOfKey("ProductChangeControl")]).ChangedProduct = value;
+                }
+            }
         }
 
         /// <summary>

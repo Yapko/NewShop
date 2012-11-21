@@ -35,7 +35,7 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(27, 28);
+            this.AddButton.Location = new System.Drawing.Point(13, 15);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(75, 23);
             this.AddButton.TabIndex = 0;
@@ -45,7 +45,7 @@
             // 
             // ChangeButton
             // 
-            this.ChangeButton.Location = new System.Drawing.Point(27, 70);
+            this.ChangeButton.Location = new System.Drawing.Point(109, 15);
             this.ChangeButton.Name = "ChangeButton";
             this.ChangeButton.Size = new System.Drawing.Size(75, 23);
             this.ChangeButton.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             // DeleteButton
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(27, 112);
+            this.DeleteButton.Location = new System.Drawing.Point(205, 15);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(75, 23);
             this.DeleteButton.TabIndex = 2;
@@ -72,7 +72,7 @@
             this.Controls.Add(this.ChangeButton);
             this.Controls.Add(this.AddButton);
             this.Name = "ManagerControl";
-            this.Size = new System.Drawing.Size(133, 171);
+            this.Size = new System.Drawing.Size(294, 55);
             this.ResumeLayout(false);
 
         }

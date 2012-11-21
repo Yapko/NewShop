@@ -20,11 +20,18 @@ namespace Shop.Views
         /// </summary>
         private MainController control;
 
+        /// <summary>
+        /// Gets or sets a value indicating whether product button enabled
+        /// </summary>
         public bool ProductsButton
         {
             get { return ProductsListBtn.Enabled; }
             set { ProductsListBtn.Enabled = value; }
         }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether basket button enabled
+        /// </summary>
         public bool BasketButton
         {
             get { return OpenBasketBtn.Enabled; }

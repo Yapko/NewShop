@@ -165,7 +165,6 @@ namespace Shop.Controllers
                     LoadLogin();
                     LoadProductsList();
                     break;
-
             }
         }
 
@@ -182,7 +181,7 @@ namespace Shop.Controllers
         /// </summary>
         public void LoadManager()
         {
-            view.LoadManager(new Point(view.Width - 370, 360));
+            view.LoadManager(new Point(view.Width - 370, 320));
         }
 
         /// <summary>
@@ -495,6 +494,31 @@ namespace Shop.Controllers
             //TODO: Rewrite refresh product list
             DestroyProductsList();
             LoadProductsList();
+        }
+
+        /// <summary>
+        /// Loads change products form
+        /// </summary>
+        public void LoadProductChange()
+        {
+            Product prod = GetSelectedProduct();
+            if (prod != null)
+            {
+                view.LoadChangeProduct(new Point(view.Width - 370, 400));
+                view.ChangedProduct = prod.Clone();
+            }
+            //else
+            //{
+            //    MessageBox.Show("Nothing to change", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+        }
+
+        /// <summary>
+        /// Destroyes change products window
+        /// </summary>
+        public void DestroyProductChange()
+        {
+            view.DestroyChangeProduct();
         }
     }
 }

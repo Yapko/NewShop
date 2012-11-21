@@ -48,7 +48,8 @@ namespace Shop.Views
         /// <param name="e"> event </param>
         private void ChangeButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(this, "Change button was clicked", "Captain Obvious");
+            // MessageBox.Show(this, "Change button was clicked", "Captain Obvious");
+            control.LoadProductChange();
         }
 
         /// <summary>
