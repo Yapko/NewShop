@@ -499,6 +499,7 @@ namespace Shop.Controllers
         /// <summary>
         /// Loads change products form
         /// </summary>
+        /// <param name="change"> change or add new</param>
         public void LoadProductChange(bool change)
         {
             Product prod = GetSelectedProduct();
@@ -507,7 +508,7 @@ namespace Shop.Controllers
                 view.LoadChangeProduct(new Point(view.Width - 370, 420));
                 view.ChangedProduct = prod.Clone();
             }
-            else if(!change)
+            else if (!change)
             {
                 view.LoadChangeProduct(new Point(view.Width - 370, 420));
             }
@@ -525,14 +526,26 @@ namespace Shop.Controllers
             view.DestroyChangeProduct();
         }
 
+        /// <summary>
+        /// Add new product to database and product list
+        /// </summary>
+        /// <param name="prod"> product to add</param>
         public void AddNewProduct(Product prod)
         {
-
+            repos.AddProduct(prod);
+            RefreshProductList();
         }
 
+        /// <summary>
+        /// Change existing product to new
+        /// </summary>
+        /// <param name="from"> old product </param>
+        /// <param name="to"> new product</param>
         public void ChangeProduct(Product from, Product to)
         {
-
+            repos.DeleteProduct(from);
+            repos.AddProduct(to);
+            RefreshProductList();
         }
     }
 }

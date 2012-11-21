@@ -248,14 +248,15 @@
   <ItemGroup>
     <None Include="Images\GreyMinusIcon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="AppData\Database.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Images\no-photo.jpg" />
     <Content Include="Images\Race_CS_Gloss_Black.bmp" />
-    <None Include="Resources\NoImage.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

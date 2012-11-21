@@ -27,7 +27,7 @@ namespace Shop.Views
         private Product oldProd;
 
         /// <summary>
-        /// Gets copy of product before change
+        /// Gets or sets copy of product before change
         /// </summary>
         public Product OldProd
         {
@@ -62,6 +62,7 @@ namespace Shop.Views
             {
                 return new Product(pictureBox.Image, NameTxt.Text, DescriptionTxt.Text, ManufacturerTxt.Text, double.Parse(PriceTxt.Text));
             }
+
             set
             {
                 oldProd = value;
@@ -74,9 +75,14 @@ namespace Shop.Views
             }
         }
 
+        /// <summary>
+        /// Save changes at eddited product
+        /// </summary>
+        /// <param name="sender"> message sender </param>
+        /// <param name="e"> event </param>
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if(oldProd != null)
+            if (oldProd != null)
             {
                 control.ChangeProduct(oldProd, ChangedProduct);
             }
@@ -84,14 +90,25 @@ namespace Shop.Views
             {
                 control.AddNewProduct(ChangedProduct);
             }
+
             control.DestroyProductChange();
         }
 
+        /// <summary>
+        /// Cancel changes at eddited product
+        /// </summary>
+        /// <param name="sender"> message sender </param>
+        /// <param name="e"> event </param>
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             control.DestroyProductChange();
         }
 
+        /// <summary>
+        /// Check name after change
+        /// </summary>
+        /// <param name="sender"> message sender </param>
+        /// <param name="e"> event </param>
         private void NameTxt_TextChanged(object sender, EventArgs e)
         {
             if (NameTxt.Text.Length == 0)
@@ -101,6 +118,23 @@ namespace Shop.Views
             else
             {
                 SaveBtn.Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// Load new image to eddited product
+        /// </summary>
+        /// <param name="sender"> message sender </param>
+        /// <param name="e"> event </param>
+        private void ChangeImageButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "JPEG Files (*.jpeg)|*.jpeg|PNG Files (*.png)|*.png|JPG Files (*.jpg)|*.jpg|GIF Files (*.gif)|*.gif";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                Image img = Image.FromFile(open.FileName);
+                pictureBox.Image = img;
+                pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             }
         }
     }

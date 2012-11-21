@@ -52,6 +52,7 @@
             this.ChangeImageButton.TabIndex = 0;
             this.ChangeImageButton.Text = "Change image";
             this.ChangeImageButton.UseVisualStyleBackColor = true;
+            this.ChangeImageButton.Click += new System.EventHandler(this.ChangeImageButton_Click);
             // 
             // label1
             // 
