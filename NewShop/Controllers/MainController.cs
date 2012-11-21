@@ -494,7 +494,7 @@ namespace Shop.Controllers
         {
             //TODO: Rewrite refresh product list
             DestroyProductsList();
-            LoadUserProductsList();
+            LoadProductsList();
         }
     }
 }
