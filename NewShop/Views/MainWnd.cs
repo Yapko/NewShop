@@ -169,6 +169,23 @@ namespace Shop.Views
             LoadLogin(new Point(2, 30));
         }
 
+        public void SetUserViewBasketButton(bool value)
+        {
+            if (Controls.ContainsKey("UserControlView") == true)
+            {
+                ((UserControlView) Controls[Controls.IndexOfKey("UserControlView")]).BasketButton = value;
+            }
+        }
+
+        public void SetUserViewProductsButton(bool value)
+        {
+            if (Controls.ContainsKey("UserControlView") == true)
+            {
+                ((UserControlView)Controls[Controls.IndexOfKey("UserControlView")]).ProductsButton = value;
+            }
+        }
+
+
         /// <summary>
         /// Create account in main form
         /// </summary>
@@ -201,6 +218,7 @@ namespace Shop.Views
         public void LoadProductsList(List<Product> prods)
         {
             ProductsListControl plc = new ProductsListControl(control, prods);
+            DestroyProductsList();
             this.Controls.Add(plc);
         }
 

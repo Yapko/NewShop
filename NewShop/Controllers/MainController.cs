@@ -43,10 +43,9 @@ namespace Shop.Controllers
             userProducts = new List<Product>();
             view = new MainWnd(this);
             user = new User();
-            user.Status = "Unlogged";
-            LoadLogin();
+            user.Status = "UnloggedUser";
             ChangeUser();
-            LoadProductsList();
+            
             //initialization
             //List<Product> pr = new List<Product>();
             //pr = repos.GetAllProducts();
@@ -115,7 +114,7 @@ namespace Shop.Controllers
         public void LogOut()
         {
             user = new User();
-            user.Status = "Unlogged";
+            user.Status = "UnloggedUser";
             DestroyUserView();
             LoadLogin();
             ChangeUser();
@@ -134,13 +133,39 @@ namespace Shop.Controllers
         /// </summary>
         public void ChangeUser()
         {
-            if (user.Status == "Manager")
+            DestroyLogin();
+            DestroyManager();
+            DestroyPersonalCabinet();
+            DestroyProductsList();
+            DestroyRegisterView();
+            DestroyUserProductsList();
+            DestroyUserView();
+            switch (user.Status)
             {
-                LoadManager();
-            }
-            else
-            {
-                DestroyManager();
+                case "Manager":
+                    LoadUserView();
+                    LoadProductsList();
+                    LoadManager();
+                    break;
+                case "Admin":
+                    LoadUserView();
+                    LoadProductsList();
+                    //TODO: Load Admin
+                    break;
+                case "Supervisor":
+                    LoadUserView();
+                    LoadProductsList();
+                    //TODO: Load Supervisor
+                    break;
+                case "LoggedUser":
+                    LoadUserView();
+                    LoadProductsList();
+                    break;
+                case "UnloggedUser":
+                    LoadLogin();
+                    LoadProductsList();
+                    break;
+
             }
         }
 
@@ -234,6 +259,9 @@ namespace Shop.Controllers
         public void ShowPersonalCabinet()
         {
             DestroyProductsList();
+            DestroyUserProductsList();
+            view.SetUserViewBasketButton(true);
+            view.SetUserViewProductsButton(true);
             view.LoadAccount(new Point(60, 60), user);
         }
 
@@ -456,6 +484,17 @@ namespace Shop.Controllers
             //{
             //    MessageBox.Show("Nothing to delete", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             //}
+            RefreshProductList();
+        }
+
+        /// <summary>
+        /// Refresh product list
+        /// </summary>
+        public void RefreshProductList()
+        {
+            //TODO: Rewrite refresh product list
+            DestroyProductsList();
+            LoadUserProductsList();
         }
     }
 }

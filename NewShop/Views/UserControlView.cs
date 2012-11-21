@@ -19,6 +19,17 @@ namespace Shop.Views
         /// Main controller
         /// </summary>
         private MainController control;
+
+        public bool ProductsButton
+        {
+            get { return ProductsListBtn.Enabled; }
+            set { ProductsListBtn.Enabled = value; }
+        }
+        public bool BasketButton
+        {
+            get { return OpenBasketBtn.Enabled; }
+            set { OpenBasketBtn.Enabled = value; }
+        }
         
         /// <summary>
         /// Initializes a new instance of the <see cref="UserControlView"/> class.
@@ -64,6 +75,7 @@ namespace Shop.Views
         {
             control.DestroyProductsList();
             control.LoadUserProductsList();
+            control.DestroyPersonalCabinet();
             ProductsListBtn.Enabled = true;
             OpenBasketBtn.Enabled = false;
         }
@@ -77,6 +89,7 @@ namespace Shop.Views
         {
             control.DestroyUserProductsList();
             control.LoadProductsList();
+            control.DestroyPersonalCabinet();
             ProductsListBtn.Enabled = false;
             OpenBasketBtn.Enabled = true;
         }
