@@ -46,17 +46,8 @@ namespace Shop.Controllers
             user.Status = "UnloggedUser";
             ChangeUser();
             
-            //initialization
-            //List<Product> pr = new List<Product>();
-            //pr = repos.GetAllProducts();
-            //Image guitar = Image.FromFile("D:/127px-Guitar_1.jpg");
-            //Image laptop = Image.FromFile("D:/asus-k25f-laptop.jpg");
-            //Image iphone = Image.FromFile("D:/iphone5new2.jpg");
-            //pr[0].SetImage(guitar);
-            //pr[1].SetImage(laptop);
-            //pr[2].SetImage(iphone);
-            //repos.DeleteAllProducts();
-            //repos.AddProducts(pr);
+            //TEST WPF
+            LoadPayment();
         }
        
         /// <summary>
@@ -174,6 +165,22 @@ namespace Shop.Controllers
         public void LoadLogin()
         {
             view.LoadLogin(new Point(view.Width - 370, 60));
+        }
+
+        /// <summary>
+        /// Loads payment form
+        /// </summary>
+        public void LoadPayment()
+        {
+            view.LoadPayment(new Point(view.Width - 370, 300));
+        }
+
+        /// <summary>
+        /// Destroyes payment window
+        /// </summary>
+        public void DestroyPayment()
+        {
+            view.PaymentDestroy();
         }
 
         /// <summary>

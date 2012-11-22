@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Shop.Controllers;
 using Shop.AppData;
+using System.Windows.Forms.Integration;
 
 namespace Shop.Views
 {
@@ -61,8 +62,6 @@ namespace Shop.Views
         {            
             // to create close icon
             LoadCloseIcon();            
-            //only for testing
-            //LoadCaptcha(new Point(this.Width / 2, this.Height / 2));
         }
 
         /// <summary>
@@ -101,6 +100,24 @@ namespace Shop.Views
 
             // add login to mainform controls
             this.Controls.Add(login);
+        }
+
+        /// <summary>
+        /// Create card payment in main form
+        /// </summary>
+        /// <param name="position">position of upper left ungle </param>
+        public void LoadPayment(Point position)
+        {
+            HostForCardPayment cp = new HostForCardPayment(control);
+            cp.Location = position;
+            Controls.Add(cp);
+        }
+        /// <summary>
+        /// Destroys Login control
+        /// </summary>
+        public void PaymentDestroy()
+        {
+            RemoveFromControls("HostForCardPayment");
         }
 
         /// <summary>
