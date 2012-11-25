@@ -100,6 +100,12 @@
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Models\Captcha.cs" />
     <Compile Include="Models\Repository.cs" />
+    <Compile Include="Views\AdminView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\AdminView.designer.cs">
+      <DependentUpon>AdminView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\CaptchaControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     <Compile Include="Views\UserControlView.Designer.cs">
       <DependentUpon>UserControlView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\AdminView.resx">
+      <DependentUpon>AdminView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\CaptchaControl.resx">
       <DependentUpon>CaptchaControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,9 +282,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Images\no-photo.jpg" />
-    <Content Include="Database.sdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Images\Race_CS_Gloss_Black.bmp" />
   </ItemGroup>
   <ItemGroup>

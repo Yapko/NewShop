@@ -45,11 +45,11 @@ namespace Shop.Controllers
             user = new User();
             user.Status = "UnloggedUser";
             ChangeUser();
-            
+
             //TEST WPF
             LoadPayment();
         }
-       
+
         /// <summary>
         /// Run controller
         /// </summary>
@@ -68,7 +68,7 @@ namespace Shop.Controllers
         {
             view.ShowMessage(message);
         }
-        
+
         #region Login
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace Shop.Controllers
                 case "Admin":
                     LoadUserView();
                     LoadProductsList();
-                    //TODO: Load Admin
+                    LoadAdmin();
                     break;
                 case "Supervisor":
                     LoadUserView();
@@ -214,6 +214,23 @@ namespace Shop.Controllers
         {
             view.DestroyUserView();
         }
+
+        /// <summary>
+        /// Loads admin's view
+        /// </summary>
+        public void LoadAdmin()
+        {
+            view.LoadAdmin(new Point(view.Width - 470, 320));
+        }
+
+        /// <summary>
+        /// Destroyes admin's view
+        /// </summary>
+        public void DestroyAdmin()
+        {
+            view.AdminDestroy();
+        }
+
         #endregion
 
         #region Registration
@@ -554,9 +571,7 @@ namespace Shop.Controllers
             repos.AddProduct(to);
             RefreshProductList();
         }
-    }
-
-            /// <summary>
+        /// <summary>
         /// loads all users to listView in admin's form
         /// </summary>
         public void LoadUsers()
@@ -635,3 +650,4 @@ namespace Shop.Controllers
         }
     }
 }
+
