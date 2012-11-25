@@ -371,5 +371,64 @@ namespace Shop.Views
             //    MessageBox.Show("Element missing!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
         }
+
+        /// <summary>
+        /// Create admin view in main view
+        /// </summary>
+        /// <param name="position">position of upper left ungle </param>
+        public void LoadAdmin(Point position)
+        {
+            //create login
+            AdminView admin = new AdminView(control);
+            // set location in center of form
+            admin.Location = position;
+
+            // add login to mainform controls
+            this.Controls.Add(admin);
+        }
+
+        /// <summary>
+        /// Destroys admin view
+        /// </summary>
+        public void AdminDestroy()
+        {
+            RemoveFromControls("AdminView");
+        }
+
+        /// <summary>
+        /// loads users to usersListView in admin's view
+        /// </summary>
+        /// <param name="users">users to load</param>
+        public void LoadUsersList(List<User> users)
+        {
+            ((AdminView)Controls[Controls.IndexOfKey("AdminView")]).UsersList.Items.Clear();
+            foreach (User x in users)
+            {
+                ListViewItem temp = new ListViewItem(x.UserName);
+                temp.SubItems.Add(x.Status);
+                ((AdminView)Controls[Controls.IndexOfKey("AdminView")]).UsersList.Items.Add(temp);
+            }
+
+            ((AdminView)Controls[Controls.IndexOfKey("AdminView")]).Refresh();
+        }
+
+        /// <summary>
+        /// loads requestss to rquestsListView in admin's view
+        /// </summary>
+        /// <param name="users">unregistered users to load</param>
+        public void LoadReqsList(List<User> users)
+        {
+            ((AdminView)Controls[Controls.IndexOfKey("AdminView")]).ReqsList.Items.Clear();
+            foreach (User x in users)
+            {
+                ListViewItem temp = new ListViewItem(x.UserName);
+                temp.SubItems.Add(x.Email);
+                temp.SubItems.Add(x.FirstName);
+                temp.SubItems.Add(x.LastName);
+                ((AdminView)Controls[Controls.IndexOfKey("AdminView")]).ReqsList.Items.Add(temp);
+            }
+
+            ((AdminView)Controls[Controls.IndexOfKey("AdminView")]).Refresh();
+        }
     }
 }
