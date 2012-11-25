@@ -555,4 +555,83 @@ namespace Shop.Controllers
             RefreshProductList();
         }
     }
+
+            /// <summary>
+        /// loads all users to listView in admin's form
+        /// </summary>
+        public void LoadUsers()
+        {
+            List<User> allUsers = repos.GetAllUsers();
+            List<User> users = new List<User>();
+            foreach (User x in allUsers)
+            {
+                if (x.Status != "UnloggedUser")
+                {
+                    users.Add(x);
+                }
+
+                view.LoadUsersList(users);
+            }
+        }
+
+        /// <summary>
+        /// loads registration requests
+        /// </summary>
+        public void LoadRequests()
+        {
+            List<User> allUsers = repos.GetAllUsers();
+            List<User> users = new List<User>();
+            foreach (User x in allUsers)
+            {
+                if (x.Status == "UnloggedUser")
+                {
+                    users.Add(x);
+                }
+
+                view.LoadReqsList(users);
+            }
+        }
+
+        /// <summary>
+        /// admin changes user status
+        /// </summary>
+        /// <param name="stat">new status</param>
+        /// <param name="changedUserName">username of changed user</param>
+        public void ChangeUserStatus(string stat, string changedUserName)
+        {
+            User changed = repos.GetUser(changedUserName);
+            repos.DeleteUser(changed);
+            changed.Status = stat;
+            repos.AddUser(changed);
+        }
+
+        /// <summary>
+        /// accept user
+        /// </summary>
+        /// <param name="name">user name</param>
+        public void AcceptUser(string name)
+        {
+            MessageBox.Show(name);
+            ChangeUserStatus("LoggedUser", name);
+        }
+
+        /// <summary>
+        /// reject user
+        /// </summary>
+        /// <param name="name">user name</param>
+        public void RejectUser(string name)
+        {
+            DeleteUser(name);
+        }
+
+        /// <summary>
+        /// delete user
+        /// </summary>
+        /// <param name="name">user name</param>
+        public void DeleteUser(string name)
+        {
+            User userToDel = repos.GetUser(name);
+            repos.DeleteUser(userToDel);
+        }
+    }
 }
