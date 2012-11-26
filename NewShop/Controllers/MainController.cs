@@ -699,11 +699,11 @@ namespace Shop.Controllers
         }
 
         /// <summary>
-        /// 
+        /// validate date
         /// </summary>
-        /// <param name="getMonth"></param>
-        /// <param name="getYear"></param>
-        /// <returns></returns>
+        /// <param name="getMonth">Month</param>
+        /// <param name="getYear">Year</param>
+        /// <returns>or is norm date</returns>
         public bool ValidateExpDate(string getMonth, string getYear)
         {
             return (getMonth.Length != 0) && (getYear.Length != 0);
