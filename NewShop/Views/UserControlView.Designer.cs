@@ -36,6 +36,7 @@
             this.AccountButton = new System.Windows.Forms.Button();
             this.OpenBasketBtn = new System.Windows.Forms.Button();
             this.ProductsListBtn = new System.Windows.Forms.Button();
+            this.BuyBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // WelcomeLabel
@@ -110,7 +111,7 @@
             this.OpenBasketBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OpenBasketBtn.Location = new System.Drawing.Point(33, 147);
             this.OpenBasketBtn.Name = "OpenBasketBtn";
-            this.OpenBasketBtn.Size = new System.Drawing.Size(75, 23);
+            this.OpenBasketBtn.Size = new System.Drawing.Size(64, 23);
             this.OpenBasketBtn.TabIndex = 7;
             this.OpenBasketBtn.Text = "Basket";
             this.OpenBasketBtn.UseVisualStyleBackColor = false;
@@ -120,19 +121,32 @@
             // 
             this.ProductsListBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ProductsListBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ProductsListBtn.Location = new System.Drawing.Point(147, 147);
+            this.ProductsListBtn.Location = new System.Drawing.Point(198, 147);
             this.ProductsListBtn.Name = "ProductsListBtn";
-            this.ProductsListBtn.Size = new System.Drawing.Size(123, 23);
+            this.ProductsListBtn.Size = new System.Drawing.Size(72, 23);
             this.ProductsListBtn.TabIndex = 8;
             this.ProductsListBtn.Text = "Products";
             this.ProductsListBtn.UseVisualStyleBackColor = false;
             this.ProductsListBtn.Click += new System.EventHandler(this.ProductsListBtn_Click);
+            // 
+            // BuyBtn
+            // 
+            this.BuyBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BuyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BuyBtn.Location = new System.Drawing.Point(116, 147);
+            this.BuyBtn.Name = "BuyBtn";
+            this.BuyBtn.Size = new System.Drawing.Size(65, 23);
+            this.BuyBtn.TabIndex = 9;
+            this.BuyBtn.Text = "Buy";
+            this.BuyBtn.UseVisualStyleBackColor = false;
+            this.BuyBtn.Click += new System.EventHandler(this.BuyBtn_Click);
             // 
             // UserControlView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Controls.Add(this.BuyBtn);
             this.Controls.Add(this.ProductsListBtn);
             this.Controls.Add(this.OpenBasketBtn);
             this.Controls.Add(this.AccountButton);
@@ -158,5 +172,6 @@
         private System.Windows.Forms.Button AccountButton;
         private System.Windows.Forms.Button OpenBasketBtn;
         private System.Windows.Forms.Button ProductsListBtn;
+        private System.Windows.Forms.Button BuyBtn;
     }
 }

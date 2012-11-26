@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid IsHitTestVisible="True" IsItemsHost="False" Height="272">
+             d:DesignHeight="291" d:DesignWidth="300">
+    <Grid IsHitTestVisible="True" IsItemsHost="False" Height="296" Background="#FFA09898">
         <Button Content="Ok" HorizontalAlignment="Left" Height="21" Margin="56,240,0,0" VerticalAlignment="Top" Width="61" Click="Button_Click_1" RenderTransformOrigin="0.5,0.5" Background="#FFFCFCFC">
             <Button.RenderTransform>
                 <TransformGroup>

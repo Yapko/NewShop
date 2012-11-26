@@ -47,8 +47,10 @@ namespace Shop.Views
                 MessageBox.Show("Wrong number", "error");
             }
             else
-            { //control.PayAndWrite();
-                MessageBox.Show("Ok", "WTF WPF?)");
+            { 
+                control.PayAndWrite();
+                control.DestroyPayment();
+                MessageBox.Show("Please, wait confirmation", "Payment card");
             }
         }
 

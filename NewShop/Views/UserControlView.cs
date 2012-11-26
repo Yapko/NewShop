@@ -100,5 +100,15 @@ namespace Shop.Views
             ProductsListBtn.Enabled = false;
             OpenBasketBtn.Enabled = true;
         }
+
+        /// <summary>
+        /// open card paymayment
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event</param>
+        private void BuyBtn_Click(object sender, EventArgs e)
+        {
+            control.LoadPayment();
+        }
     }
 }

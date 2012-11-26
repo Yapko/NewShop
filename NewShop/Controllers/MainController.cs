@@ -45,9 +45,6 @@ namespace Shop.Controllers
             user = new User();
             user.Status = "UnloggedUser";
             ChangeUser();
-
-            //TEST WPF
-            LoadPayment();
         }
 
         /// <summary>
@@ -708,6 +705,31 @@ namespace Shop.Controllers
         public bool ValidateExpDate(string getMonth, string getYear)
         {
             return (getMonth.Length != 0) && (getYear.Length != 0);
+        }
+
+        /// <summary>
+        /// метод записує в файл інформацію про останню покупку
+        /// записує : номер картки , CVN код, дату придатності картки і суму покупки
+        /// </summary>
+        public void PayAndWrite()
+        {
+            //if (this.ValidateCardNumber(view..getPart1(), this.payView.getPart2(), this.payView.getPart3(), this.payView.getPart4()) && this.ValidateCNVCode(this.payView.getCvn()) && this.ValidateExpDate(this.payView.getMonth(), this.payView.getYear()))
+            //{
+            //    DateTime time = DateTime.Now;
+            //    string ttm = time.Date.ToShortDateString();
+            //    string tnumber = payView.getPart1() + this.payView.getPart2() + this.payView.getPart3() + this.payView.getPart4();
+            //    string cash = getBuyPrice().ToString();
+            //    Deposit temp = new Deposit(tnumber, this.payView.getCvn(), this.payView.getMonth(), this.payView.getYear(), ttm, cash);
+            //    Deposit.Id++;
+            //    WritePayment(temp);
+            //    payView.setDialogResultOK();
+            //    payView.close();
+            //    removeAllFromBasked();
+           // }
+            //else
+           // {
+           //     this.payView.messageBox("Wrong input!");
+           // }
         }
     }
 }
