@@ -110,7 +110,7 @@ namespace Shop.Views
         {
             HostForCardPayment cp = new HostForCardPayment(control);
             cp.Location = position;
-            Controls.Add(cp);
+            this.Controls.Add(cp);
         }
         /// <summary>
         /// Destroys Login control

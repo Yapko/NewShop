@@ -648,6 +648,55 @@ namespace Shop.Controllers
             User userToDel = repos.GetUser(name);
             repos.DeleteUser(userToDel);
         }
+
+        /// <summary>
+        /// Validate card number
+        /// </summary>
+        /// <param name="getPart1">code</param>
+        /// <param name="getPart2">code</param>
+        /// <param name="getPart3">code</param>
+        /// <param name="getPart4">code</param>
+        /// <returns>true or false</returns>
+        public bool ValidateCardNumber(string getPart1, string getPart2, string getPart3, string getPart4)
+        {
+            UInt16 n;
+            bool res = false;
+            if ((getPart1.Length != 4) || (getPart2.Length != 4) || (getPart3.Length != 4) || (getPart4.Length != 4))
+            {
+                res = false;
+            }
+            else if (getPart1[0] != '4' && getPart1[0] != '5' && getPart1[0] != '6')
+            {
+                res = false;
+            }
+            else if (UInt16.TryParse(getPart1, out n) && UInt16.TryParse(getPart2, out n) && UInt16.TryParse(getPart3, out n) && UInt16.TryParse(getPart4, out n))
+            {
+                res = true;
+            }
+
+            return res;
+        }
+
+        /// <summary>
+        /// Validate CNV Code
+        /// </summary>
+        /// <param name="getCvn">CNV Code</param>
+        /// <returns>true or false</returns>
+        public bool ValidateCNVCode(string getCvn)
+        {
+            UInt16 n;
+            bool res = false;
+            if (getCvn.Length != 3)
+            {
+                res = false;
+            }
+            else if (UInt16.TryParse(getCvn, out n))
+            {
+                res = true;
+            }
+
+            return res;
+        }
     }
 }
 
