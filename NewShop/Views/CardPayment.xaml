@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <Button Content="Click Me !!!" HorizontalAlignment="Left" Height="54" Margin="102,194,0,0" VerticalAlignment="Top" Width="148" Click="Button_Click_1" RenderTransformOrigin="0.5,0.5" Background="#FFE8FF00">
+    <Grid IsHitTestVisible="True" IsItemsHost="False">
+        <Button Content="Ok" HorizontalAlignment="Left" Height="34" Margin="45,235,0,0" VerticalAlignment="Top" Width="90" Click="Button_Click_1" RenderTransformOrigin="0.5,0.5" Background="#FFB6B7A4">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="1" ScaleX="1"/>
@@ -16,16 +16,28 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Label Content="This is example of WPF form)" HorizontalAlignment="Left" Margin="115,34,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.169,-0.297" Height="35" Width="172">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="14.984"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Label.RenderTransform>
+        <Label Content="Paycard" HorizontalAlignment="Left" Margin="104,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.169,-0.297" Height="35" Width="97" SnapsToDevicePixels="True" HorizontalContentAlignment="Center" FlowDirection="LeftToRight" AllowDrop="False" FontSize="12" FontWeight="Normal" FontStyle="Normal" UseLayoutRounding="False">
+            
         </Label>
-
+        <Label Content="Card Number:" Height="28" HorizontalAlignment="Left" Margin="12,53,0,0" Name="label1" VerticalAlignment="Top" SnapsToDevicePixels="True" OpacityMask="Black" />
+        <Label Content="CVN:" Height="28" HorizontalAlignment="Left" Margin="12,105,0,0" Name="label2" OpacityMask="Black" SnapsToDevicePixels="True" VerticalAlignment="Top" />
+        <Button Background="#FFB6B7A4" Content="Cancel" Height="34" HorizontalAlignment="Left" Margin="164,230,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" Width="90">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1" ScaleY="1" />
+                    <SkewTransform AngleX="-35" AngleY="10" />
+                    <RotateTransform Angle="-33.866" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="104,107,0,0" Name="textBox1" VerticalAlignment="Top" Width="41" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="104,55,0,0" Name="textBox2" VerticalAlignment="Top" Width="41" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="151,55,0,0" Name="textBox3" VerticalAlignment="Top" Width="41" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="198,55,0,0" Name="textBox4" VerticalAlignment="Top" Width="41" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="247,55,0,0" Name="textBox5" VerticalAlignment="Top" Width="41" />
+        <Label Content="Expire Date:" Height="28" HorizontalAlignment="Left" Margin="12,155,0,0" Name="label3" OpacityMask="Black" SnapsToDevicePixels="True" VerticalAlignment="Top" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="104,160,0,0" Name="comboBox1" VerticalAlignment="Top" Width="59" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="180,160,0,0" Name="comboBox2" VerticalAlignment="Top" Width="59" />
     </Grid>
 </UserControl>
