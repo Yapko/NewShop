@@ -697,6 +697,17 @@ namespace Shop.Controllers
 
             return res;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="getMonth"></param>
+        /// <param name="getYear"></param>
+        /// <returns></returns>
+        public bool ValidateExpDate(string getMonth, string getYear)
+        {
+            return (getMonth.Length != 0) && (getYear.Length != 0);
+        }
     }
 }
 

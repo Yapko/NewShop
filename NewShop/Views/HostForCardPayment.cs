@@ -16,8 +16,8 @@ namespace Shop.Views
 
         public HostForCardPayment(MainController ctrl)
         {
-            InitializeComponent();
             control = ctrl;
+            InitializeComponent();
         }
     }
 }

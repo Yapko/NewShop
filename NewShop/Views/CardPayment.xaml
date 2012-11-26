@@ -37,7 +37,7 @@
         <TextBox Height="23" HorizontalAlignment="Left" Margin="198,70,0,0" Name="textBox4" VerticalAlignment="Top" Width="41" MaxLength="4" TextWrapping="NoWrap" TextChanged="textBox4_TextChanged" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="247,70,0,0" Name="textBox5" VerticalAlignment="Top" Width="41" MaxLength="4" TextWrapping="NoWrap" TextChanged="textBox5_TextChanged" />
         <Label Content="Expire Date:" Height="28" HorizontalAlignment="Left" Margin="12,170,0,0" Name="label3" OpacityMask="Black" SnapsToDevicePixels="True" VerticalAlignment="Top" />
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="104,175,0,0" Name="comboBox1" VerticalAlignment="Top" Width="59" />
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="180,175,0,0" Name="comboBox2" VerticalAlignment="Top" Width="59" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="104,175,0,0" Name="comboBox1" VerticalAlignment="Top" Width="59" SelectionChanged="comboBox1_SelectionChanged" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="180,175,0,0" Name="comboBox2" VerticalAlignment="Top" Width="59" SelectionChanged="comboBox2_SelectionChanged" />
     </Grid>
 </UserControl>

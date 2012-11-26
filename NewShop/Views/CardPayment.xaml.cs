@@ -30,6 +30,8 @@ namespace Shop.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            if (!control.ValidateCardNumber(getPart1(), getPart2(), getPart3(), getPart4()))
+                MessageBox.Show("Wrong number", "error");
             //control.PayAndWrite();
             MessageBox.Show("Ok", "WTF WPF?)");
         }
@@ -73,10 +75,9 @@ namespace Shop.Views
         {
             return comboBox2.Text;
         }
+
         private void textBox2_TextChanged(object sender, TextChangedEventArgs e)
         {
-           // if (!control.ValidateCardNumber(getPart1(), getPart2(), getPart3(), getPart4()))
-               // MessageBox.Show("Wrong number", "error");
             if (textBox2.Text.Count() == 4)
             {
                 textBox3.Focus();
@@ -85,8 +86,6 @@ namespace Shop.Views
 
         private void textBox3_TextChanged(object sender, TextChangedEventArgs e)
         {
-           // if (!control.ValidateCardNumber(getPart1(), getPart2(), getPart3(), getPart4()))
-           //     MessageBox.Show("Wrong number", "error");
             if (textBox3.Text.Count() == 4)
             {
                 textBox4.Focus();
@@ -95,8 +94,6 @@ namespace Shop.Views
 
         private void textBox4_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //if (!control.ValidateCardNumber(getPart1(), getPart2(), getPart3(), getPart4()))
-           //     MessageBox.Show("Wrong number", "error");
             if (textBox4.Text.Count() == 4)
             {
                 textBox5.Focus();
@@ -105,8 +102,6 @@ namespace Shop.Views
 
         private void textBox5_TextChanged(object sender, TextChangedEventArgs e)
         {
-           // if (!control.ValidateCardNumber(getPart1(), getPart2(), getPart3(), getPart4()))
-            //    MessageBox.Show("Wrong number", "error");
             if (textBox5.Text.Count() == 4)
             {
                 textBox1.Focus();
@@ -115,8 +110,23 @@ namespace Shop.Views
 
         private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
-          //  if (!control.ValidateCNVCode(getCvn()))
-          //      MessageBox.Show("Wrong code", "error");
+            if (textBox1.Text.Count() == 3)
+            {
+                if (!control.ValidateCNVCode(getCvn()))
+                    MessageBox.Show("Wrong code", "error");
+            }
+        }
+
+        private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!control.ValidateExpDate(getMonth(), getYear()))
+                MessageBox.Show("Wrong date", "error");
+        }
+
+        private void comboBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (!control.ValidateExpDate(getMonth(), getYear()))
+                MessageBox.Show("Wrong date", "error");
         }
     }
 }
