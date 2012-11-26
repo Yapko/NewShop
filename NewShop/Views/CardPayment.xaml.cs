@@ -38,7 +38,7 @@ namespace Shop.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-          //  control.DestroyPayment();
+            control.DestroyPayment();
         }
 
         public string getPart1()
@@ -76,7 +76,7 @@ namespace Shop.Views
             return comboBox2.Text;
         }
 
-        private void textBox2_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBox2_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (textBox2.Text.Count() == 4)
             {
@@ -84,7 +84,7 @@ namespace Shop.Views
             }
         }
 
-        private void textBox3_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBox3_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (textBox3.Text.Count() == 4)
             {
@@ -92,7 +92,7 @@ namespace Shop.Views
             }
         }
 
-        private void textBox4_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBox4_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (textBox4.Text.Count() == 4)
             {
@@ -100,7 +100,7 @@ namespace Shop.Views
             }
         }
 
-        private void textBox5_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBox5_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (textBox5.Text.Count() == 4)
             {
@@ -108,7 +108,7 @@ namespace Shop.Views
             }
         }
 
-        private void textBox1_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (textBox1.Text.Count() == 3)
             {
@@ -117,16 +117,22 @@ namespace Shop.Views
             }
         }
 
-        private void comboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!control.ValidateExpDate(getMonth(), getYear()))
-                MessageBox.Show("Wrong date", "error");
+            if (comboBox1.Text != string.Empty)
+            {
+                if (!control.ValidateExpDate(getMonth(), getYear()))
+                    MessageBox.Show("Wrong date", "error");
+            }
         }
 
-        private void comboBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (!control.ValidateExpDate(getMonth(), getYear()))
-                MessageBox.Show("Wrong date", "error");
+            if (comboBox2.Text != string.Empty)
+            {
+                if (!control.ValidateExpDate(getMonth(), getYear()))
+                    MessageBox.Show("Wrong date", "error");
+            }
         }
     }
 }

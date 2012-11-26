@@ -31,13 +31,37 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="104,122,0,0" Name="textBox1" VerticalAlignment="Top" Width="41" MaxLength="3" TextWrapping="NoWrap" TextChanged="textBox1_TextChanged" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="104,70,0,0" Name="textBox2" VerticalAlignment="Top" Width="41" MaxLength="4" TextWrapping="NoWrap" TextChanged="textBox2_TextChanged" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="151,70,0,0" Name="textBox3" VerticalAlignment="Top" Width="41" MaxLength="4" TextWrapping="NoWrap" TextChanged="textBox3_TextChanged" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="198,70,0,0" Name="textBox4" VerticalAlignment="Top" Width="41" MaxLength="4" TextWrapping="NoWrap" TextChanged="textBox4_TextChanged" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="247,70,0,0" Name="textBox5" VerticalAlignment="Top" Width="41" MaxLength="4" TextWrapping="NoWrap" TextChanged="textBox5_TextChanged" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="104,122,0,0" Name="textBox1" VerticalAlignment="Top" Width="41" MaxLength="3" TextWrapping="NoWrap" TextChanged="TextBox1_TextChanged" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="104,70,0,0" Name="textBox2" VerticalAlignment="Top" Width="41" MaxLength="4" TextWrapping="NoWrap" TextChanged="TextBox2_TextChanged" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="151,70,0,0" Name="textBox3" VerticalAlignment="Top" Width="41" MaxLength="4" TextWrapping="NoWrap" TextChanged="TextBox3_TextChanged" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="198,70,0,0" Name="textBox4" VerticalAlignment="Top" Width="41" MaxLength="4" TextWrapping="NoWrap" TextChanged="TextBox4_TextChanged" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="247,70,0,0" Name="textBox5" VerticalAlignment="Top" Width="41" MaxLength="4" TextWrapping="NoWrap" TextChanged="TextBox5_TextChanged" />
         <Label Content="Expire Date:" Height="28" HorizontalAlignment="Left" Margin="12,170,0,0" Name="label3" OpacityMask="Black" SnapsToDevicePixels="True" VerticalAlignment="Top" />
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="104,175,0,0" Name="comboBox1" VerticalAlignment="Top" Width="59" SelectionChanged="comboBox1_SelectionChanged" />
-        <ComboBox Height="23" HorizontalAlignment="Left" Margin="180,175,0,0" Name="comboBox2" VerticalAlignment="Top" Width="59" SelectionChanged="comboBox2_SelectionChanged" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="104,175,0,0" Name="comboBox1" VerticalAlignment="Top" Width="59" SelectionChanged="ComboBox1_SelectionChanged" IsReadOnly="False" Text="">
+            <ComboBoxItem Content="01" DataContext="{Binding}" />
+            <ComboBoxItem Content="02" />
+            <ComboBoxItem Content="03" />
+            <ComboBoxItem Content="04" />
+            <ComboBoxItem Content="05" />
+            <ComboBoxItem Content="06" />
+            <ComboBoxItem Content="07" />
+            <ComboBoxItem Content="08" />
+            <ComboBoxItem Content="09" />
+            <ComboBoxItem Content="10" />
+            <ComboBoxItem Content="11" />
+            <ComboBoxItem Content="12" />
+        </ComboBox>
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="180,175,0,0" Name="comboBox2" VerticalAlignment="Top" Width="59" SelectionChanged="ComboBox2_SelectionChanged">
+            <ComboBoxItem Content="2012" />
+            <ComboBoxItem Content="2013" />
+            <ComboBoxItem Content="2014" />
+            <ComboBoxItem Content="2015" />
+            <ComboBoxItem Content="2016" />
+            <ComboBoxItem Content="2017" />
+            <ComboBoxItem Content="2018" />
+            <ComboBoxItem Content="2019" />
+            <ComboBoxItem Content="2020" />
+            <ComboBoxItem Content="2021" />
+        </ComboBox>
     </Grid>
 </UserControl>
