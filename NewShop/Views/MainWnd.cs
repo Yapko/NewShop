@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using Shop.Controllers;
-using Shop.AppData;
-using System.Windows.Forms.Integration;
-
-namespace Shop.Views
+﻿namespace Shop.Views
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Drawing;
+    using System.Linq;
+    using System.Text;
+    using System.Windows.Forms;
+    using System.Windows.Forms.Integration;
+    using Shop.Controllers;
+    using Shop.AppData;
+    
     /// <summary>
     /// Main form
     /// </summary>
@@ -112,6 +112,7 @@ namespace Shop.Views
             cp.Location = position;
             this.Controls.Add(cp);
         }
+
         /// <summary>
         /// Destroys Login control
         /// </summary>

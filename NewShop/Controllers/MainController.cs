@@ -571,6 +571,7 @@ namespace Shop.Controllers
             repos.AddProduct(to);
             RefreshProductList();
         }
+
         /// <summary>
         /// loads all users to listView in admin's form
         /// </summary>
@@ -652,14 +653,14 @@ namespace Shop.Controllers
         /// <summary>
         /// Validate card number
         /// </summary>
-        /// <param name="getPart1">code</param>
-        /// <param name="getPart2">code</param>
-        /// <param name="getPart3">code</param>
-        /// <param name="getPart4">code</param>
+        /// <param name="getPart1">code part1</param>
+        /// <param name="getPart2">code part2</param>
+        /// <param name="getPart3">code part3</param>
+        /// <param name="getPart4">code part4</param>
         /// <returns>true or false</returns>
         public bool ValidateCardNumber(string getPart1, string getPart2, string getPart3, string getPart4)
         {
-            UInt16 n;
+            ushort n;
             bool res = false;
             if ((getPart1.Length != 4) || (getPart2.Length != 4) || (getPart3.Length != 4) || (getPart4.Length != 4))
             {
@@ -669,7 +670,7 @@ namespace Shop.Controllers
             {
                 res = false;
             }
-            else if (UInt16.TryParse(getPart1, out n) && UInt16.TryParse(getPart2, out n) && UInt16.TryParse(getPart3, out n) && UInt16.TryParse(getPart4, out n))
+            else if (ushort.TryParse(getPart1, out n) && ushort.TryParse(getPart2, out n) && ushort.TryParse(getPart3, out n) && ushort.TryParse(getPart4, out n))
             {
                 res = true;
             }
@@ -684,13 +685,13 @@ namespace Shop.Controllers
         /// <returns>true or false</returns>
         public bool ValidateCNVCode(string getCvn)
         {
-            UInt16 n;
+            ushort n;
             bool res = false;
             if (getCvn.Length != 3)
             {
                 res = false;
             }
-            else if (UInt16.TryParse(getCvn, out n))
+            else if (ushort.TryParse(getCvn, out n))
             {
                 res = true;
             }
@@ -710,4 +711,3 @@ namespace Shop.Controllers
         }
     }
 }
-

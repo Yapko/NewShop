@@ -20,62 +20,116 @@ namespace Shop.Views
     /// </summary>
     public partial class CardPayment : UserControl
     {
+        /// <summary>
+        /// main controler
+        /// </summary>
         private MainController control;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CardPayment" /> class.
+        /// </summary>
+        /// <param name="ctrl"> main controler</param>
         public CardPayment(MainController ctrl)
         {
             InitializeComponent();
             control = ctrl;
         }
 
+        /// <summary>
+        /// validate and write card 
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">param</param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (!control.ValidateCardNumber(getPart1(), getPart2(), getPart3(), getPart4()))
+            if (!control.ValidateCardNumber(GetPart1(), GetPart2(), GetPart3(), GetPart4()))
+            {
                 MessageBox.Show("Wrong number", "error");
-            //control.PayAndWrite();
-            MessageBox.Show("Ok", "WTF WPF?)");
+            }
+            else
+            { //control.PayAndWrite();
+                MessageBox.Show("Ok", "WTF WPF?)");
+            }
         }
 
+        /// <summary>
+        /// button cancel
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">param</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             control.DestroyPayment();
         }
 
-        public string getPart1()
+        /// <summary>
+        /// Get first part card code
+        /// </summary>
+        /// <returns>first part</returns>
+        public string GetPart1()
         {
             return textBox2.Text;
         }
 
-        public string getPart2()
+        /// <summary>
+        /// Get second part card code
+        /// </summary>
+        /// <returns>second part</returns>
+        public string GetPart2()
         {
             return textBox3.Text;
         }
 
-        public string getPart3()
+        /// <summary>
+        /// Get third part card code
+        /// </summary>
+        /// <returns>third part</returns>
+        public string GetPart3()
         {
             return textBox4.Text;
         }
 
-        public string getPart4()
+        /// <summary>
+        /// Get fourth part card code
+        /// </summary>
+        /// <returns>fourth part</returns>
+        public string GetPart4()
         {
             return textBox5.Text;
         }
 
-        public string getCvn()
+        /// <summary>
+        ///  Get CVN card code
+        /// </summary>
+        /// <returns>CVN</returns>
+        public string GetCvn()
         {
             return textBox1.Text;
         }
 
-        public string getMonth()
+        /// <summary>
+        /// Get month
+        /// </summary>
+        /// <returns>month</returns>
+        public string GetMonth()
         {
             return comboBox1.Text;
         }
 
-        public string getYear()
+        /// <summary>
+        /// Get year
+        /// </summary>
+        /// <returns>year</returns>
+        public string GetYear()
         {
             return comboBox2.Text;
         }
 
+        /// <summary>
+        /// Moves the cursor
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">param</param>
         private void TextBox2_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (textBox2.Text.Count() == 4)
@@ -84,6 +138,11 @@ namespace Shop.Views
             }
         }
 
+        /// <summary>
+        /// Moves the cursor
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">param</param>
         private void TextBox3_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (textBox3.Text.Count() == 4)
@@ -92,6 +151,11 @@ namespace Shop.Views
             }
         }
 
+        /// <summary>
+        /// Moves the cursor
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">param</param>
         private void TextBox4_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (textBox4.Text.Count() == 4)
@@ -100,6 +164,11 @@ namespace Shop.Views
             }
         }
 
+        /// <summary>
+        /// Moves the cursor
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">param</param>
         private void TextBox5_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (textBox5.Text.Count() == 4)
@@ -108,30 +177,51 @@ namespace Shop.Views
             }
         }
 
+        /// <summary>
+        /// Moves the cursor and validate cvn code
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">param</param>
         private void TextBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (textBox1.Text.Count() == 3)
             {
-                if (!control.ValidateCNVCode(getCvn()))
+                if (!control.ValidateCNVCode(GetCvn()))
+                {
                     MessageBox.Show("Wrong code", "error");
+                }
             }
         }
 
+        /// <summary>
+        /// Validate month
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">param</param>
         private void ComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comboBox1.Text != string.Empty)
             {
-                if (!control.ValidateExpDate(getMonth(), getYear()))
+                if (!control.ValidateExpDate(GetMonth(), GetYear()))
+                {
                     MessageBox.Show("Wrong date", "error");
+                }
             }
         }
 
+        /// <summary>
+        /// Validate year
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">param</param>
         private void ComboBox2_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (comboBox2.Text != string.Empty)
             {
-                if (!control.ValidateExpDate(getMonth(), getYear()))
+                if (!control.ValidateExpDate(GetMonth(), GetYear()))
+                {
                     MessageBox.Show("Wrong date", "error");
+                }
             }
         }
     }
