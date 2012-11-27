@@ -119,10 +119,11 @@ namespace Shop
             ushort mnt = 0, year = 0;
             res = res && ushort.TryParse(getMonth, out mnt);
             res = res && ushort.TryParse(getYear, out year);
-            if(res)
+            if (res)
             {
                 res = res && mnt >= DateTime.Now.Month && year >= DateTime.Now.Year;
             }
+
             return res;
         }
 
@@ -146,7 +147,5 @@ namespace Shop
 
             return res;
         }
-
-
     }
 }
