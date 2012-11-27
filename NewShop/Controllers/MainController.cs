@@ -102,7 +102,7 @@ namespace Shop.Controllers
         public void LogOut()
         {
             user = new User();
-            user.Status = "UnloggedUser";
+            user.Status = "Manager";
             DestroyUserView();
             LoadLogin();
             ChangeUser();
@@ -232,6 +232,7 @@ namespace Shop.Controllers
         #endregion
 
         #region Registration
+
         /// <summary>
         /// ShowRegisterView form
         /// </summary>
