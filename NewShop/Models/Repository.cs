@@ -84,6 +84,7 @@ namespace Shop.Models
         /// <returns>if element exist</returns>
         public bool HaveOrder(Order element)
         {
+            return database.Orders.Any(u => u.CVN == element.CVN && u.CardNumber == element.CardNumber && u.Date == element.Date && u.ExpDate == element.ExpDate && u.ProductID == element.ProductID && u.Status == element.Status && u.UserID == element.UserID);
             return database.Orders.Contains(element);
         }
 
@@ -185,7 +186,7 @@ namespace Shop.Models
         /// <returns>if element exist</returns>
         public bool HaveUser(User element)
         {
-            return database.Users.Contains(element);
+            return database.Users.Any(u => u.Adress == element.Adress && u.Country == element.Country && u.Email == element.Email && u.FirstName == element.FirstName && u.Gender == element.Gender && u.LastName == element.LastName && u.Password == element.Password && u.Phone == element.Phone && u.Status == element.Status && u.UserName == element.UserName && u.ZipCode == element.ZipCode);
         }
 
         /// <summary>
@@ -267,7 +268,8 @@ namespace Shop.Models
         /// <returns>if element exist</returns>
         public bool HaveProduct(Product element)
         {
-            return database.Products.Contains(element);
+            return database.Products.Any(u => u.Describe == element.Describe && u.Maufacture == element.Maufacture && u.Name == element.Name && u.Price == element.Price);
+            //return database.Products.Contains(element);
         }
 
         /// <summary>

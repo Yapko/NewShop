@@ -35,6 +35,7 @@ namespace TestProject
             Repository repos = Repository.Instance;
             //try
             //{
+            repos.DeleteAllOrders();
                 Order ord = new Order("4444555544445555", "27.11.2012", "123", "Payed", 3, 0, 3);
                 repos.AddOrder(ord);
                 Assert.IsTrue(repos.HaveOrder(ord));
@@ -54,6 +55,7 @@ namespace TestProject
             Repository repos = Repository.Instance;
            // try
            // {
+            repos.DeleteAllOrders();
                 Order ord = new Order("4444555544445555", "27.11.2012", "123", "Payed", 3, 0, 3);
                 repos.AddOrder(ord);
                 repos.DeleteOrder(ord);
@@ -74,6 +76,7 @@ namespace TestProject
             Repository repos = Repository.Instance;
             //try
             //{
+            repos.DeleteAllUsers();
                 User usr = new User("Slavik", "Yaroslav", "Pohlod", "poh@gmail.com", "123123a", "123123", "Lviv", "Uk", "123", "Mail", "Manager");
                 repos.AddUser(usr);
                 Assert.IsTrue(repos.HaveUser(usr));
@@ -93,6 +96,7 @@ namespace TestProject
             Repository repos = Repository.Instance;
             // try
             // {
+            repos.DeleteAllUsers();
             User usr = new User("Slavik", "Yaroslav", "Pohlod", "poh@gmail.com", "123123a", "123123", "Lviv", "Uk", "123", "Mail", "Manager");
             repos.AddUser(usr);
             repos.DeleteUser(usr);
@@ -113,6 +117,7 @@ namespace TestProject
             Repository repos = Repository.Instance;
             // try
             // {
+            repos.DeleteAllUsers();
             User usr = new User("Slavik", "Yaroslav", "Pohlod", "poh@gmail.com", "123123a", "123123", "Lviv", "Uk", "123", "Mail", "Manager");
             repos.AddUser(usr);
             Assert.AreEqual(repos.GetUser(usr.UserName),usr);
@@ -132,6 +137,7 @@ namespace TestProject
             Repository repos = Repository.Instance;
             //try
             //{
+            repos.DeleteAllProducts();
             Product prd = new Product(new byte[5], "prod", "nice", "home", 0);
             repos.AddProduct(prd);
             Assert.IsTrue(repos.HaveProduct(prd));
@@ -151,6 +157,7 @@ namespace TestProject
             Repository repos = Repository.Instance;
             // try
             // {
+            repos.DeleteAllProducts();
             Product prd = new Product(new byte[5], "prod", "nice", "home", 0);
             repos.AddProduct(prd);
             repos.DeleteProduct(prd);
