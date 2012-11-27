@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -100,7 +102,7 @@ namespace TestProject
             User usr = new User("Slavik", "Yaroslav", "Pohlod", "poh@gmail.com", "123123a", "123123", "Lviv", "Uk", "123", "Mail", "Manager");
             repos.AddUser(usr);
             repos.DeleteUser(usr);
-            Assert.IsFalse(repos.HaveUser(usr));
+            Assert.IsFalse(repos.HaveUser(usr.UserName));
             //  }
             //  catch (NotSupportedException)
             //  {
@@ -161,7 +163,7 @@ namespace TestProject
             Product prd = new Product(new byte[5], "prod", "nice", "home", 0);
             repos.AddProduct(prd);
             repos.DeleteProduct(prd);
-            Assert.IsFalse(repos.HaveProduct(prd));
+            Assert.IsFalse(repos.HaveProduct(prd.Name));
             //  }
             //  catch (NotSupportedException)
             //  {
@@ -197,16 +199,34 @@ namespace TestProject
         [TestMethod]
         public void ValidateCardNumberTest()
         {
-            Assert.IsTrue(Validator.ValidateCardNumber("4532", "4532", "4532", "4532") && !Validator.ValidateCardNumber("1532", "4532", "4532", "4532"));
+            Assert.IsTrue(Validator.ValidateCardNumber("4532", "4532", "4532", "4532") && !Validator.ValidateCardNumber("1532", "4532", "4532", "453"));
         }
 
         /// <summary>
         /// Test Confirmed Password validation
         /// </summary>
         [TestMethod]
-        public void ValidateConfirmedPasswordTest()
+        public void ValidateConfirmedPasswordTest1()
         {
-            Assert.IsTrue(Validator.ValidateConfirmedPassword("4532", "4532") && !Validator.ValidateConfirmedPassword("1532", "4532"));
+            Assert.IsTrue(Validator.ValidateConfirmedPassword("4532", "4532"));
+        }
+
+        /// <summary>
+        /// Test Confirmed Password validation
+        /// </summary>
+        [TestMethod]
+        public void ValidateConfirmedPasswordTest2()
+        {
+            Assert.IsFalse(Validator.ValidateConfirmedPassword("1532", "453"));
+        }
+
+        /// <summary>
+        /// Test Confirmed Password validation
+        /// </summary>
+        [TestMethod]
+        public void ValidateConfirmedPasswordTest3()
+        {
+            Assert.IsFalse(Validator.ValidateConfirmedPassword("1532", "4531"));
         }
 
         /// <summary>
@@ -226,6 +246,46 @@ namespace TestProject
         {
             Assert.IsTrue(Validator.ValidateExpDate("12", "2013") && !Validator.ValidateExpDate("asd","2010"));
         }
+        #endregion
+        #region AppData
+
+        /// <summary>
+        /// Check if works products image get/set methods. 
+        /// </summary>
+        [TestMethod]
+        public void GetAndSetImageProduct()
+        {
+            Product prd = new Product();
+            Image img = new Bitmap(100,100);
+            prd.SetImage(img);
+            Image img2 = img = prd.GetImage();
+            Assert.AreEqual(img,img2);
+        }
+
+        /// <summary>
+        /// Test Order constructor 
+        /// </summary>
+        [TestMethod]
+        public void OrderConstructorTest()
+        {
+            Order a = new Order();
+            Order b = new Order();
+            Assert.AreNotEqual(a,b);
+        }
+
+        /// <summary>
+        /// Test class Line
+        /// </summary>
+        [TestMethod]
+        public void LineTest()
+        {
+            Line l1 = new Line();
+            l1.Cl = Color.Red;
+            l1.X = new Point(1, 2);
+            l1.Y = new Point(5, 6);
+            Assert.IsNotNull(l1);
+        }
+
         #endregion
     }
 }
