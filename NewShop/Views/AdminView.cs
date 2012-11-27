@@ -63,7 +63,7 @@ namespace Shop.Views
             if (e.Button == MouseButtons.Right)
             {
                 Point pt = this.usersListView.PointToScreen(e.Location);
-                this.contextMenuStrip1.Show(pt);
+                this.usersContextMenuStrip.Show(pt);
             }
         }
 
@@ -77,7 +77,7 @@ namespace Shop.Views
             if (e.Button == MouseButtons.Right)
             {
                 Point pt = this.requestsListView.PointToScreen(e.Location);
-                this.contextMenuStrip2.Show(pt);
+                this.requestsContextMenuStrip.Show(pt);
             }
         }
 

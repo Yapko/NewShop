@@ -31,7 +31,6 @@
             this.CancelBtn = new System.Windows.Forms.Button();
             this.newPass2Txt = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.genderTxt = new System.Windows.Forms.ComboBox();
             this.countryTxt = new System.Windows.Forms.ComboBox();
             this.SaveBtn = new System.Windows.Forms.Button();
@@ -57,6 +56,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lastNameTxt = new System.Windows.Forms.TextBox();
             this.firstNameTxt = new System.Windows.Forms.TextBox();
+            this.changePasswordGroupBox = new System.Windows.Forms.GroupBox();
+            this.changePasswordGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // CancelBtn
@@ -67,9 +68,9 @@
             this.CancelBtn.CausesValidation = false;
             this.CancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Location = new System.Drawing.Point(275, 576);
+            this.CancelBtn.Location = new System.Drawing.Point(364, 596);
             this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(112, 23);
+            this.CancelBtn.Size = new System.Drawing.Size(75, 23);
             this.CancelBtn.TabIndex = 75;
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.UseVisualStyleBackColor = false;
@@ -80,9 +81,9 @@
             this.newPass2Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.newPass2Txt.Location = new System.Drawing.Point(211, 534);
+            this.newPass2Txt.Location = new System.Drawing.Point(231, 93);
             this.newPass2Txt.Name = "newPass2Txt";
-            this.newPass2Txt.Size = new System.Drawing.Size(202, 20);
+            this.newPass2Txt.Size = new System.Drawing.Size(203, 20);
             this.newPass2Txt.TabIndex = 74;
             this.newPass2Txt.UseSystemPasswordChar = true;
             // 
@@ -94,25 +95,11 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(44, 491);
+            this.label15.Location = new System.Drawing.Point(15, 63);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(103, 17);
             this.label15.TabIndex = 73;
             this.label15.Text = "New password:";
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.Location = new System.Drawing.Point(44, 422);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(137, 17);
-            this.label14.TabIndex = 72;
-            this.label14.Text = "Change Password";
             // 
             // genderTxt
             // 
@@ -124,7 +111,7 @@
             "Female",
             "Male",
             "Prefer not to say"});
-            this.genderTxt.Location = new System.Drawing.Point(210, 259);
+            this.genderTxt.Location = new System.Drawing.Point(256, 262);
             this.genderTxt.Name = "genderTxt";
             this.genderTxt.Size = new System.Drawing.Size(202, 21);
             this.genderTxt.TabIndex = 71;
@@ -148,7 +135,7 @@
             "Great Britain",
             "Greece",
             "Ukraine"});
-            this.countryTxt.Location = new System.Drawing.Point(210, 172);
+            this.countryTxt.Location = new System.Drawing.Point(256, 175);
             this.countryTxt.Name = "countryTxt";
             this.countryTxt.Size = new System.Drawing.Size(202, 21);
             this.countryTxt.TabIndex = 70;
@@ -160,9 +147,9 @@
             this.SaveBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.SaveBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveBtn.Location = new System.Drawing.Point(71, 576);
+            this.SaveBtn.Location = new System.Drawing.Point(42, 596);
             this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(115, 23);
+            this.SaveBtn.Size = new System.Drawing.Size(75, 23);
             this.SaveBtn.TabIndex = 69;
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = false;
@@ -187,7 +174,7 @@
             this.postCodeTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.postCodeTxt.Location = new System.Drawing.Point(210, 215);
+            this.postCodeTxt.Location = new System.Drawing.Point(256, 218);
             this.postCodeTxt.Name = "postCodeTxt";
             this.postCodeTxt.Size = new System.Drawing.Size(202, 20);
             this.postCodeTxt.TabIndex = 67;
@@ -228,8 +215,8 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label10.Location = new System.Drawing.Point(172, 347);
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label10.Location = new System.Drawing.Point(208, 350);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(32, 17);
             this.label10.TabIndex = 64;
@@ -240,7 +227,7 @@
             this.telTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.telTxt.Location = new System.Drawing.Point(210, 346);
+            this.telTxt.Location = new System.Drawing.Point(256, 349);
             this.telTxt.MaxLength = 10;
             this.telTxt.Name = "telTxt";
             this.telTxt.Size = new System.Drawing.Size(202, 20);
@@ -254,7 +241,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(44, 347);
+            this.label9.Location = new System.Drawing.Point(44, 350);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 17);
             this.label9.TabIndex = 62;
@@ -266,7 +253,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.usernameTxt.Enabled = false;
-            this.usernameTxt.Location = new System.Drawing.Point(210, 388);
+            this.usernameTxt.Location = new System.Drawing.Point(256, 391);
             this.usernameTxt.Name = "usernameTxt";
             this.usernameTxt.Size = new System.Drawing.Size(202, 20);
             this.usernameTxt.TabIndex = 61;
@@ -281,18 +268,18 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.Location = new System.Drawing.Point(44, 388);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 17);
+            this.label6.Size = new System.Drawing.Size(77, 17);
             this.label6.TabIndex = 60;
-            this.label6.Text = "Username*:";
+            this.label6.Text = "Username:";
             // 
             // oldPassTxt
             // 
             this.oldPassTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.oldPassTxt.Location = new System.Drawing.Point(211, 448);
+            this.oldPassTxt.Location = new System.Drawing.Point(231, 31);
             this.oldPassTxt.Name = "oldPassTxt";
-            this.oldPassTxt.Size = new System.Drawing.Size(202, 20);
+            this.oldPassTxt.Size = new System.Drawing.Size(203, 20);
             this.oldPassTxt.TabIndex = 59;
             this.oldPassTxt.UseSystemPasswordChar = true;
             // 
@@ -301,9 +288,9 @@
             this.newPassTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.newPassTxt.Location = new System.Drawing.Point(211, 491);
+            this.newPassTxt.Location = new System.Drawing.Point(231, 62);
             this.newPassTxt.Name = "newPassTxt";
-            this.newPassTxt.Size = new System.Drawing.Size(202, 20);
+            this.newPassTxt.Size = new System.Drawing.Size(203, 20);
             this.newPassTxt.TabIndex = 58;
             this.newPassTxt.UseSystemPasswordChar = true;
             // 
@@ -315,11 +302,11 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(44, 520);
+            this.label5.Location = new System.Drawing.Point(15, 94);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 34);
+            this.label5.Size = new System.Drawing.Size(153, 17);
             this.label5.TabIndex = 57;
-            this.label5.Text = "Confirm new \r\npassword:";
+            this.label5.Text = "Confirm new password:";
             // 
             // label4
             // 
@@ -329,7 +316,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(44, 449);
+            this.label4.Location = new System.Drawing.Point(15, 32);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 17);
             this.label4.TabIndex = 56;
@@ -343,11 +330,11 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(44, 305);
+            this.label3.Location = new System.Drawing.Point(39, 309);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 17);
+            this.label3.Size = new System.Drawing.Size(106, 17);
             this.label3.TabIndex = 55;
-            this.label3.Text = "E-mail address*:";
+            this.label3.Text = "E-mail address:";
             // 
             // emailTxt
             // 
@@ -355,7 +342,7 @@
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.emailTxt.Enabled = false;
-            this.emailTxt.Location = new System.Drawing.Point(210, 305);
+            this.emailTxt.Location = new System.Drawing.Point(256, 308);
             this.emailTxt.Name = "emailTxt";
             this.emailTxt.Size = new System.Drawing.Size(202, 20);
             this.emailTxt.TabIndex = 54;
@@ -375,7 +362,7 @@
             // 
             // addressTxt
             // 
-            this.addressTxt.Location = new System.Drawing.Point(209, 132);
+            this.addressTxt.Location = new System.Drawing.Point(255, 135);
             this.addressTxt.Name = "addressTxt";
             this.addressTxt.Size = new System.Drawing.Size(202, 20);
             this.addressTxt.TabIndex = 82;
@@ -415,23 +402,41 @@
             // 
             // lastNameTxt
             // 
-            this.lastNameTxt.Location = new System.Drawing.Point(209, 91);
+            this.lastNameTxt.Location = new System.Drawing.Point(255, 94);
             this.lastNameTxt.Name = "lastNameTxt";
             this.lastNameTxt.Size = new System.Drawing.Size(202, 20);
             this.lastNameTxt.TabIndex = 78;
             // 
             // firstNameTxt
             // 
-            this.firstNameTxt.Location = new System.Drawing.Point(209, 50);
+            this.firstNameTxt.Location = new System.Drawing.Point(255, 53);
             this.firstNameTxt.Name = "firstNameTxt";
             this.firstNameTxt.Size = new System.Drawing.Size(202, 20);
             this.firstNameTxt.TabIndex = 77;
+            // 
+            // changePasswordGroupBox
+            // 
+            this.changePasswordGroupBox.Controls.Add(this.label5);
+            this.changePasswordGroupBox.Controls.Add(this.newPass2Txt);
+            this.changePasswordGroupBox.Controls.Add(this.label15);
+            this.changePasswordGroupBox.Controls.Add(this.newPassTxt);
+            this.changePasswordGroupBox.Controls.Add(this.oldPassTxt);
+            this.changePasswordGroupBox.Controls.Add(this.label4);
+            this.changePasswordGroupBox.Location = new System.Drawing.Point(24, 429);
+            this.changePasswordGroupBox.Name = "changePasswordGroupBox";
+            this.changePasswordGroupBox.Size = new System.Drawing.Size(451, 155);
+            this.changePasswordGroupBox.TabIndex = 83;
+            this.changePasswordGroupBox.TabStop = false;
+            this.changePasswordGroupBox.Text = "Change password";
             // 
             // PersonalAccountControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Controls.Add(this.SaveBtn);
+            this.Controls.Add(this.changePasswordGroupBox);
+            this.Controls.Add(this.CancelBtn);
             this.Controls.Add(this.addressTxt);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label2);
@@ -439,13 +444,8 @@
             this.Controls.Add(this.lastNameTxt);
             this.Controls.Add(this.firstNameTxt);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.CancelBtn);
-            this.Controls.Add(this.newPass2Txt);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.genderTxt);
             this.Controls.Add(this.countryTxt);
-            this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.postCodeTxt);
             this.Controls.Add(this.label13);
@@ -455,15 +455,13 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.usernameTxt);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.oldPassTxt);
-            this.Controls.Add(this.newPassTxt);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.emailTxt);
             this.Name = "PersonalAccountControl";
-            this.Size = new System.Drawing.Size(454, 620);
+            this.Size = new System.Drawing.Size(499, 631);
             this.Load += new System.EventHandler(this.PersonalAccountControl_Load);
+            this.changePasswordGroupBox.ResumeLayout(false);
+            this.changePasswordGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -474,7 +472,6 @@
         private System.Windows.Forms.Button CancelBtn;
         private System.Windows.Forms.TextBox newPass2Txt;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox genderTxt;
         private System.Windows.Forms.ComboBox countryTxt;
         private System.Windows.Forms.Button SaveBtn;
@@ -500,5 +497,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox lastNameTxt;
         private System.Windows.Forms.TextBox firstNameTxt;
+        private System.Windows.Forms.GroupBox changePasswordGroupBox;
     }
 }
