@@ -157,7 +157,6 @@ namespace Shop.Views
             {
                 if (x.Selected)
                 {
-                    MessageBox.Show("sdsd");
                     this.control.AcceptUser(x.Text);
                 }
             }

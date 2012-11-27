@@ -123,6 +123,7 @@ namespace Shop.Controllers
         {
             DestroyLogin();
             DestroyManager();
+            DestroyAdmin();
             DestroyPersonalCabinet();
             DestroyProductsList();
             DestroyRegisterView();
