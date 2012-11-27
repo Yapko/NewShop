@@ -100,6 +100,7 @@
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Models\Captcha.cs" />
     <Compile Include="Models\Repository.cs" />
+    <Compile Include="Validator.cs" />
     <Compile Include="Views\AdminView.cs">
       <SubType>UserControl</SubType>
     </Compile>

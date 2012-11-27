@@ -253,7 +253,7 @@ namespace Shop.Controllers
         /// <param name="status">captcha status</param>
         public void Registration(string username, string name1, string name2, string phone, string email, string pass1, string pass2, bool status)
         {
-            if (username.Length == 0 || !this.ValidateEmail(email) || !this.ValidatePassword(pass1) || !this.ValidateConfirmedPassword(pass1, pass2) || !status)
+            if (username.Length == 0 || !Validator.ValidateEmail(email) || !Validator.ValidatePassword(pass1) || !Validator.ValidateConfirmedPassword(pass1, pass2) || !status)
             {
                 MessageBox.Show("Some data is wrong!", "Registration", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
@@ -313,69 +313,6 @@ namespace Shop.Controllers
             }
 
             return truth;
-        }
-
-        /// <summary>
-        /// emails validating
-        /// </summary>
-        /// <param name="email">email text</param>
-        /// <returns>bool</returns>
-        public bool ValidateEmail(string email)
-        {
-            bool val = email.Contains('@') && email.Contains('.')
-                && (email.Length - email.LastIndexOf('.') == 3
-                || email.Length - email.LastIndexOf('.') == 4);
-            return val;
-        }
-
-        /// <summary>
-        /// password validation
-        /// </summary>
-        /// <param name="pass">password</param>
-        /// <returns>bool</returns>      
-        public bool ValidatePassword(string pass)
-        {
-            bool valid = true;
-            if (pass.Length < 8)
-            {
-                valid = false;
-            }
-            else
-            {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(pass, @"\d"))
-                {
-                    valid = false;
-                }
-            }
-
-            return valid;
-        }
-
-        /// <summary>
-        /// validating confirmed password
-        /// </summary>
-        /// <param name="pass1">password</param>
-        /// <param name="pass2">confirmed password</param>
-        /// <returns>bool</returns>
-        public bool ValidateConfirmedPassword(string pass1, string pass2)
-        {
-            bool valid = true;
-            if (pass1.Length < pass2.Length)
-            {
-                valid = false;
-            }
-            else
-            {
-                for (int i = 0; i < pass2.Length; i++)
-                {
-                    if (pass1[i] != pass2[i])
-                    {
-                        valid = false;
-                    }
-                }
-            }
-
-            return valid;
         }
 
         /// <summary>
