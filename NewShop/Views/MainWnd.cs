@@ -115,6 +115,7 @@
             {
                 ((AdminView)Controls[Controls.IndexOfKey("AdminView")]).Hide();
             }
+
             if (Controls.ContainsKey("ManagerControl") == true)
             {
                 ((ManagerControl)Controls[Controls.IndexOfKey("ManagerControl")]).Hide();
@@ -131,6 +132,7 @@
             {
                 ((AdminView)Controls[Controls.IndexOfKey("AdminView")]).Show();
             }
+
             if (Controls.ContainsKey("ManagerControl") == true)
             {
                 ((ManagerControl)Controls[Controls.IndexOfKey("ManagerControl")]).Show();
