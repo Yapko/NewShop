@@ -273,6 +273,8 @@ namespace Shop.Controllers
 
         #endregion
 
+        #region PersonalCabinet
+
         /// <summary>
         /// Function to show user personal cabinet
         /// </summary>
@@ -292,14 +294,6 @@ namespace Shop.Controllers
         {
             view.DestroyAccount();
             LoadProductsList();
-        }
-
-        /// <summary>
-        /// destroy products list
-        /// </summary>
-        public void DestroyProductsList()
-        {
-            view.DestroyProductsList();
         }
 
         /// <summary>
@@ -438,6 +432,16 @@ namespace Shop.Controllers
             user = repos.GetUser(temp.UserName);
             ChangeUser();
             return true;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// destroy products list
+        /// </summary>
+        public void DestroyProductsList()
+        {
+            view.DestroyProductsList();
         }
 
         /// <summary>
@@ -711,25 +715,28 @@ namespace Shop.Controllers
         /// метод записує в файл інформацію про останню покупку
         /// записує : номер картки , CVN код, дату придатності картки і суму покупки
         /// </summary>
-        public void PayAndWrite()
+        public void PayAndWrite(string getPart1, string getPart2, string getPart3, string getPart4, string getCvn, string getMonth, string getYear)
         {
-            //if (this.ValidateCardNumber(view..getPart1(), this.payView.getPart2(), this.payView.getPart3(), this.payView.getPart4()) && this.ValidateCNVCode(this.payView.getCvn()) && this.ValidateExpDate(this.payView.getMonth(), this.payView.getYear()))
-            //{
-            //    DateTime time = DateTime.Now;
-            //    string ttm = time.Date.ToShortDateString();
-            //    string tnumber = payView.getPart1() + this.payView.getPart2() + this.payView.getPart3() + this.payView.getPart4();
-            //    string cash = getBuyPrice().ToString();
-            //    Deposit temp = new Deposit(tnumber, this.payView.getCvn(), this.payView.getMonth(), this.payView.getYear(), ttm, cash);
-            //    Deposit.Id++;
-            //    WritePayment(temp);
-            //    payView.setDialogResultOK();
-            //    payView.close();
+           
+            if (ValidateCardNumber(getPart1, getPart2, getPart3, getPart4) && ValidateCNVCode(getCvn) && ValidateExpDate(getMonth, getYear))
+            {
+                DateTime time = DateTime.Now;
+                Order ord = new Order();
+                ord.Date =  time.Date;
+                string tnumber = getPart1 + getPart2 + getPart3 + getPart4;
+                ord.CardNumber = tnumber;
+                ord.CVN = getCvn;
+                ord.UserID = user.ID;
+                //ord.ProductID = 
+                ord.ExpDate = getMonth + "" + getYear;
+                ord.ID++;
+                repos.AddOrder(ord);
             //    removeAllFromBasked();
-           // }
-            //else
-           // {
-           //     this.payView.messageBox("Wrong input!");
-           // }
+            }
+            else
+            {
+                view.ShowMessage("Wrong input!");
+            }
         }
     }
 }
