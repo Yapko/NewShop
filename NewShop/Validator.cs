@@ -115,7 +115,15 @@ namespace Shop
         /// <returns>or is norm date</returns>
         public static bool ValidateExpDate(string getMonth, string getYear)
         {
-            return (getMonth.Length != 0) && (getYear.Length != 0);
+            bool res = (getMonth.Length != 0) && (getYear.Length != 0);
+            ushort mnt = 0, year = 0;
+            res = res && ushort.TryParse(getMonth, out mnt);
+            res = res && ushort.TryParse(getYear, out year);
+            if(res)
+            {
+                res = res && mnt >= DateTime.Now.Month && year >= DateTime.Now.Year;
+            }
+            return res;
         }
 
         /// <summary>
