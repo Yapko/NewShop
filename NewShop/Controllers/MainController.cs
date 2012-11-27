@@ -129,6 +129,7 @@ namespace Shop.Controllers
             DestroyRegisterView();
             DestroyUserProductsList();
             DestroyUserView();
+            DestroyPayment();
             switch (user.Status)
             {
                 case "Manager":
