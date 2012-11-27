@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shop.AppData;
 using Shop.Models;
@@ -34,16 +33,16 @@ namespace TestProject
         public void AddAndHaveOrder()
         {
             Repository repos = Repository.Instance;
-            try
-            {
+            //try
+            //{
                 Order ord = new Order("4444555544445555", "27.11.2012", "123", "Payed", 3, 0, 3);
                 repos.AddOrder(ord);
                 Assert.IsTrue(repos.HaveOrder(ord));
-            }
-            catch (NotSupportedException)
-            {
-                Assert.IsTrue(true);
-            }
+            //}
+            //catch (NotSupportedException)
+            //{
+            //    Assert.IsTrue(true);
+            //}
         }
 
         /// <summary>
@@ -53,17 +52,17 @@ namespace TestProject
         public void AddAndDeleteOrder()
         {
             Repository repos = Repository.Instance;
-            try
-            {
+           // try
+           // {
                 Order ord = new Order("4444555544445555", "27.11.2012", "123", "Payed", 3, 0, 3);
                 repos.AddOrder(ord);
                 repos.DeleteOrder(ord);
                 Assert.IsFalse(repos.HaveOrder(ord));
-            }
-            catch (NotSupportedException)
-            {
-                Assert.IsTrue(true);
-            }
+          //  }
+          //  catch (NotSupportedException)
+          //  {
+          //      Assert.IsTrue(true);
+          //  }
         }
 
         /// <summary>
@@ -73,16 +72,30 @@ namespace TestProject
         public void AddAndHaveUser()
         {
             Repository repos = Repository.Instance;
-            try
-            {
+            //try
+            //{
                 User usr = new User("Slavik", "Yaroslav", "Pohlod", "poh@gmail.com", "123123a", "123123", "Lviv", "Uk", "123", "Mail", "Manager");
                 repos.AddUser(usr);
                 Assert.IsTrue(repos.HaveUser(usr));
-            }
-            catch (Exception)
-            {
-                Assert.IsTrue(true);
-            }
+            //}
+            //catch (Exception)
+            //{
+            //    Assert.IsTrue(true);
+            //}
+        }
+        #endregion
+
+        #region validations
+        
+        /// <summary>
+        /// Test password vertification
+        /// </summary>
+        [TestMethod]
+        public void VerifyPasswordTest()
+        {
+            MainController ctrl = new MainController();
+            User usr = new User();
+            Assert.IsTrue(ctrl.VerifyPassword(usr.Password, "123123123a", "123123123a"));
         }
         #endregion
     }
