@@ -68,7 +68,7 @@
             this.CancelBtn.CausesValidation = false;
             this.CancelBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Location = new System.Drawing.Point(364, 596);
+            this.CancelBtn.Location = new System.Drawing.Point(364, 587);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(75, 23);
             this.CancelBtn.TabIndex = 75;
@@ -147,7 +147,7 @@
             this.SaveBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.SaveBtn.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveBtn.Location = new System.Drawing.Point(42, 596);
+            this.SaveBtn.Location = new System.Drawing.Point(42, 587);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(75, 23);
             this.SaveBtn.TabIndex = 69;
@@ -424,7 +424,7 @@
             this.changePasswordGroupBox.Controls.Add(this.label4);
             this.changePasswordGroupBox.Location = new System.Drawing.Point(24, 429);
             this.changePasswordGroupBox.Name = "changePasswordGroupBox";
-            this.changePasswordGroupBox.Size = new System.Drawing.Size(451, 155);
+            this.changePasswordGroupBox.Size = new System.Drawing.Size(451, 140);
             this.changePasswordGroupBox.TabIndex = 83;
             this.changePasswordGroupBox.TabStop = false;
             this.changePasswordGroupBox.Text = "Change password";

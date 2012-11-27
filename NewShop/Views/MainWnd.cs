@@ -299,7 +299,7 @@
         public void LoadUserProductsList(List<Product> prods)
         {
             //ProductsListControl plc = new ProductsListControl(control, prods);
-            UserBasked ub = new UserBasked(control, prods);
+            UserBasket ub = new UserBasket(control, prods);
             this.Controls.Add(ub);
         }
 

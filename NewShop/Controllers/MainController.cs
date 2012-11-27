@@ -102,7 +102,7 @@ namespace Shop.Controllers
         public void LogOut()
         {
             user = new User();
-            user.Status = "Manager";
+            user.Status = "UnloggedUser";
             DestroyUserView();
             LoadLogin();
             ChangeUser();

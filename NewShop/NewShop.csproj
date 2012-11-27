@@ -166,11 +166,11 @@
     <Compile Include="Views\RegistrationView.designer.cs">
       <DependentUpon>RegistrationView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserBasked.cs">
+    <Compile Include="Views\UserBasket.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Views\UserBasked.Designer.cs">
-      <DependentUpon>UserBasked.cs</DependentUpon>
+    <Compile Include="Views\UserBasket.Designer.cs">
+      <DependentUpon>UserBasket.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControlView.cs">
       <SubType>UserControl</SubType>
@@ -218,8 +218,8 @@
     <EmbeddedResource Include="Views\RegistrationView.resx">
       <DependentUpon>RegistrationView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UserBasked.resx">
-      <DependentUpon>UserBasked.cs</DependentUpon>
+    <EmbeddedResource Include="Views\UserBasket.resx">
+      <DependentUpon>UserBasket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserControlView.resx">
       <DependentUpon>UserControlView.cs</DependentUpon>
