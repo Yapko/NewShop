@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.adminTabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.usersListView = new System.Windows.Forms.ListView();
             this.usernameColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -40,31 +40,31 @@
             this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader32 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader52 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.usersContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.changeStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.managerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.supervisorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loggedUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.requestsContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.acceptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rejectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1.SuspendLayout();
+            this.adminTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
-            this.contextMenuStrip2.SuspendLayout();
+            this.usersContextMenuStrip.SuspendLayout();
+            this.requestsContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // adminTabControl
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(18, 19);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(412, 413);
-            this.tabControl1.TabIndex = 0;
+            this.adminTabControl.Controls.Add(this.tabPage1);
+            this.adminTabControl.Controls.Add(this.tabPage2);
+            this.adminTabControl.Location = new System.Drawing.Point(18, 19);
+            this.adminTabControl.Name = "adminTabControl";
+            this.adminTabControl.SelectedIndex = 0;
+            this.adminTabControl.Size = new System.Drawing.Size(412, 413);
+            this.adminTabControl.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -154,13 +154,13 @@
             this.columnHeader52.Text = "Last name";
             this.columnHeader52.Width = 100;
             // 
-            // contextMenuStrip1
+            // usersContextMenuStrip
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usersContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changeStatusToolStripMenuItem,
             this.deleteToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 48);
+            this.usersContextMenuStrip.Name = "contextMenuStrip1";
+            this.usersContextMenuStrip.Size = new System.Drawing.Size(156, 48);
             // 
             // changeStatusToolStripMenuItem
             // 
@@ -200,13 +200,13 @@
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
-            // contextMenuStrip2
+            // requestsContextMenuStrip
             // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.requestsContextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.acceptToolStripMenuItem,
             this.rejectToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(119, 48);
+            this.requestsContextMenuStrip.Name = "contextMenuStrip2";
+            this.requestsContextMenuStrip.Size = new System.Drawing.Size(119, 48);
             // 
             // acceptToolStripMenuItem
             // 
@@ -226,34 +226,34 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.adminTabControl);
             this.Name = "AdminView";
             this.Size = new System.Drawing.Size(448, 448);
             this.Load += new System.EventHandler(this.AdminView_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.adminTabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.contextMenuStrip2.ResumeLayout(false);
+            this.usersContextMenuStrip.ResumeLayout(false);
+            this.requestsContextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl adminTabControl;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ListView usersListView;
         private System.Windows.Forms.ColumnHeader usernameColumn;
         private System.Windows.Forms.ColumnHeader statusColumn;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip usersContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem changeStatusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem managerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem supervisorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loggedUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ContextMenuStrip requestsContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem acceptToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rejectToolStripMenuItem;
         private System.Windows.Forms.ListView requestsListView;

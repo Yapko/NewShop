@@ -111,6 +111,14 @@
             HostForCardPayment cp = new HostForCardPayment(control);
             cp.Location = position;
             this.Controls.Add(cp);
+            if (Controls.ContainsKey("AdminView") == true)
+            {
+                ((AdminView)Controls[Controls.IndexOfKey("AdminView")]).Hide();
+            }
+            if (Controls.ContainsKey("ManagerControl") == true)
+            {
+                ((ManagerControl)Controls[Controls.IndexOfKey("ManagerControl")]).Hide();
+            }
         }
 
         /// <summary>
@@ -119,6 +127,14 @@
         public void PaymentDestroy()
         {
             RemoveFromControls("HostForCardPayment");
+            if (Controls.ContainsKey("AdminView") == true)
+            {
+                ((AdminView)Controls[Controls.IndexOfKey("AdminView")]).Show();
+            }
+            if (Controls.ContainsKey("ManagerControl") == true)
+            {
+                ((ManagerControl)Controls[Controls.IndexOfKey("ManagerControl")]).Show();
+            }
         }
 
         /// <summary>
@@ -299,7 +315,7 @@
         public void LoadUserProductsList(List<Product> prods)
         {
             //ProductsListControl plc = new ProductsListControl(control, prods);
-            UserBasked ub = new UserBasked(control, prods);
+            UserBasket ub = new UserBasket(control, prods);
             this.Controls.Add(ub);
         }
 

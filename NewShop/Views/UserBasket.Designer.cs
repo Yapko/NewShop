@@ -1,6 +1,6 @@
 ﻿namespace Shop.Views
 {
-    partial class UserBasked
+    partial class UserBasket
     {
         /// <summary> 
         /// Required designer variable.

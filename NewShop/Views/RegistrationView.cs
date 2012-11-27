@@ -136,7 +136,7 @@ namespace Shop.Views
         /// <param name="e">event</param>
         private void EmailField_Validating(object sender, CancelEventArgs e)
         {
-            if (!control.ValidateEmail(emailField.Text))
+            if (!Validator.ValidateEmail(emailField.Text))
             {
                 e.Cancel = true;
                 emailField.ForeColor = Color.Red;
@@ -162,7 +162,7 @@ namespace Shop.Views
         /// <param name="e">event</param>
         private void Pass1Field_Validating(object sender, CancelEventArgs e)
         {
-            if (!control.ValidatePassword(pass1Field.Text))
+            if (!Validator.ValidatePassword(pass1Field.Text))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(pass1Field, "your password must have more than 8 symbols and contain some numbers!");
@@ -188,7 +188,7 @@ namespace Shop.Views
         /// <param name="e">event</param>
         private void Pass2Field_Validating(object sender, CancelEventArgs e)
         {
-            if (!control.ValidateConfirmedPassword(pass1Field.Text, pass2Field.Text) || 
+            if (!Validator.ValidateConfirmedPassword(pass1Field.Text, pass2Field.Text) || 
                 pass1Field.Text.Length > pass2Field.Text.Length || pass2Field.Text.Length == 0)
             {
                 errorProvider2.SetError(pass2Field, "your password is not correct!");
@@ -215,7 +215,7 @@ namespace Shop.Views
         /// <param name="e">event</param>
         private void Pass2Field_TextChanged(object sender, EventArgs e)
         {
-            if (!control.ValidateConfirmedPassword(pass1Field.Text, pass2Field.Text))
+            if (!Validator.ValidateConfirmedPassword(pass1Field.Text, pass2Field.Text))
             {
                 errorProvider2.SetError(pass2Field, "your password is not correct!");
                 pass2Field.ForeColor = Color.Red;

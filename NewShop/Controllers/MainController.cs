@@ -123,6 +123,7 @@ namespace Shop.Controllers
         {
             DestroyLogin();
             DestroyManager();
+            DestroyAdmin();
             DestroyPersonalCabinet();
             DestroyProductsList();
             DestroyRegisterView();
@@ -231,6 +232,7 @@ namespace Shop.Controllers
         #endregion
 
         #region Registration
+
         /// <summary>
         /// ShowRegisterView form
         /// </summary>
@@ -252,7 +254,7 @@ namespace Shop.Controllers
         /// <param name="status">captcha status</param>
         public void Registration(string username, string name1, string name2, string phone, string email, string pass1, string pass2, bool status)
         {
-            if (username.Length == 0 || !this.ValidateEmail(email) || !this.ValidatePassword(pass1) || !this.ValidateConfirmedPassword(pass1, pass2) || !status)
+            if (username.Length == 0 || !Validator.ValidateEmail(email) || !Validator.ValidatePassword(pass1) || !Validator.ValidateConfirmedPassword(pass1, pass2) || !status)
             {
                 MessageBox.Show("Some data is wrong!", "Registration", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
@@ -272,6 +274,8 @@ namespace Shop.Controllers
         }
 
         #endregion
+
+        #region PersonalCabinet
 
         /// <summary>
         /// Function to show user personal cabinet
@@ -295,14 +299,6 @@ namespace Shop.Controllers
         }
 
         /// <summary>
-        /// destroy products list
-        /// </summary>
-        public void DestroyProductsList()
-        {
-            view.DestroyProductsList();
-        }
-
-        /// <summary>
         /// функція, яка перевіряє чи співпадає пароль
         /// </summary>
         /// <param name="oldPass">old password</param>
@@ -318,69 +314,6 @@ namespace Shop.Controllers
             }
 
             return truth;
-        }
-
-        /// <summary>
-        /// emails validating
-        /// </summary>
-        /// <param name="email">email text</param>
-        /// <returns>bool</returns>
-        public bool ValidateEmail(string email)
-        {
-            bool val = email.Contains('@') && email.Contains('.')
-                && (email.Length - email.LastIndexOf('.') == 3
-                || email.Length - email.LastIndexOf('.') == 4);
-            return val;
-        }
-
-        /// <summary>
-        /// password validation
-        /// </summary>
-        /// <param name="pass">password</param>
-        /// <returns>bool</returns>      
-        public bool ValidatePassword(string pass)
-        {
-            bool valid = true;
-            if (pass.Length < 8)
-            {
-                valid = false;
-            }
-            else
-            {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(pass, @"\d"))
-                {
-                    valid = false;
-                }
-            }
-
-            return valid;
-        }
-
-        /// <summary>
-        /// validating confirmed password
-        /// </summary>
-        /// <param name="pass1">password</param>
-        /// <param name="pass2">confirmed password</param>
-        /// <returns>bool</returns>
-        public bool ValidateConfirmedPassword(string pass1, string pass2)
-        {
-            bool valid = true;
-            if (pass1.Length < pass2.Length)
-            {
-                valid = false;
-            }
-            else
-            {
-                for (int i = 0; i < pass2.Length; i++)
-                {
-                    if (pass1[i] != pass2[i])
-                    {
-                        valid = false;
-                    }
-                }
-            }
-
-            return valid;
         }
 
         /// <summary>
@@ -438,6 +371,16 @@ namespace Shop.Controllers
             user = repos.GetUser(temp.UserName);
             ChangeUser();
             return true;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// destroy products list
+        /// </summary>
+        public void DestroyProductsList()
+        {
+            view.DestroyProductsList();
         }
 
         /// <summary>
@@ -647,89 +590,38 @@ namespace Shop.Controllers
             repos.DeleteUser(userToDel);
         }
 
-        /// <summary>
-        /// Validate card number
-        /// </summary>
-        /// <param name="getPart1">code part1</param>
-        /// <param name="getPart2">code part2</param>
-        /// <param name="getPart3">code part3</param>
-        /// <param name="getPart4">code part4</param>
-        /// <returns>true or false</returns>
-        public bool ValidateCardNumber(string getPart1, string getPart2, string getPart3, string getPart4)
+       /// <summary>
+       /// метод записує в файл інформацію про останню покупку
+       /// записує : номер картки , CVN код, дату придатності картки і суму покупки
+       /// </summary>
+       /// <param name="getPart1">first part code number</param>
+        /// <param name="getPart2">second part code number</param>
+        /// <param name="getPart3">third part code number</param>
+        /// <param name="getPart4">fourth part code number</param>
+       /// <param name="getCvn">cnv code</param>
+       /// <param name="getMonth">month</param>
+       /// <param name="getYear">year</param>
+        public void PayAndWrite(string getPart1, string getPart2, string getPart3, string getPart4, string getCvn, string getMonth, string getYear)
         {
-            ushort n;
-            bool res = false;
-            if ((getPart1.Length != 4) || (getPart2.Length != 4) || (getPart3.Length != 4) || (getPart4.Length != 4))
+            if (Validator.ValidateCardNumber(getPart1, getPart2, getPart3, getPart4) && Validator.ValidateCNVCode(getCvn) && Validator.ValidateExpDate(getMonth, getYear))
             {
-                res = false;
+                DateTime time = DateTime.Now;
+                Order ord = new Order();
+                ord.Date = time.Date;
+                string tnumber = getPart1 + getPart2 + getPart3 + getPart4;
+                ord.CardNumber = tnumber;
+                ord.CVN = getCvn;
+                ord.UserID = user.ID;
+                //ord.ProductID = 
+                ord.ExpDate = getMonth + " " + getYear;
+                ord.ID++;
+                repos.AddOrder(ord);
+            //  removeAllFromBasked();
             }
-            else if (getPart1[0] != '4' && getPart1[0] != '5' && getPart1[0] != '6')
+            else
             {
-                res = false;
+                view.ShowMessage("Wrong input!");
             }
-            else if (ushort.TryParse(getPart1, out n) && ushort.TryParse(getPart2, out n) && ushort.TryParse(getPart3, out n) && ushort.TryParse(getPart4, out n))
-            {
-                res = true;
-            }
-
-            return res;
-        }
-
-        /// <summary>
-        /// Validate CNV Code
-        /// </summary>
-        /// <param name="getCvn">CNV Code</param>
-        /// <returns>true or false</returns>
-        public bool ValidateCNVCode(string getCvn)
-        {
-            ushort n;
-            bool res = false;
-            if (getCvn.Length != 3)
-            {
-                res = false;
-            }
-            else if (ushort.TryParse(getCvn, out n))
-            {
-                res = true;
-            }
-
-            return res;
-        }
-
-        /// <summary>
-        /// validate date
-        /// </summary>
-        /// <param name="getMonth">Month</param>
-        /// <param name="getYear">Year</param>
-        /// <returns>or is norm date</returns>
-        public bool ValidateExpDate(string getMonth, string getYear)
-        {
-            return (getMonth.Length != 0) && (getYear.Length != 0);
-        }
-
-        /// <summary>
-        /// метод записує в файл інформацію про останню покупку
-        /// записує : номер картки , CVN код, дату придатності картки і суму покупки
-        /// </summary>
-        public void PayAndWrite()
-        {
-            //if (this.ValidateCardNumber(view..getPart1(), this.payView.getPart2(), this.payView.getPart3(), this.payView.getPart4()) && this.ValidateCNVCode(this.payView.getCvn()) && this.ValidateExpDate(this.payView.getMonth(), this.payView.getYear()))
-            //{
-            //    DateTime time = DateTime.Now;
-            //    string ttm = time.Date.ToShortDateString();
-            //    string tnumber = payView.getPart1() + this.payView.getPart2() + this.payView.getPart3() + this.payView.getPart4();
-            //    string cash = getBuyPrice().ToString();
-            //    Deposit temp = new Deposit(tnumber, this.payView.getCvn(), this.payView.getMonth(), this.payView.getYear(), ttm, cash);
-            //    Deposit.Id++;
-            //    WritePayment(temp);
-            //    payView.setDialogResultOK();
-            //    payView.close();
-            //    removeAllFromBasked();
-           // }
-            //else
-           // {
-           //     this.payView.messageBox("Wrong input!");
-           // }
         }
     }
 }

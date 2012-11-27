@@ -42,13 +42,13 @@ namespace Shop.Views
         /// <param name="e">param</param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (!control.ValidateCardNumber(GetPart1(), GetPart2(), GetPart3(), GetPart4()))
+            if (!Validator.ValidateCardNumber(GetPart1(), GetPart2(), GetPart3(), GetPart4()))
             {
                 MessageBox.Show("Wrong number", "error");
             }
             else
-            { 
-                control.PayAndWrite();
+            {
+                control.PayAndWrite(GetPart1(), GetPart2(), GetPart3(), GetPart4(), GetCvn(), GetMonth(), GetYear());
                 control.DestroyPayment();
                 MessageBox.Show("Please, wait confirmation", "Payment card");
             }
@@ -188,7 +188,7 @@ namespace Shop.Views
         {
             if (textBox1.Text.Count() == 3)
             {
-                if (!control.ValidateCNVCode(GetCvn()))
+                if (!Validator.ValidateCNVCode(GetCvn()))
                 {
                     MessageBox.Show("Wrong code", "error");
                 }
@@ -204,7 +204,7 @@ namespace Shop.Views
         {
             if (comboBox1.Text != string.Empty)
             {
-                if (!control.ValidateExpDate(GetMonth(), GetYear()))
+                if (!Validator.ValidateExpDate(GetMonth(), GetYear()))
                 {
                     MessageBox.Show("Wrong date", "error");
                 }
@@ -220,7 +220,7 @@ namespace Shop.Views
         {
             if (comboBox2.Text != string.Empty)
             {
-                if (!control.ValidateExpDate(GetMonth(), GetYear()))
+                if (!Validator.ValidateExpDate(GetMonth(), GetYear()))
                 {
                     MessageBox.Show("Wrong date", "error");
                 }

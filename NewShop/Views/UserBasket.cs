@@ -16,7 +16,7 @@ namespace Shop.Views
     /// <summary>
     /// form for users products list
     /// </summary>
-    public partial class UserBasked : UserControl
+    public partial class UserBasket : UserControl
     {
         /// <summary>
         /// Main controller
@@ -24,11 +24,11 @@ namespace Shop.Views
         private MainController main;
         
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserBasked"/> class.
+        /// Initializes a new instance of the <see cref="UserBasket"/> class.
         /// </summary>
         /// <param name="a">main controller</param>
         /// <param name="prods">list of products to be shown</param>
-        public UserBasked(MainController a, List<Product> prods)
+        public UserBasket(MainController a, List<Product> prods)
         {
             InitializeComponent();
             main = a;
