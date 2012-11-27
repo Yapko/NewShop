@@ -711,27 +711,33 @@ namespace Shop.Controllers
             return (getMonth.Length != 0) && (getYear.Length != 0);
         }
 
-        /// <summary>
-        /// метод записує в файл інформацію про останню покупку
-        /// записує : номер картки , CVN код, дату придатності картки і суму покупки
-        /// </summary>
+       /// <summary>
+       /// метод записує в файл інформацію про останню покупку
+       /// записує : номер картки , CVN код, дату придатності картки і суму покупки
+       /// </summary>
+       /// <param name="getPart1">first part code number</param>
+        /// <param name="getPart2">second part code number</param>
+        /// <param name="getPart3">third part code number</param>
+        /// <param name="getPart4">fourth part code number</param>
+       /// <param name="getCvn">cnv code</param>
+       /// <param name="getMonth">month</param>
+       /// <param name="getYear">year</param>
         public void PayAndWrite(string getPart1, string getPart2, string getPart3, string getPart4, string getCvn, string getMonth, string getYear)
         {
-           
             if (ValidateCardNumber(getPart1, getPart2, getPart3, getPart4) && ValidateCNVCode(getCvn) && ValidateExpDate(getMonth, getYear))
             {
                 DateTime time = DateTime.Now;
                 Order ord = new Order();
-                ord.Date =  time.Date;
+                ord.Date = time.Date;
                 string tnumber = getPart1 + getPart2 + getPart3 + getPart4;
                 ord.CardNumber = tnumber;
                 ord.CVN = getCvn;
                 ord.UserID = user.ID;
                 //ord.ProductID = 
-                ord.ExpDate = getMonth + "" + getYear;
+                ord.ExpDate = getMonth + " " + getYear;
                 ord.ID++;
                 repos.AddOrder(ord);
-            //    removeAllFromBasked();
+            //  removeAllFromBasked();
             }
             else
             {
