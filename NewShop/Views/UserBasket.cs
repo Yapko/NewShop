@@ -79,5 +79,28 @@ namespace Shop.Views
         {
             UserProductsList.Items.Add(lvi);
         }
+
+        /// <summary>
+        /// Get focused element from product list
+        /// </summary>
+        /// <returns> product wich focused </returns>
+        public List<Product> GetFocused()
+        {
+            List<Product> toRet = new List<Product>();
+            Product toAdd = null;
+            foreach (ListViewItem lvi in UserProductsList.Items)
+            {
+                if (lvi.Focused == true)
+                {
+                    string price = lvi.SubItems[3].Text;
+                    price = price.Remove(price.Length - 1);
+                    double pr = double.Parse(price);
+                    toAdd = new Product(lvi.ImageList.Images[lvi.ImageIndex], lvi.SubItems[0].Text, lvi.SubItems[1].Text, lvi.SubItems[2].Text, pr, UserProductsList.Items.IndexOf(lvi) + 1);
+                    toRet.Add(toAdd);
+                }
+            }
+
+            return toRet;
+        }
     }    
 }

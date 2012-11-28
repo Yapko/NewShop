@@ -91,19 +91,12 @@ namespace Shop
         {
             ushort n;
             bool res = false;
-            if ((getPart1.Length != 4) || (getPart2.Length != 4) || (getPart3.Length != 4) || (getPart4.Length != 4))
-            {
-                res = false;
-            }
-            else if (getPart1[0] != '4' && getPart1[0] != '5' && getPart1[0] != '6')
-            {
-                res = false;
-            }
-            else if (ushort.TryParse(getPart1, out n) && ushort.TryParse(getPart2, out n) && ushort.TryParse(getPart3, out n) && ushort.TryParse(getPart4, out n))
+            if (ushort.TryParse(getPart1, out n) && ushort.TryParse(getPart2, out n) && ushort.TryParse(getPart3, out n) && ushort.TryParse(getPart4, out n) &&
+               (getPart1[0] == '4' || getPart1[0] == '5' || getPart1[0] == '6') &&
+               ((getPart1.Length == 4) && (getPart2.Length == 4) && (getPart3.Length == 4) && (getPart4.Length == 4)))
             {
                 res = true;
             }
-
             return res;
         }
 
@@ -121,7 +114,11 @@ namespace Shop
             res = res && ushort.TryParse(getYear, out year);
             if (res)
             {
-                res = res && mnt >= DateTime.Now.Month && year >= DateTime.Now.Year;
+                res = res && year >= DateTime.Now.Year;
+                if(year == DateTime.Now.Year)
+                {
+                    res = res && mnt >= DateTime.Now.Month;
+                }
             }
 
             return res;

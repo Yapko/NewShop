@@ -398,7 +398,10 @@ namespace Shop.Controllers
         /// <param name="toAdd">product to add</param>
         public void AddToUserBasked(Product toAdd)
         {
-            userProducts.Add(toAdd);
+            if (user.Status != "UnloggedUser")
+            {
+                userProducts.Add(toAdd);
+            }
         }
 
         /// <summary>
@@ -459,6 +462,15 @@ namespace Shop.Controllers
             //TODO: Rewrite refresh product list
             DestroyProductsList();
             LoadProductsList();
+        }
+
+        /// <summary>
+        /// Refresh Basket
+        /// </summary>
+        public void RefreshBasket()
+        {
+            DestroyUserProductsList();
+            LoadUserProductsList();
         }
 
         /// <summary>
@@ -604,25 +616,29 @@ namespace Shop.Controllers
        /// <param name="getYear">year</param>
         public void PayAndWrite(string getPart1, string getPart2, string getPart3, string getPart4, string getCvn, string getMonth, string getYear)
         {
+            // TODO: It don`t works
+            List<Product> prods = view.GetSelectedAtBasket();
             if (Validator.ValidateCardNumber(getPart1, getPart2, getPart3, getPart4) && Validator.ValidateCNVCode(getCvn) && Validator.ValidateExpDate(getMonth, getYear))
             {
-                DateTime time = DateTime.Now;
-                Order ord = new Order();
-                ord.Date = time.Date;
                 string tnumber = getPart1 + getPart2 + getPart3 + getPart4;
-                ord.CardNumber = tnumber;
-                ord.CVN = getCvn;
-                ord.UserID = user.ID;
-                //ord.ProductID = 
-                ord.ExpDate = getMonth + " " + getYear;
-                ord.ID++;
-                repos.AddOrder(ord);
-            //  removeAllFromBasked();
+                for (int i = 0; i < prods.Count; ++i)
+                {
+                    Order ord = new Order();
+                    ord.CardNumber = tnumber;
+                    ord.CVN = getCvn;
+                    ord.UserID = user.ID;
+                    ord.ProductID = prods[i].ID;
+                    ord.ExpDate = getMonth + " " + getYear;
+                    ord.Status = "Pending";
+                    repos.AddOrder(ord);
+                    userProducts.Remove(prods[i]);
+                }
             }
             else
             {
                 view.ShowMessage("Wrong input!");
             }
+           RefreshBasket();
         }
     }
 }

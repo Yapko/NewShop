@@ -376,6 +376,22 @@
         }
 
         /// <summary>
+        /// Gets selected basket products
+        /// </summary>
+        /// <returns> selected product</returns>
+        public List<Product> GetSelectedAtBasket()
+        {
+            if (Controls.ContainsKey("UserBasket") == true)
+            {
+                return ((UserBasket)Controls[Controls.IndexOfKey("UserBasket")]).GetFocused();
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        /// <summary>
         /// removes control by its name
         /// </summary>
         /// <param name="toRemove">control to be removed</param>
@@ -448,6 +464,11 @@
             }
 
             ((AdminView)Controls[Controls.IndexOfKey("AdminView")]).Refresh();
+        }
+
+        internal void RemoveSelectedFromBasket()
+        {
+            throw new NotImplementedException();
         }
     }
 }
