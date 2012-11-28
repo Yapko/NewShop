@@ -466,9 +466,55 @@
             ((AdminView)Controls[Controls.IndexOfKey("AdminView")]).Refresh();
         }
 
+        /// <summary>
+        /// some exception
+        /// </summary>
         internal void RemoveSelectedFromBasket()
         {
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// adds supervisor to controls and show it
+        /// </summary>
+        /// <param name="position">position of supervisor</param>
+        public void LoadSupervisor(Point position)
+        {
+            SupervisorControl supCont = new SupervisorControl(control);
+
+            supCont.Location = position;
+
+            this.Controls.Add(supCont);
+        }
+
+        /// <summary>
+        /// Destroys Supervisor control
+        /// </summary>
+        public void SupervisorDestroy()
+        {
+            RemoveFromControls("SupervisorControl");
+        }
+
+        /// <summary>
+        /// method load order list 
+        /// </summary>
+        /// <param name="position">position in which list will be loaded</param>
+        /// <param name="orders">orders</param>
+        public void LoadOrderList(Point position, List<Order> orders)
+        {
+            OrdersControl ordCont = new OrdersControl(control, orders);
+
+            ordCont.Location = position;
+
+            this.Controls.Add(ordCont);
+        }
+
+        /// <summary>
+        /// destroys OrdersControl from controls
+        /// </summary>
+        public void DestroyOrderList()
+        {
+            RemoveFromControls("OrdersControl");
         }
     }
 }

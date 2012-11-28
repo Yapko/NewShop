@@ -121,6 +121,7 @@ namespace Shop.Controllers
         /// </summary>
         public void ChangeUser()
         {
+            DestroySupervisor();
             DestroyLogin();
             DestroyManager();
             DestroyAdmin();
@@ -146,6 +147,7 @@ namespace Shop.Controllers
                     LoadUserView();
                     LoadProductsList();
                     //TODO: Load Supervisor
+                    LoadSupervisor();
                     break;
                 case "LoggedUser":
                     LoadUserView();
@@ -603,33 +605,38 @@ namespace Shop.Controllers
             repos.DeleteUser(userToDel);
         }
 
-       /// <summary>
-       /// метод записує в файл інформацію про останню покупку
-       /// записує : номер картки , CVN код, дату придатності картки і суму покупки
-       /// </summary>
-       /// <param name="getPart1">first part code number</param>
+        /// <summary>
+        /// метод записує в файл інформацію про останню покупку
+        /// записує : номер картки , CVN код, дату придатності картки і суму покупки
+        /// </summary>
+        /// <param name="getPart1">first part code number</param>
         /// <param name="getPart2">second part code number</param>
         /// <param name="getPart3">third part code number</param>
         /// <param name="getPart4">fourth part code number</param>
-       /// <param name="getCvn">cnv code</param>
-       /// <param name="getMonth">month</param>
-       /// <param name="getYear">year</param>
+        /// <param name="getCvn">cnv code</param>
+        /// <param name="getMonth">month</param>
+        /// <param name="getYear">year</param>
+        /// <returns>if ok return true else false</returns>
         public bool PayAndWrite(string getPart1, string getPart2, string getPart3, string getPart4, string getCvn, string getMonth, string getYear)
-        {
-            // Must be at ideal realization but don`t work
-            //List<Product> prods = view.GetSelectedAtBasket();
+        {            
+           // Must be at ideal realization but don`t work
+           //List<Product> prods = view.GetSelectedAtBasket();
             List<Product> prods = new List<Product>();
-           foreach (Product product in userProducts)
-           {
-               prods.Add(product.Clone());
-           }
+            foreach (Product product in userProducts)
+            {
+                prods.Add(product.Clone());
+            }
+          
            if (prods.Count == 0)
            {
                MessageBox.Show("Nothing to pay!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                return false;
            }
+
+           bool toRet = false;
+
            if (Validator.ValidateCardNumber(getPart1, getPart2, getPart3, getPart4) && Validator.ValidateCNVCode(getCvn) && Validator.ValidateExpDate(getMonth, getYear))
-            {
+           {
                 string tnumber = getPart1 + getPart2 + getPart3 + getPart4;
                 for (int i = 0; i < prods.Count; ++i)
                 {
@@ -643,14 +650,86 @@ namespace Shop.Controllers
                     repos.AddOrder(ord);
                     userProducts.Remove(prods[i]);
                 }
-                return true;
+
+                toRet = true;
             }
             else
             {
                 view.ShowMessage("Wrong input!");
-                return false;
+                toRet = false;
             }
-           RefreshBasket();
+
+            RefreshBasket();
+            return toRet;
         }
-    }
+
+        /// <summary>
+        /// method load buttons to mana
+        /// </summary>
+        public void LoadSupervisor()
+        {
+            //TODO: load supervisor from view
+            view.LoadSupervisor(new Point(view.Width - 370, 320));
+        }
+
+        /// <summary>
+        /// Destroyes supervisor window
+        /// </summary>
+        public void DestroySupervisor()
+        {
+            //TODO: destroy supervisor window
+            view.SupervisorDestroy();
+        }
+
+        /// <summary>
+        /// show Orders list in screen
+        /// </summary>
+        public void LoadOrderList()
+        {
+            //TODO: load order list with same location as ProductsList
+            List<Order> orders = repos.GetAllOrders();
+            List<Order> pendingOrders = new List<Order>();
+
+            foreach (Order o in orders)
+            {
+                if (o.Status == "Pending")
+                {
+                    pendingOrders.Add(o);
+                }
+            }
+
+            view.LoadOrderList(new Point(10, 10), pendingOrders);
+        }
+
+        /// <summary>
+        ///  remove Orders list in screen
+        /// </summary>
+        public void DestroyOrderList()
+        {
+            view.DestroyOrderList();
+        }
+
+        /// <summary>
+        /// change status of order with ID == id to newStatus
+        /// </summary>
+        /// <param name="id">id of order</param>
+        /// <param name="newStatus">newStatus</param>
+        public void ChangeStatus(int id, string newStatus)
+        {
+            //TODO: change status of order with ID = id to "Accepted"
+            List<Order> old = repos.GetAllOrders();
+
+            foreach (Order o in old)
+            {
+                if (o.ID == id)
+                {
+                    o.Status = newStatus;
+                    break;
+                }
+            }
+
+            repos.DeleteAllOrders();
+            repos.AddOrders(old);
+        }
+    }      
 }

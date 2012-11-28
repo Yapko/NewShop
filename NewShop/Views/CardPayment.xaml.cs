@@ -50,7 +50,7 @@ namespace Shop.Views
             {
                 bool res = control.PayAndWrite(GetPart1(), GetPart2(), GetPart3(), GetPart4(), GetCvn(), GetMonth(), GetYear());
                 control.DestroyPayment();
-                if(res)
+                if (res)
                 {
                     MessageBox.Show("Please, wait confirmation", "Payment card");
                 }

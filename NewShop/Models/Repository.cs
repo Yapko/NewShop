@@ -85,7 +85,7 @@ namespace Shop.Models
         public bool HaveOrder(Order element)
         {
             return database.Orders.Any(u => u.CVN == element.CVN && u.CardNumber == element.CardNumber && u.Date == element.Date && u.ExpDate == element.ExpDate && u.ProductID == element.ProductID && u.Status == element.Status && u.UserID == element.UserID);
-            return database.Orders.Contains(element);
+            //return database.Orders.Contains(element);
         }
 
         /// <summary>

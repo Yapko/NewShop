@@ -97,6 +97,7 @@ namespace Shop
             {
                 res = true;
             }
+
             return res;
         }
 
@@ -115,7 +116,7 @@ namespace Shop
             if (res)
             {
                 res = res && year >= DateTime.Now.Year;
-                if(year == DateTime.Now.Year)
+                if (year == DateTime.Now.Year)
                 {
                     res = res && mnt >= DateTime.Now.Month;
                 }

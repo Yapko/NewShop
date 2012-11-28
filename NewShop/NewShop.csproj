@@ -48,6 +48,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
@@ -135,6 +153,12 @@
     <Compile Include="Views\ManagerControl.Designer.cs">
       <DependentUpon>ManagerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\OrdersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\OrdersControl.Designer.cs">
+      <DependentUpon>OrdersControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PersonalAccountControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,6 +182,12 @@
     </Compile>
     <Compile Include="Views\RegistrationView.designer.cs">
       <DependentUpon>RegistrationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SupervisorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\SupervisorControl.Designer.cs">
+      <DependentUpon>SupervisorControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\UserBasket.cs">
       <SubType>UserControl</SubType>
@@ -199,6 +229,9 @@
     <EmbeddedResource Include="Views\ManagerControl.resx">
       <DependentUpon>ManagerControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\OrdersControl.resx">
+      <DependentUpon>OrdersControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\PersonalAccountControl.resx">
       <DependentUpon>PersonalAccountControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RegistrationView.resx">
       <DependentUpon>RegistrationView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SupervisorControl.resx">
+      <DependentUpon>SupervisorControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserBasket.resx">
       <DependentUpon>UserBasket.cs</DependentUpon>
