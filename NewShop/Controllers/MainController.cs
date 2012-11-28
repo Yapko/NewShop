@@ -614,11 +614,21 @@ namespace Shop.Controllers
        /// <param name="getCvn">cnv code</param>
        /// <param name="getMonth">month</param>
        /// <param name="getYear">year</param>
-        public void PayAndWrite(string getPart1, string getPart2, string getPart3, string getPart4, string getCvn, string getMonth, string getYear)
+        public bool PayAndWrite(string getPart1, string getPart2, string getPart3, string getPart4, string getCvn, string getMonth, string getYear)
         {
-            // TODO: It don`t works
-            List<Product> prods = view.GetSelectedAtBasket();
-            if (Validator.ValidateCardNumber(getPart1, getPart2, getPart3, getPart4) && Validator.ValidateCNVCode(getCvn) && Validator.ValidateExpDate(getMonth, getYear))
+            // Must be at ideal realization but don`t work
+            //List<Product> prods = view.GetSelectedAtBasket();
+            List<Product> prods = new List<Product>();
+           foreach (Product product in userProducts)
+           {
+               prods.Add(product.Clone());
+           }
+           if (prods.Count == 0)
+           {
+               MessageBox.Show("Nothing to pay!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               return false;
+           }
+           if (Validator.ValidateCardNumber(getPart1, getPart2, getPart3, getPart4) && Validator.ValidateCNVCode(getCvn) && Validator.ValidateExpDate(getMonth, getYear))
             {
                 string tnumber = getPart1 + getPart2 + getPart3 + getPart4;
                 for (int i = 0; i < prods.Count; ++i)
@@ -633,10 +643,12 @@ namespace Shop.Controllers
                     repos.AddOrder(ord);
                     userProducts.Remove(prods[i]);
                 }
+                return true;
             }
             else
             {
                 view.ShowMessage("Wrong input!");
+                return false;
             }
            RefreshBasket();
         }

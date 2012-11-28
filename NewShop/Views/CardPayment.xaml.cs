@@ -48,9 +48,12 @@ namespace Shop.Views
             }
             else
             {
-                control.PayAndWrite(GetPart1(), GetPart2(), GetPart3(), GetPart4(), GetCvn(), GetMonth(), GetYear());
+                bool res = control.PayAndWrite(GetPart1(), GetPart2(), GetPart3(), GetPart4(), GetCvn(), GetMonth(), GetYear());
                 control.DestroyPayment();
-                MessageBox.Show("Please, wait confirmation", "Payment card");
+                if(res)
+                {
+                    MessageBox.Show("Please, wait confirmation", "Payment card");
+                }
             }
         }
 
